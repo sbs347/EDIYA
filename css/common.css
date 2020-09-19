@@ -14,11 +14,11 @@
 }
 
 /* 로그인 및 회원가입 페이지의 헤더 디자인 수정 */
-.member-page .app-header {
+.membership .app-header {
   background-color: #fff;
 }
 
-.member-page .app-navigation {
+.membership .app-navigation {
   backdrop-filter: none;
 }
 
