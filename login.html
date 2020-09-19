@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ediya Coffee</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/helper.js" defer></script>
+    <script src="./js/index.js" defer></script>
+  </head>
+
+  <body>
+    <header class="app-header">
+      <h1 class="brand">
+        <a href="./index.html"><img src="./images/ediya-logo.gif" alt="Ediya Coffee" class="respons" /></a>
+      </h1>
+      <button type="button" class="button is-open-menu" aria-label="메뉴 열기" title="메뉴 열기">
+        <span class="ir"></span>
+      </button>
+      <nav class="app-navigation">
+        <h2 class="a11y-hidden">메인 메뉴</h2>
+        <ul class="reset-list">
+          <li><a href="./login.html">로그인</a></li>
+          <li><a href="./register.html">회원 가입</a></li>
+          <li><a href="beverage.html">이디야 음료</a></li>
+          <li><a href="https://www.ediya.com/contents/members_intro.html" target="_blank">이디야 멤버스</a></li>
+          <li><a href="https://www.ediya.com/contents/coffee_lab.html" target="_blank">이디야 커피랩</a></li>
+          <li><a href="https://www.ediya.com/contents/music_festa.html" target="_blank">이디야 컬쳐립</a></li>
+          <li><a href="./news.html">이디야 뉴스</a></li>
+          <li><a href="./store.html">매장 찾기</a></li>
+        </ul>
+        <button
+                type="button"
+                class="button is-close-menu"
+                title="메뉴 닫기"
+                aria-label="메뉴 닫기">
+          <span
+                class="close"
+                aria-hidden="true">×</span>
+        </button>
+      </nav>
+    </header>
+    <main class="app-main">
+      <section class="login">
+        <div class="login-container">
+          <h2 class="login__headline">로그인</h2>
+          <p class="login__paragraph" lang="en">Welcome, Ediya Coffee</p>
+          <p class="login__paragraph">이디야커피에 오신 것을 환영합니다.</p>
+          <form action="#" method="POST" id="login-form">
+            <fieldset>
+              <legend>회원 로그인</legend>
+              <div class="members__id">
+                <label for="userEmail">이메일</label>
+                <div class="input-style--normal">
+                  <input type="email" id="userEmail" name="userEmail" placeholder="yamoo9.euid.dev" required />
+                </div>
+                <span class="members__is--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
+              </div>
+              <div class="members__pwd">
+                <label for="userPassword">패스워드</label>
+                <input type="text" id="userPassword" name="userPassword" placeholder="숫자, 영어 조합 6자 이상" required />
+              </div>
+              <div class="checkbox-style">
+                <span class="checkbox-style--normal"><input type="checkbox" id="userEmailSave" /></span>
+                <label for="userEmailSave">이메일 저장</label>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="login-button-container">
+          <div class="button-style">
+            <button type="submit" class="button-style--normal">로그인</button>
+            <span class="arrow-right"></span>
+          </div>
+          <div class="button-style">
+            <a href="#" class="button-style--normal">회원가입</a>
+            <span class="arrow-right"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="./images/brand-dark.svg" alt="EDIYA COFFEE" />
+        </div>
+        <ul class="guide-list reset-list">
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">멤버스 이용약관</a></li>
+          <li><a href="#">가맹 안내</a></li>
+          <li><a href="#">대량쿠폰구매</a></li>
+          <li><a href="#">채용안내</a></li>
+          <li><a href="#">고객의 소리</a></li>
+          <li><a href="#">사이트맵</a></li>
+          <li><a href="#">점주의 방</a></li>
+        </ul>
+        <address class="address">
+          <span>서울특별시 강남구 논현로 636 이디야빌딩(서울특별시 강남구 논현동 221-17)</span>
+          <span><b>TEL : </b>02-543-6467</span>
+          <span><b>FAX : </b>02-543-7191</span>
+          <span><b>사업자등록번호 : </b>107-86-16302</span>
+          <span><b>통신판매업 신고 : </b>강남 제 002519호</span>
+          <span><b>대표이사 : </b>문창기</span>
+        </address>
+        <small class="copyright">&copy; 2017 EDIYA COFFEE COMPANY. ALL RIGHTS RESERVED..</small>
+      </div>
+    </footer>
+  </body>
+
+</html>
