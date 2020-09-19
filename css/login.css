@@ -1,0 +1,20 @@
+/* --------------------------------------------
+  * 로그인 섹션 디자인 */
+
+/* 로그인 섹션 */
+.login {
+  padding: 20px;
+}
+/* 로그인 제목 및 단락 디자인 */
+.login-headline {
+  margin: 0;
+  font-size: 3.6rem;
+  line-height: 1.5;
+}
+.login-paragraph {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+/* 로그인 폼 */
+
+/* 로그인 폼 관련 버튼 및 링크 */
