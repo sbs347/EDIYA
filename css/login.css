@@ -49,6 +49,10 @@ button[disabled] {
   margin-top: 114px;
 }
 
+.login-form fieldset {
+  margin: 0 12px;
+}
+
 /* 이메일 주소와 패스워드 입력 서식 */
 .login-id,
 .login-password {
@@ -75,8 +79,12 @@ button[disabled] {
   background-color: transparent;
   border: 0;
   color: #fefefe;
-  /* border-bottom: 1px solid #fefefe; */
-  border-bottom: 1px solid rgba(254, 254, 254, 0.5);
+  border-bottom: 1px solid #fefefe;
+  /* border-bottom: 1px solid rgba(254, 254, 254, 0.5); */
+}
+
+.is--invalid input {
+  border-bottom-width: 2px;
 }
 
 .login-form input::-webkit-input-placeholder,
@@ -210,6 +218,7 @@ button[disabled] {
   line-height: 48px;
   padding: 0;
   font-size: 2rem;
+  font-weight: 700;
   border-radius: 8px;
   text-align: center;
 }
@@ -252,9 +261,11 @@ button[disabled] {
   background-image: url(../images/icon-arrow-loading.svg);
 }
 
-/* disabled 상태 일 대 .button-login의 배경 이미지 변경 */
-.is--disabled .button-login::after {
+/* disabled 상태일 때 .button-login의 배경 이미지 변경 */
+.is--disabled .button-login {
   color: #d2c9b6;
+}
+.is--disabled .button-login::after {
   background-image: url(../images/icon-arrow-disabled.svg);
 }
 
