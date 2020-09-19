@@ -1,78 +1,77 @@
 /* --------------------------------------------
-  * 로그인 섹션 디자인 */
+  * 로그인 및 회원가입 섹션 디자인 */
 
-button {
-  cursor: pointer;
-}
-
-button[disabled] {
-  cursor: not-allowed;
-}
-
-/* 로그인 섹션 */
-.login {
+/* 로그인 섹션 배경 이미지 */
+.member {
   color: #fefefe;
   padding: 20px;
-  background: url(../images/coffee-mobile.jpg) 50% 0;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+.login {
+  background-image: url(../images/coffee-mobile.jpg);
+}
+.signup {
+  background-image: url(../images/coffee-video.jpg);
 }
 
-.login :focus {
+.member :focus {
   outline: none;
   border-radius: 2px;
   box-shadow: 0 0 0 4px rgba(0, 128, 255, 0.7);
 }
 
 /* 로그인 제목 및 단락 디자인 */
-.login-headline,
-.login-information {
+.member-headline,
+.member-information {
   line-height: 1.5;
   text-align: center;
   margin: 0;
 }
 
-.login-headline {
+.member-headline {
   font-size: 3.6rem;
   font-weight: 100;
   margin-bottom: 24px;
 }
 
-.login-information[lang='en'] {
+.member-information[lang='en'] {
   font-size: 1.8rem;
 }
 
-.login-information {
+.member-information {
   font-size: 1.2rem;
 }
 
 /* 로그인 폼 */
-.login-form {
+.membeer-form {
   margin-top: 114px;
 }
 
-.login-form fieldset {
+.member-form fieldset {
   margin: 0 12px;
 }
 
 /* 이메일 주소와 패스워드 입력 서식 */
-.login-id,
-.login-password {
+.member-id,
+.member-password {
   position: relative;
   height: 48px;
   transition: all 300ms;
 }
-.login-id.is--invalid,
-.login-password.is--invalid {
+.member-id.is--invalid,
+.member-password.is--invalid {
   height: 70px;
 }
-.login-id {
+.member-id {
   margin-bottom: 30px;
 }
 
-.login-password {
+.member-password {
   margin-bottom: 15px;
 }
 
-.login-form input {
+.member-form input {
   width: 100%;
   /* height: 40px; */
   padding: 1.5em 0.5em 0.5em;
@@ -87,23 +86,23 @@ button[disabled] {
   border-bottom-width: 2px;
 }
 
-.login-form input::-webkit-input-placeholder,
-.login-form input::placeholder {
+.member-form input::-webkit-input-placeholder,
+.member-form input::placeholder {
   opacity: 1; /* firefox 문제 해결을 위한 코드 */
   color: #c5c1bf;
 }
 
 /* 이메일 주소 및 패스워드의 값이 유효하지 않을 때 (invalid 상태) 부모 컨테이너에 is--invalid 클래스를 추가하여 오류 메시지를 보이거나 숨기도록 처리  */
 /* 입력 서식에 invalid 상태 임을 알 수 있는 아이콘을 배경이미지로 처리 */
-.login-id--error,
-.login-password--error {
+.member-id--error,
+.member-password--error {
   display: none;
   font-size: 1.2rem;
   padding: 3px 0 3px 8px;
 }
 
-.is--invalid .login-id--error,
-.is--invalid .login-password--error {
+.is--invalid .member-id--error,
+.is--invalid .member-password--error {
   display: block;
 }
 
@@ -118,19 +117,19 @@ button[disabled] {
   height: 16px;
   background-repeat: no-repeat;
 }
-.is--valid.login-id::after,
-.is--valid.login-password::after {
+.is--valid.member-id::after,
+.is--valid.member-password::after {
   background-image: url(../images/icon-checked.svg);
 }
-.is--invalid.login-id::after,
-.is--invalid.login-password::after {
+.is--invalid.member-id::after,
+.is--invalid.member-password::after {
   background-image: url(../images/icon-warning.svg);
 }
 
 /* 이메일 주소 및 패스워드의 입력 서식에 포커스 시(focus 상태) 부모 컨테이너에 is--focus 클래스를 추가하여 레이블의 위치가 상단으로 배치되도록 처리  */
 /* foucs 상태 시 자바스크립트를 사용하여 input 요소에 placeholder 속성을 동적으로 추가하는 것이 필요함  */
-.login-id label,
-.login-password label {
+.member-id label,
+.member-password label {
   position: absolute;
   top: 18px;
   left: 8px;
@@ -209,8 +208,8 @@ button[disabled] {
   margin-top: 133px;
 }
 
-.button-login,
-.button-signup {
+.button-fill,
+.button-stroke {
   position: relative;
   display: block;
   width: 100%;
@@ -224,8 +223,8 @@ button[disabled] {
 }
 
 /* 로그인 및 회원가입 버튼의 기본 값 및 배경 이미지 지정 */
-.button-login::after,
-.button-signup::after {
+.button-fill::after,
+.button-stroke::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -237,35 +236,36 @@ button[disabled] {
   background-position: 50% 50%;
 }
 
-.button-login::after {
+.button-fill::after {
   background-image: url(../images/icon-arrow-darkblue.svg);
 }
 
-.button-login {
+.button-fill {
   color: #24388d;
   background-color: #fefefe;
   opacity: 0.8;
   margin-bottom: 15px;
 }
 
-.button-signup {
+.button-stroke {
   border: 1px solid #fefefe;
   color: #f5f5f5;
+  background-color: transparent;
 }
-.button-signup::after {
+.button-stroke::after {
   background-image: url(../images/icon-arrow-white.svg);
 }
 
 /* 로딩 중 .button-login의 배경 이미지 변경 */
-.is--loading .button-login::after {
+.is--loading .button-fill::after {
   background-image: url(../images/icon-arrow-loading.svg);
 }
 
 /* disabled 상태일 때 .button-login의 배경 이미지 변경 */
-.is--disabled .button-login {
+.is--disabled .button-fill {
   color: #d2c9b6;
 }
-.is--disabled .button-login::after {
+.is--disabled .button-fill::after {
   background-image: url(../images/icon-arrow-disabled.svg);
 }
 
@@ -276,7 +276,7 @@ button[disabled] {
     background: url(../images/coffee-desktop.jpg) 50% 0;
   }
   /* 데스크탑 로그인 폼 크기 재설정 */
-  .login-form {
+  .member-form {
     width: 540px;
     margin-left: auto;
     margin-right: auto;
@@ -288,8 +288,8 @@ button[disabled] {
     flex-flow: row nowrap;
     justify-content: space-between;
   }
-  .button-login,
-  .button-signup {
+  .button-fill,
+  .button-stroke {
     width: 260px;
   }
 }
