@@ -13,6 +13,15 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
+/* 로그인 및 회원가입 페이지의 헤더 디자인 수정 */
+.member-page .app-header {
+  background-color: #fff;
+}
+
+.member-page .app-navigation {
+  backdrop-filter: none;
+}
+
 /* 브랜드 (헤더) */
 .brand {
   margin-top: 0;
