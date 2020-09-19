@@ -101,7 +101,7 @@
   cursor: pointer;
   width: 26px;
   height: 22px;
-  background: url(../images/navigation-button.gif) no-repeat 50%;
+  background: url(../images/button-navigation.svg) no-repeat 50%;
 }
 
 .app-header .button.is-open-menu:hover,
