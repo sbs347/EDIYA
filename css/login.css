@@ -1,12 +1,26 @@
 /* --------------------------------------------
   * 로그인 섹션 디자인 */
 
+button {
+  cursor: pointer;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
 /* 로그인 섹션 */
 .login {
   height: 812px;
   color: #fefefe;
   padding: 20px;
   background: url(../images/coffee-mobile.jpg) 50% 0;
+}
+
+.login :focus {
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 128, 255, 0.7);
 }
 
 /* 로그인 제목 및 단락 디자인 */
@@ -57,12 +71,19 @@
 
 .login-form input {
   width: 100%;
-  height: 48px;
-  padding: 0;
+  /* height: 40px; */
+  padding: 1.5em 0.5em 0.5em;
   background-color: transparent;
   border: 0;
+  color: #fefefe;
   /* border-bottom: 1px solid #fefefe; */
   border-bottom: 1px solid rgba(254, 254, 254, 0.5);
+}
+
+.login-form input::-webkit-input-placeholder,
+.login-form input::placeholder {
+  opacity: 1; /* firefox 문제 해결을 위한 코드 */
+  color: #c5c1bf;
 }
 
 /* 이메일 주소 및 패스워드의 값이 유효하지 않을 때 (invalid 상태) 부모 컨테이너에 is--invalid 클래스를 추가하여 오류 메시지를 보이거나 숨기도록 처리  */
@@ -113,14 +134,16 @@
 .is--valid label,
 .is--invalid label {
   font-size: 1.3rem;
-  transform: translate(-8px, -18px);
+  transform: translate(-8px, -20px);
 }
 
 /* 패스워드 입력 시 입력 값을 보거나 감추고자 할 때 버튼을 클릭하면 패스워드의 부모 컨테이너에 is--valid 클래스를 추가하여 버튼의 배경이미지가 바뀌도록 처리 */
 /* .button-password를 클릭할 때 부모 요소 컨테이너에 .is-valid 클래스가 toggle 되도록 설정이 필요함 */
-/* 이때 is-valid 클래스가 부모 컨테이너에 추가되면 내부의 패스워드 입력 서식인 input 요소의 type 속성 값을 text로 변경되도록 자바스크립트 처리가 필요 함 */
+/* 이때 is-visible 클래스가 부모 컨테이너에 추가되면 내부의 패스워드 입력 서식인 input 요소의 type 속성 값을 text로 변경되도록 자바스크립트 처리가 필요 함 */
 .button-password {
+  display: none;
   position: absolute;
+  z-index: 10;
   bottom: 4px;
   right: 0;
   width: 24px;
@@ -128,6 +151,10 @@
   padding: 0;
   border: 0;
   background-color: transparent;
+}
+
+.is--focus .button-password {
+  display: block;
 }
 
 .button-password .ir {
@@ -162,6 +189,7 @@
   width: 16px;
   height: 16px;
   padding: 0;
+  margin-top: 1px;
   margin-right: 4px;
   /* border-radius: 3px;
   border: 1px solid #fefefe; */
