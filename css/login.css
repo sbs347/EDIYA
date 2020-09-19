@@ -3,7 +3,6 @@
 
 /* 로그인 섹션 */
 .login {
-  height: 812px;
   color: #fefefe;
   padding: 20px;
   background: url(../images/coffee-mobile.jpg) 50% 0;
@@ -233,14 +232,18 @@
 
 /* Desktop UI 적용을 위한 Breakpoint */
 @media all and (min-width: 768px) {
-  /* 모바일 로그인 폼 */
+  /* 데스크탑 로그인 섹션의 배경 이미지 교체 ( 데스크탑 용 배경이미지로 ) */
+  .login {
+    background: url(../images/coffee-desktop.jpg) 50% 0;
+  }
+  /* 데스크탑 로그인 폼 크기 재설정 */
   .login-form {
     width: 540px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* 로그인 및 회원가입 버튼 */
+  /* 로그인 및 회원가입 버튼의 크기 및 배치 수정 */
   .button-container {
     display: flex;
     flex-flow: row nowrap;
