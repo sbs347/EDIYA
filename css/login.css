@@ -226,7 +226,7 @@
 }
 
 /* disabled 상태 일 대 .button-login의 배경 이미지 변경 */
-.is-disabled .button-login::after {
+.is--disabled .button-login::after {
   color: #d2c9b6;
   background-image: url(../images/icon-arrow-disabled.svg);
 }
