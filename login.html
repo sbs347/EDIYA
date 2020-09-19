@@ -46,29 +46,30 @@
         <h2 class="login-headline">로그인</h2>
         <p class="login-information" lang="en">Welcome, Ediya Coffee</p>
         <p class="login-information">이디야커피에 오신 것을 환영합니다.</p>
-        <form action="#" method="POST">
+        <form action="#" method="POST" class="login-form">
           <fieldset>
             <legend>회원 로그인</legend>
             <div class="login-id">
               <label for="userEmail">이메일</label>
-              <input type="email" id="userEmail" name="userEmail" placeholder="yamoo9.euid.dev" required />
+              <!-- <input type="email" id="userEmail" name="userEmail" placeholder="yamoo9.euid.dev" aria-required="true" aria-invalid="false" /> -->
+              <input type="email" id="userEmail" name="userEmail" aria-required="true" aria-invalid="false" />
               <span class="login-id--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
             </div>
             <div class="login-password">
               <label for="userPassword">패스워드</label>
-              <input type="text" id="userPassword" name="userPassword" placeholder="숫자, 영어 조합 6자 이상" required />
+              <!-- <input type="text" id="userPassword" name="userPassword" placeholder="숫자, 영어 조합 6자 이상" aria-required="true" aria-invalid="false" /> -->
+              <input type="text" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
+              <span class="login-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
+              <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
             </div>
             <div class="save-email">
-              <input class="checkbox--normal" type="checkbox" id="userEmailSave" />
+              <input type="checkbox" id="userEmailSave" />
+              <span class="checkbox"></span>
               <label for="userEmailSave">이메일 저장</label>
             </div>
-            <div class="button-login">
-              <button type="submit" class="button--normal">로그인</button>
-              <span class="arrow-right"></span>
-            </div>
-            <div class="button-signup">
-              <a href="#" class="button--normal">회원가입</a>
-              <span class="arrow-right"></span>
+            <div class="button-container">
+              <button type="submit" class="button-login">로그인</button>
+              <a href="#" class="button-signup">회원가입</a>
             </div>
           </fieldset>
         </form>
