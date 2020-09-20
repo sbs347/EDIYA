@@ -32,7 +32,7 @@
 .member-headline {
   font-size: 3.6rem;
   font-weight: 100;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-bottom: 24px;
 }
 
@@ -47,6 +47,7 @@
 /* 로그인 폼 */
 .member-form {
   margin-top: 114px;
+  margin-bottom: 30px;
 }
 
 .member-form fieldset {
