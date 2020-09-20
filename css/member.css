@@ -32,6 +32,7 @@
 .member-headline {
   font-size: 3.6rem;
   font-weight: 100;
+  margin-top: 70px;
   margin-bottom: 24px;
 }
 
@@ -44,7 +45,7 @@
 }
 
 /* 로그인 폼 */
-.membeer-form {
+.member-form {
   margin-top: 114px;
 }
 
@@ -151,7 +152,7 @@
   position: absolute;
   z-index: 10;
   bottom: 4px;
-  right: 0;
+  right: 4px;
   width: 24px;
   height: 24px;
   padding: 0;
@@ -163,8 +164,13 @@
   display: block;
 }
 
+.is--valid .button-password,
+.is--invalid .button-password {
+  display: none;
+}
+
 .button-password .ir {
-  display: block;
+  display: inline-block;
   padding: 4px;
   width: 16px;
   height: 16px;
@@ -243,8 +249,8 @@
 .button-fill {
   color: #24388d;
   background-color: #fefefe;
-  opacity: 0.8;
   margin-bottom: 15px;
+  border: 0;
 }
 
 .button-stroke {
