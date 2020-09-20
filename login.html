@@ -14,87 +14,110 @@
        * 뷰포트 높에에 맞춰 앱 헤더, 앱 메인이 채워지고 스크롤 할 경우 앱 푸터를 볼 수 있습니다.
        */
       :root {
-        --app-headerin-height: 50px;
+        --app-header-height: 50px;
+        /* ⚠️ 앱 푸터 디자인 시안 높이는 238px */
+        --app-footer-height: 213px;
         --viewport-height-value: 812;
         --viewport-width-value: 375;
       }
 
-      .app-main {
-        height: calc(100vh - var(--app-headerin-height))
+      /* 뷰포트 너비: 0 ~ 767 */
+      @media (max-width: 767px) {
+        .app-main {
+          height: calc(100vh - var(--app-header-height))
+        }
+
+        .app-main .member.login {
+          height: inherit;
+          background-size: cover;
+        }
+
+        .member {
+          /* 디자인 시안 간격: 20px */
+          --vh: calc(20/var(--viewport-height-value)*100vh);
+          /* 20px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 20/815*100 * 1vh */
+          --vw: calc(20/var(--viewport-width-value)*100vw);
+          /* 20px을 디자인 시안 너비(375px) 맞춰 VW 단위로 환산 → 20/375*100 * 1vw */
+          padding: var(--vh) var(--vw);
+        }
+
+        .member-headline {
+          /* 50px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 50/815*100 * 1vh */
+          --mt: calc(50/var(--viewport-height-value)*100vh);
+          margin-top: var(--mt);
+          /* 24px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 24/815*100 * 1vh */
+          --mb: calc(24/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-form {
+          /* 114px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 114/815*100 * 1vh */
+          --mt: calc(114/var(--viewport-height-value)*100vh);
+          margin-top: var(--mt);
+          /* 30px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 30/815*100 * 1vh */
+          --mb: calc(30/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-form fieldset {
+          /* 12px을 디자인 시안 너비(375px) 맞춰 VW 단위로 환산 → 12/375*100 * 1vw */
+          --mtb: calc(12/var(--viewport-width-value)*100vw);
+          margin-left: var(--mtb);
+          margin-right: var(--mtb);
+        }
+
+        .member-id {
+          /* 30px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 30/815*100 * 1vh */
+          --mb: calc(30/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-password {
+          /* 15px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 15/815*100 * 1vh */
+          --mb: calc(15/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .button-container {
+          /* 133px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 133/815*100 * 1vh */
+          --mt: calc(133/var(--viewport-height-value)*100vh);
+          margin-top: var(--mt);
+        }
+
+        .button-fill {
+          /* 15px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 15/815*100 * 1vh */
+          --mb: calc(15/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-id,
+        .member-password {
+          height: initial;
+        }
+
+        .member-form input {
+          padding: 1.313em 0.5em 0.5em;
+        }
       }
 
-      .app-main .member.login {
-        height: inherit;
-        background-size: cover;
+      /* 뷰포트 너비: 768+  */
+      @media (min-width: 768px) {
+        .member-form fieldset {
+          margin: 0 12px;
+        }
+
+        .app-main {
+          min-height: calc(100vh - var(--app-header-height) - var(--app-footer-height));
+        }
+
+        .app-main .member.login {
+          min-height: inherit;
+          background-size: cover;
+        }
       }
 
-      .member {
-        /* 디자인 시안 간격: 20px */
-        --vh: calc(20/var(--viewport-height-value)*100vh);
-        /* 20px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 20/815*100 * 1vh */
-        --vw: calc(20/var(--viewport-width-value)*100vw);
-        /* 20px을 디자인 시안 너비(375px) 맞춰 VW 단위로 환산 → 20/375*100 * 1vw */
-        padding: var(--vh) var(--vw);
-      }
-
-      .member-headline {
-        /* 50px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 50/815*100 * 1vh */
-        --mt: calc(50/var(--viewport-height-value)*100vh);
-        margin-top: var(--mt);
-        /* 24px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 24/815*100 * 1vh */
-        --mb: calc(24/var(--viewport-height-value)*100vh);
-        margin-bottom: var(--mb);
-      }
-
-      .member-form {
-        /* 114px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 114/815*100 * 1vh */
-        --mt: calc(114/var(--viewport-height-value)*100vh);
-        margin-top: var(--mt);
-        /* 30px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 30/815*100 * 1vh */
-        --mb: calc(30/var(--viewport-height-value)*100vh);
-        margin-bottom: var(--mb);
-      }
-
-      .member-form fieldset {
-        /* 12px을 디자인 시안 너비(375px) 맞춰 VW 단위로 환산 → 12/375*100 * 1vw */
-        --mtb: calc(12/var(--viewport-width-value)*100vw);
-        margin: 0 var(--mtb);
-      }
-
-      .member-id {
-        /* 30px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 30/815*100 * 1vh */
-        --mb: calc(30/var(--viewport-height-value)*100vh);
-        margin-bottom: var(--mb);
-      }
-
-      .member-password {
-        /* 15px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 15/815*100 * 1vh */
-        --mb: calc(15/var(--viewport-height-value)*100vh);
-        margin-bottom: var(--mb);
-      }
-
-      .button-container {
-        /* 133px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 133/815*100 * 1vh */
-        --mt: calc(133/var(--viewport-height-value)*100vh);
-        margin-top: var(--mt);
-      }
-
-      .button-fill {
-        /* 15px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 15/815*100 * 1vh */
-        --mb: calc(15/var(--viewport-height-value)*100vh);
-        margin-bottom: var(--mb);
-      }
-
-      .member-id,
-      .member-password {
-        height: initial;
-      }
-
-      .member-form input {
-        padding: 1.313em 0.5em 0.5em;
-      }
-
-      @media (max-height: 780px) {
+      /* 뷰포트 회전 방향이 수직이고, 뷰포트 높이: 0~780 */
+      @media (max-height: 780px) and (orientation: portrait) {
         .member-form {
           margin-top: 11vh;
         }
