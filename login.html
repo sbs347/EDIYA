@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <script src="./js/helper.js" defer></script>
     <script src="./js/index.js" defer></script>
+    <script src="./js/loginFormControl.js" defer></script>
   </head>
 
   <body class="membership">
@@ -32,13 +33,13 @@
           <li><a href="./store.html">매장 찾기</a></li>
         </ul>
         <button
-                type="button"
-                class="button is-close-menu"
-                title="메뉴 닫기"
-                aria-label="메뉴 닫기">
+          type="button"
+          class="button is-close-menu"
+          title="메뉴 닫기"
+          aria-label="메뉴 닫기">
           <span
-                class="close"
-                aria-hidden="true">×</span>
+            class="close"
+            aria-hidden="true">×</span>
         </button>
       </nav>
     </header>
@@ -57,17 +58,17 @@
             </div>
             <div class="member-password">
               <label for="userPassword">패스워드</label>
-              <input type="text" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
+              <input type="password" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
               <span class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
-              <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
+              <button type="button" class="button-password" aria-label="패스워드 보기" tabindex="-1"><span class="ir"></span></button>
             </div>
             <div class="save-email">
               <input type="checkbox" id="userEmailSave" />
               <span class="checkbox"></span>
               <label for="userEmailSave">이메일 저장</label>
             </div>
-            <div class="button-container">
-              <button type="submit" class="button-login button-fill">로그인</button>
+            <div class="button-container is--disabled">
+              <button type="submit" class="button-login button-fill" disabled="disabled">로그인</button>
               <a href="#" class="link-signup button-stroke">회원가입</a>
             </div>
           </fieldset>
