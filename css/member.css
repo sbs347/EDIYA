@@ -263,8 +263,19 @@
 }
 
 /* 로딩 중 .button-login의 배경 이미지 변경 */
+.is--loading .button-fill {
+  cursor: not-allowed;
+}
 .is--loading .button-fill::after {
   background-image: url(../images/icon-arrow-loading.svg);
+  transform-origin: center;
+  animation: spinner 0.2s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 /* disabled 상태일 때 .button-login의 배경 이미지 변경 */
