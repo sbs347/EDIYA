@@ -32,6 +32,7 @@
 .member-headline {
   font-size: 3.6rem;
   font-weight: 100;
+  margin-top: 50px;
   margin-bottom: 24px;
 }
 
@@ -44,8 +45,9 @@
 }
 
 /* 로그인 폼 */
-.membeer-form {
+.member-form {
   margin-top: 114px;
+  margin-bottom: 30px;
 }
 
 .member-form fieldset {
@@ -151,7 +153,7 @@
   position: absolute;
   z-index: 10;
   bottom: 4px;
-  right: 0;
+  right: 4px;
   width: 24px;
   height: 24px;
   padding: 0;
@@ -163,8 +165,13 @@
   display: block;
 }
 
+.is--valid .button-password,
+.is--invalid .button-password {
+  display: none;
+}
+
 .button-password .ir {
-  display: block;
+  display: inline-block;
   padding: 4px;
   width: 16px;
   height: 16px;
@@ -243,8 +250,8 @@
 .button-fill {
   color: #24388d;
   background-color: #fefefe;
-  opacity: 0.8;
   margin-bottom: 15px;
+  border: 0;
 }
 
 .button-stroke {
@@ -257,8 +264,19 @@
 }
 
 /* 로딩 중 .button-login의 배경 이미지 변경 */
+.is--loading .button-fill {
+  cursor: not-allowed;
+}
 .is--loading .button-fill::after {
   background-image: url(../images/icon-arrow-loading.svg);
+  transform-origin: center;
+  animation: spinner 0.2s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 /* disabled 상태일 때 .button-login의 배경 이미지 변경 */

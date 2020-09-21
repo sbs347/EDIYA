@@ -7,8 +7,130 @@
     <title>Ediya Coffee - 회원가입</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+    <style>
+      /**
+       * 뷰포트 높이 변경에 따라 레이아웃이 변경하는 반응형 웹 스타일
+       * 뷰포트 높에에 맞춰 앱 헤더, 앱 메인이 채워지고 스크롤 할 경우 앱 푸터를 볼 수 있습니다.
+       */
+      :root {
+        --app-header-height: 50px;
+        /* ⚠️ 앱 푸터 디자인 시안 높이는 238px */
+        --app-footer-height: 213px;
+        --viewport-height-value: 812;
+        --viewport-width-value: 375;
+      }
+
+      /* 뷰포트 너비: 0 ~ 767 */
+      @media (max-width: 767px) {
+        .app-main {
+          height: calc(100vh - var(--app-header-height))
+        }
+
+        .app-main .member.login {
+          height: inherit;
+          background-size: cover;
+        }
+
+        .member {
+          /* 디자인 시안 간격: 20px */
+          --vh: calc(20/var(--viewport-height-value)*100vh);
+          /* 20px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 20/815*100 * 1vh */
+          --vw: calc(20/var(--viewport-width-value)*100vw);
+          /* 20px을 디자인 시안 너비(375px) 맞춰 VW 단위로 환산 → 20/375*100 * 1vw */
+          padding: var(--vh) var(--vw);
+        }
+
+        .member-headline {
+          /* 50px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 50/815*100 * 1vh */
+          --mt: calc(50/var(--viewport-height-value)*100vh);
+          margin-top: var(--mt);
+          /* 24px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 24/815*100 * 1vh */
+          --mb: calc(24/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-form {
+          /* 114px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 114/815*100 * 1vh */
+          --mt: calc(114/var(--viewport-height-value)*100vh);
+          margin-top: var(--mt);
+          /* 30px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 30/815*100 * 1vh */
+          --mb: calc(30/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-form fieldset {
+          /* 12px을 디자인 시안 너비(375px) 맞춰 VW 단위로 환산 → 12/375*100 * 1vw */
+          --mtb: calc(12/var(--viewport-width-value)*100vw);
+          margin-left: var(--mtb);
+          margin-right: var(--mtb);
+        }
+
+        .member-id {
+          /* 30px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 30/815*100 * 1vh */
+          --mb: calc(30/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-password {
+          /* 15px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 15/815*100 * 1vh */
+          --mb: calc(15/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .button-container {
+          /* 133px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 133/815*100 * 1vh */
+          --mt: calc(133/var(--viewport-height-value)*100vh);
+          margin-top: var(--mt);
+        }
+
+        .button-fill {
+          /* 15px을 디자인 시안 높이(812px)에 맞춰 VH 단위로 환산 → 15/815*100 * 1vh */
+          --mb: calc(15/var(--viewport-height-value)*100vh);
+          margin-bottom: var(--mb);
+        }
+
+        .member-id,
+        .member-password {
+          height: initial;
+        }
+
+        .member-form input {
+          padding: 1.313em 0.5em 0.5em;
+        }
+      }
+
+      /* 뷰포트 너비: 768+  */
+      @media (min-width: 768px) {
+        .member-form fieldset {
+          margin: 0 12px;
+        }
+
+        .app-main {
+          min-height: calc(100vh - var(--app-header-height) - var(--app-footer-height));
+        }
+
+        .app-main .member.login {
+          min-height: inherit;
+          background-size: cover;
+        }
+      }
+
+      /* 뷰포트 회전 방향이 수직이고, 뷰포트 높이: 0~780 */
+      @media (max-height: 780px) and (orientation: portrait) {
+        .member-form {
+          margin-top: 11vh;
+        }
+
+        .button-container {
+          margin-top: 8vh;
+        }
+      }
+    </style>
+
     <script src="./js/helper.js" defer></script>
     <script src="./js/index.js" defer></script>
+    <script src="./js/loginFormControl.js" defer></script>
   </head>
 
   <body class="membership">
@@ -51,17 +173,17 @@
             </div>
             <div class="member-password">
               <label for="userPassword">패스워드</label>
-              <input type="text" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
+              <input type="password" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
               <span class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
-              <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
+              <button type="button" class="button-password" aria-label="패스워드 보기" tabindex="-1"><span class="ir"></span></button>
             </div>
             <div class="save-email">
               <input type="checkbox" id="userEmailSave" />
               <span class="checkbox"></span>
               <label for="userEmailSave">이메일 저장</label>
             </div>
-            <div class="button-container">
-              <button type="submit" class="button-login button-fill">로그인</button>
+            <div class="button-container is--disabled">
+              <button type="submit" class="button-login button-fill" disabled="disabled">로그인</button>
               <a href="#" class="link-signup button-stroke">회원가입</a>
             </div>
           </fieldset>
