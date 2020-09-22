@@ -1,5 +1,8 @@
 /* --------------------------------------------
   * 헤더 디자인 */
+.app-header-container {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
 
 .app-header {
   position: sticky;
@@ -34,6 +37,10 @@
   width: 140px;
 }
 
+.brand a:focus {
+  outline-offset: -5px;
+}
+
 .brand a img {
   padding: 20px;
 }
@@ -50,97 +57,7 @@
 
 /* --------------------------------------------
   * 내비게이션 디자인 */
-
-/* 내비게이션 디자인 */
-.app-navigation {
-  overflow: hidden;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding-top: 60px;
-  background: hsla(225, 57%, 10%, 0.9);
-  color: #fff;
-  transition: all 0.4s cubic-bezier(0.66, -0.01, 0.3, 0.99);
-  -webkit-transform: translateX(105vw);
-  transform: translateX(105vw);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-}
-
-.app-navigation.is-active {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-}
-
-.app-navigation li {
-  border-bottom: 1px solid hsla(225, 57%, 30%, 0.5);
-}
-
-.app-navigation a {
-  display: block;
-  padding: 1em;
-  transition: all 0.4s ease;
-}
-
-.app-navigation a:hover,
-.app-navigation a:focus {
-  background: #2e437c;
-}
-
-/* 버튼 디자인 */
-.app-header .button .ir,
-.app-header .button .close {
-  cursor: pointer;
-}
-
-.app-header .button.is-open-menu {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  padding: 18px;
-  background: #ffffff;
-  transition: all 0.3s ease;
-}
-
-.app-header .button.is-open-menu .ir {
-  display: block;
-  cursor: pointer;
-  width: 18px;
-  height: 14px;
-  background: url(../images/button-navigation.svg) no-repeat 50%;
-}
-
-.app-header .button.is-open-menu:hover,
-.app-header .button.is-open-menu:focus {
-  background: #f5f5f5;
-}
-
-.app-navigation .button.is-close-menu {
-  position: absolute;
-  z-index: 10;
-  top: 10px;
-  right: 10px;
-  padding: 20px;
-  background: transparent;
-  color: #fff;
-  font-weight: 100;
-  font-size: 40px;
-  line-height: 0.5;
-  transition: all 0.4s ease;
-}
-
-.app-navigation .button.is-close-menu:focus {
-  outline-offset: -5px;
-}
-
-.app-navigation .button.is-close-menu:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
+/* 내비게이션의 경우 모바일과 데스크탑 UI가 상이하기 때문에 미디어 쿼리에 각각의 UI를 디자인 할 예정 */
 
 /* --------------------------------------------
   * 푸터 디자인 */
@@ -221,12 +138,137 @@
   margin-top: 12px;
 }
 
+@media all and (max-width: 767px) {
+  /* 모바일 내비게이션 디자인 */
+  .app-navigation {
+    overflow: hidden;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 60px;
+    background: hsla(225, 57%, 10%, 0.9);
+    color: #fff;
+    transition: all 0.4s cubic-bezier(0.66, -0.01, 0.3, 0.99);
+    -webkit-transform: translateX(105vw);
+    transform: translateX(105vw);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  .app-navigation.is-active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .app-navigation li {
+    border-bottom: 1px solid hsla(225, 57%, 30%, 0.5);
+  }
+
+  .app-navigation a {
+    display: block;
+    padding: 1em;
+    transition: all 0.4s ease;
+  }
+
+  .app-navigation a:hover,
+  .app-navigation a:focus {
+    background: #2e437c;
+  }
+
+  /* 버튼 디자인 */
+  .app-header .button .ir,
+  .app-header .button .close {
+    cursor: pointer;
+  }
+
+  .app-header .button.is-open-menu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 18px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .app-header .button.is-open-menu .ir {
+    display: block;
+    cursor: pointer;
+    width: 18px;
+    height: 14px;
+    background: url(../images/button-navigation.svg) no-repeat 50%;
+  }
+
+  .app-header .button.is-open-menu:hover,
+  .app-header .button.is-open-menu:focus {
+    background: #f5f5f5;
+  }
+
+  .app-navigation .button.is-close-menu {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+    padding: 20px;
+    background: transparent;
+    color: #fff;
+    font-weight: 100;
+    font-size: 40px;
+    line-height: 0.5;
+    transition: all 0.4s ease;
+  }
+
+  .app-navigation .button.is-close-menu:focus {
+    outline-offset: -5px;
+  }
+
+  .app-navigation .button.is-close-menu:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
 /* Desktop UI 적용을 위한 Breakpoint */
 @media all and (min-width: 768px) {
   /* 데스크탑 헤더 디자인 */
+  .app-header {
+    width: 740px;
+    margin: 0 auto;
+    box-shadow: none;
+  }
+
+  /* 데스크탑 브랜드 로고 */
+  .brand {
+    margin-left: -20px;
+  }
 
   /* 데스크탑 내비게이션 디자인 */
+  .app-navigation ul {
+    display: flex;
+  }
 
+  .app-navigation li {
+    margin-left: 8px;
+    font-size: 1.5rem;
+    color: #24388d;
+  }
+
+  .app-navigation .is--selected {
+    font-weight: 700;
+  }
+
+  .app-navigation a {
+    display: block;
+    padding: 8px;
+  }
+
+  .is-open-menu,
+  .is-close-menu {
+    display: none;
+  }
   /* 데스크탑 메인 콘텐츠 영역 디자인 */
 
   /* 데스크탑 푸터 디자인 */
