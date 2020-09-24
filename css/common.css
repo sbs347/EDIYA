@@ -33,8 +33,11 @@
 }
 
 .brand a {
+  box-sizing: content-box;
   display: block;
   width: 140px;
+  height: 14px;
+  padding: 18px;
 }
 
 .brand a:focus {
@@ -42,7 +45,7 @@
 }
 
 .brand a img {
-  padding: 20px;
+  display: block;
 }
 
 /* 브랜드(헤더) 영역을 배경으로 디지인 할 경우 */
