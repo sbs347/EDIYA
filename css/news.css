@@ -1,0 +1,119 @@
+/* --------------------------------------------
+  * 이디야 뉴스 관련 콘텐츠 디자인 */
+/* 이디야 뉴스 탭 메뉴 */
+.news-tab {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.news-tab li {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: #24388d;
+  background: #fefefe;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.news-tab [aria-selected="ture"] {
+  color: #fefefe;
+  background: #24388d;
+}
+
+/* 뉴스 콘텐츠 섹션 공통 */
+.news {
+  padding: 40px 20px 20px;
+  display: none;
+}
+
+.news.is--selected {
+  display: block;
+}
+
+.news-headline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #24388d;
+}
+
+.news-headline::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  margin-right: 4px;
+  background: url(../images/icon-news-headline.svg) no-repeat 0 0 / 100% 100%;
+}
+
+.news-information {
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+/* 언론 속 이디야 섹션 공통 */
+.ediya-media form {
+  padding: 20px 0;
+}
+.search-container {
+  height: 26px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
+}
+.ediya-media select {
+  width: 80px;
+  margin-right: 5px;
+}
+
+.ediya-media input[type="search"] {
+  flex-grow: 1;
+  border: 0;
+  border-bottom: 0.5px solid #0f0f0f;
+}
+
+.button-search {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 0;
+  bottom: 5px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.button-search .icon-search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../images/icon-search.svg) no-repeat 0 0 / 16px 16px;
+}
+
+/* Mobile UI 적용을 위한 Breakpoint */
+@media all and (max-width: 767px) {
+  /* 모바일 이디야 뉴스 관련 콘텐츠 디자인 */
+  .news-tab li {
+    height: 48px;
+    width: 50%;
+  }
+
+  /* 언론 속 이디야 섹션 */
+}
+
+/* Desktop UI 적용을 위한 Breakpoint */
+@media all and (min-width: 768px) {
+  /* 데스크탑 이디야 뉴스 관련 콘텐츠 디자인 */
+  .news-tab {
+    justify-content: center;
+    margin-top: 70px;
+  }
+  .news-tab li {
+    height: 35px;
+    width: 118px;
+  }
+}
