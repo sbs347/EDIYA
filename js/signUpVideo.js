@@ -19,6 +19,17 @@
     }
   }
 
-  global.addEventListener('resize', renderVideoRatio)
-  global.addEventListener('DOMContentLoaded', renderVideoRatio)
+  function testRender() {
+    if (window.innerHeight > window.innerWidth) {
+      videoContaier.style.height = 'auto'
+      videoContaier.style.width = window.innerWidth * 4 + 'px'
+    }
+    else {
+      videoContaier.style.width = '150vw'
+      videoContaier.style.height = 'auto'
+    }
+  }
+
+  global.addEventListener('resize', testRender)
+  global.addEventListener('DOMContentLoaded', testRender)
 })(window)
