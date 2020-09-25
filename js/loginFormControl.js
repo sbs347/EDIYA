@@ -22,7 +22,7 @@
 
   const A11Y_CHECKBOX_FOCUS_STYLE = `
     border-radius: 2px;
-    box-shadow: 0 0 0 4px rgba(0, 128, 255, 0.9)
+    box-shadow: 0 0 0 4px rgba(40, 70, 204, 0.9)
   `
 
   /**
