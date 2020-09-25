@@ -258,6 +258,7 @@
 
 /* 로그인 및 회원 가입 링크 디자인 */
 .button-container {
+  user-select: none;
   margin-top: 70px;
 }
 
@@ -301,9 +302,14 @@
 }
 
 .button-stroke {
+  opacity: 0.7;
   border: 1px solid #fefefe;
   color: #f5f5f5;
   background-color: transparent;
+}
+.button-stroke:hover,
+.button-stroke:focus {
+  opacity: 1;
 }
 .button-stroke::after {
   background-image: url(../images/icon-arrow-white.svg);
