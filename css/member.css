@@ -359,4 +359,7 @@
   .button-stroke {
     width: 260px;
   }
+  .button-fill {
+    margin-right: 20px;
+  }
 }
