@@ -125,6 +125,12 @@ body {
 
 .guide-list a {
   display: block;
+  opacity: 0.75;
+}
+
+.guide-list a:hover,
+.guide-list a:focus {
+  opacity: 1;
 }
 
 /* address와 copyright 공통 여백 처리 */
