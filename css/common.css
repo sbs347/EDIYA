@@ -342,4 +342,8 @@ body {
   .guide-list li {
     margin-bottom: 0;
   }
+
+  .guide-list li:nth-last-child(4) {
+    margin-right: 15px;
+  }
 }
