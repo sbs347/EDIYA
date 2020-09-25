@@ -1,7 +1,14 @@
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
 /* --------------------------------------------
   * 헤더 디자인 */
 .app-header-container {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 .app-header {
@@ -46,6 +53,12 @@
 
 .brand a img {
   display: block;
+}
+
+/* --------------------------------------------
+  * 메인 콘텐츠 섹션 공통 */
+.app-main {
+  flex-grow: 1;
 }
 
 /* 브랜드(헤더) 영역을 배경으로 디지인 할 경우 */
