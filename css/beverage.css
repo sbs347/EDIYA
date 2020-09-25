@@ -13,6 +13,7 @@
 
 .ediya-menu__item {
   position: relative;
+  height: 400px;
   margin-bottom: 20px;
 }
 
@@ -124,10 +125,14 @@
 
 .ediya-menu__item--detail .button.is-close-panel {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 9px 15px;
-  font-size: 24px;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: transparent;
   transition: all 0.3s ease;
 }
@@ -149,6 +154,7 @@
   .ediya-menu {
     flex-flow: row wrap;
     justify-content: space-between;
+    width: inherit;
   }
 
   .ediya-menu__item {
@@ -159,5 +165,10 @@
 
   .ediya-menu__item:nth-child(odd) {
     margin-bottom: 0;
+  }
+
+  .beverage {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
