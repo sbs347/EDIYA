@@ -114,12 +114,9 @@
 .member-password.is--invalid {
   height: 70px;
 }
-.member-id {
-  margin-bottom: 30px;
-}
-
+.member-id,
 .member-password {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .member-form input {
@@ -261,7 +258,7 @@
 
 /* 로그인 및 회원 가입 링크 디자인 */
 .button-container {
-  margin-top: 133px;
+  margin-top: 70px;
 }
 
 .button-fill,
