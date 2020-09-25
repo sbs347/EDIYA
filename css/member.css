@@ -25,13 +25,32 @@
   z-index: -1;
 } */
 
-.bg-video-container video {
+/* .bg-video-container video {
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   min-width: 100%;
   min-height: 100%;
+} */
+
+/* 화면 가득 채우는 비디오 스타일 코드 ----------------------------------------------------- */
+.bg-video-container {
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #222;
+}
+
+.bg-video-container video {
+  width: 100%;
+  height: 100%;
+  /* IE 미지원 */
+  object-fit: cover;
+  object-position: center;
 }
 
 .member :focus {
@@ -39,6 +58,7 @@
   border-radius: 2px;
   box-shadow: 0 0 0 4px rgba(0, 128, 255, 0.7);
 }
+/* 화면 가득 채우는 비디오 스타일 코드 END ----------------------------------------------------- */
 
 /* 로그인 제목 및 단락 디자인 */
 .member-headline,

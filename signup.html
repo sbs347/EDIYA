@@ -7,15 +7,30 @@
     <title>Ediya Coffee - 회원가입</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
-    <!-- <script src="./js/helper.js" defer></script>
+
+    <script src="./js/helper.js" defer></script>
     <script src="./js/index.js" defer></script>
-    <script src="./js/signUpVideo.js" defer></script> -->
+
+    <!-- Object Fit, Position 폴리필 라이브러리: https://github.com/constancecchen/object-fit-polyfill -->
+    <script src="./js/objectFitPolyfill.basic.min.js"></script>
   </head>
 
   <body class="membership">
+
     <div class="bg-video-container" role="presentation">
-      <video src="./media/Coffee-Machine-Dispensing-Coffee.mp4" preload="auto" autoplay muted loop></video>
+      <!-- 
+        Object Fit, Position 폴리필 라이브러리 사용법
+        https://github.com/constancecchen/object-fit-polyfill#usage
+        
+        data-object-fit, data-object-position 속성 설정
+       -->
+      <video
+        src="./media/Coffee-Machine-Dispensing-Coffee.mp4"
+        preload="auto" autoplay muted loop
+        data-object-fit="cover"
+        data-object-position="center"></video>
     </div>
+
     <div class="app-header-container">
       <header class="app-header">
         <h1 class="brand">
