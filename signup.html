@@ -70,19 +70,19 @@
             </div>
             <div class="member-password">
               <label for="userPassword">패스워드</label>
-              <input type="text" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
+              <input type="password" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
               <span class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
               <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
             </div>
             <!-- 패스워드 확인의 경우 기존 패스워드와 일치하는지 여부를 검증하기 위한 자바스크립트가 필요함. -->
             <div class="member-password">
               <label for="userPasswordCheck">패스워드 확인</label>
-              <input type="text" id="userPasswordCheck" name="userPasswordCheck" aria-required="true" aria-invalid="false" />
+              <input type="password" id="userPasswordCheck" name="userPasswordCheck" aria-required="true" aria-invalid="false" />
               <span class="member-password--error">패스워드가 일치하지 않습니다.</span>
               <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
             </div>
-            <div class="button-container">
-              <button type="submit" class="button-signup button-fill">가입하기</button>
+            <div class="button-container is--disabled">
+              <button type="submit" class="button-signup button-fill" disabled>가입하기</button>
               <a href="#" class="button-login button-stroke">로그인</a>
             </div>
           </fieldset>
