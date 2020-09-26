@@ -135,6 +135,8 @@
   display: flex;
   flex-flow: row nowrap;
   padding: 18px 16px;
+  width: 345px;
+  margin: 0 auto;
 }
 
 .button-prev,
@@ -155,7 +157,7 @@
 }
 
 .pagination {
-  width: 345px;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   background-color: yellow;
