@@ -1,16 +1,16 @@
-body {
+/* body {
   display: flex;
   flex-flow: column nowrap;
   min-width: 100vh;
   min-height: 100vh;
-}
+} */
 
 /* --------------------------------------------
   * 헤더 디자인 */
 .app-header-container {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  width: 100vw;
+  /* width: 100vw; */
 }
 
 .app-header {

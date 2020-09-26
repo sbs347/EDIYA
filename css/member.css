@@ -14,24 +14,20 @@
   background-image: url(../images/coffee-mobile.jpg);
 }
 
-/* 회원가입 비디오 배경 */
-/* .bg-video-container {
-  position: fixed;
-  width: 2000px;
-  background-color: yellow;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-} */
-
+.bg-video-container,
 .bg-video-container video {
   position: fixed;
-  top: 0;
   left: 50%;
+  bottom: 0;
   transform: translateX(-50%);
   min-width: 100%;
   min-height: 100%;
+  z-index: -1;
+}
+
+.bg-video-container {
+  background-image: url(../images/coffee-desktop.jpg);
+  background-size: 100% 100%;
 }
 
 .member :focus {
@@ -70,7 +66,7 @@
 }
 
 .member-form fieldset {
-  margin: 0 12px;
+  /* margin: 0 12px; */
 }
 
 /* 이메일 주소와 패스워드 입력 서식 */
