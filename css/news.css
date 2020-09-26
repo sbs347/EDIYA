@@ -155,7 +155,7 @@
 }
 
 .pagination {
-  width: 100%;
+  width: 345px;
   display: flex;
   flex-flow: row nowrap;
   background-color: yellow;
