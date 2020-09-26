@@ -1,11 +1,15 @@
-;(function loginFormControl() {
-  'use strict'
+/**
+ ** 로그인, 회원가입 폼 컨트롤
+ *
+ * ![주의] 오류 발생 시, 의존성 모듈 확인
+ * - utils/header.js
+ * - components/EmailInput.js 
+ * - components/PasswordDisplayButton.js 
+ * - components/PasswordInput.js
+ */
 
-  /**
-   * !주의
-   * 헬퍼(header.js)에 의존 함
-   * el(), els() 유틸리티 함수 사용
-   */
+;(function formControl() {
+  'use strict'
 
   /**
    * @constant
