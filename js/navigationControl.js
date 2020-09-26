@@ -6,6 +6,7 @@
 //       오프캔버스 메뉴(.app-navigation)을 화면에 표시한다.
 //       - hidden 속성 값 false 설정.
 //       - is-active 클래스 추가.
+//       - is-active 클래스 추가.
 //
 // [1.2] 오프캔버스 닫기 버튼(.button.is-close-menu)을 누르면,
 //       오프캔버스 메뉴(.app-navigation)을 화면에서 감춘다.
