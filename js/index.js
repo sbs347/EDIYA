@@ -45,6 +45,17 @@ function init() {
   bindEvents()
   // 외부 링크 임시 컨트롤
   externalLinkTemporaryControl()
+  // 앱 내비게이션 표시 컨트롤
+  displayAppNavigation()
+}
+
+function displayAppNavigation() {
+  if (window.innerWidth < 768) {
+    app_navigation.hidden = true
+  }
+  else {
+    app_navigation.hidden = false
+  }
 }
 
 function externalLinkTemporaryControl() {
@@ -77,6 +88,7 @@ function bindEvents() {
 
   menu_open_btn.addEventListener('click', openNavMenu)
   menu_close_btn.addEventListener('click', closeNavMenu)
+  window.addEventListener('resize', displayAppNavigation)
 }
 
 function openNavMenu() {
