@@ -138,7 +138,8 @@ function a11yOffCanvasMenu(app_navigation) {
   nav_focusable_last.addEventListener('keydown', navFirstFocus)
 
   function escCloseMenu(e) {
-    if (e.keyCode === 27) {
+    // 모바일 환경에서만 작동되도록 조건 처리
+    if (e.keyCode === 27 && window.innerWidth < breakpoint) {
       closeNavMenu()
     }
   }
