@@ -203,9 +203,13 @@
 }
 
 .ediya-award-year {
-  padding: 25px 20px 0;
+  padding: 0 20px;
   display: flex;
   flex-flow: row nowrap;
+}
+
+.ediya-award-year:first-child {
+  padding-top: 25px;
 }
 
 .ediya-award-year:last-child {
@@ -220,6 +224,20 @@
 
 .ediya-award-year ul {
   flex-grow: 1;
+  border-left: 1px solid #c8cde2;
+  position: relative;
+}
+
+.ediya-award-year ul::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  transform: translateX(-50%);
+  background-color: #24388d;
+  border-radius: 4px;
 }
 
 .ediya-award-year li {
@@ -263,7 +281,19 @@
 }
 
 .ediya-award-year figure {
-  margin-left: 0;
+  margin-left: 25px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.ediya-award-year figcaption {
+  margin-top: 10px;
+}
+
+.ediya-award-year p {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .ediya-award-year time {
