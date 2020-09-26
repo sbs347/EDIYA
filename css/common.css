@@ -181,14 +181,15 @@ body {
     padding-top: 60px;
     background: hsla(225, 57%, 10%, 0.9);
     color: #fff;
-    transition: all 0.4s ease-out;
+    transition: right 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86),
+      left 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86);
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
   }
 
   .app-navigation.is-active {
-    left: 0;
     right: 0;
+    left: 0;
   }
 
   .app-navigation li {
