@@ -203,15 +203,23 @@
 }
 
 .ediya-award-year {
-  padding: 25px 20px 50px;
+  padding: 25px 20px 0;
   display: flex;
   flex-flow: row nowrap;
+}
+
+.ediya-award-year:last-child {
+  padding-bottom: 50px;
 }
 
 .ediya-award-year h3 {
   font-weight: 700;
   color: #24388d;
   margin: 0 25px 0 0;
+}
+
+.ediya-award-year ul {
+  flex-grow: 1;
 }
 
 .ediya-award-year li {
@@ -222,21 +230,30 @@
   font-size: 13px;
   font-weight: 700;
   color: #0f0f0f;
-  margin-left: 2em;
-  list-style-image: url(../images/icon-arrow-down.svg);
-}
-.ediya-award-year summary:focus {
-  list-style-image: url(../images/icon-arrow-up-focus.svg);
+  position: relative;
+  list-style-type: none;
+  width: 100%;
+  padding: 5px;
 }
 
+.ediya-award-year summary::marker,
 .ediya-award-year summary::-webkit-details-marker {
-  padding: 4px;
-  background: url(../images/icon-arrow-down.svg);
+  display: none;
   color: transparent;
 }
 
-.ediya-award-year summary::-webkit-details-marker:focus {
-  background: url(../images/icon-arrow-up-focus.svg);
+.ediya-award-year summary::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url(../images/icon-arrow-down.svg) no-repeat 0 0 / 100% 100%;
+}
+
+.ediya-award-year details[open] summary::after {
+  background-image: url(../images/icon-arrow-up.svg);
 }
 
 .ediya-award-year b {
@@ -304,7 +321,7 @@
     margin-right: auto;
   }
 
-  .ediya-award-year {
-    padding: 25px 0 80px;
+  .ediya-award-year:last-child {
+    padding-bottom: 80px;
   }
 }
