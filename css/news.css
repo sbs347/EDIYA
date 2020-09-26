@@ -124,6 +124,11 @@
 
 .news-ediya dl {
   margin: 0;
+  line-height: 1.5;
+}
+
+.news-ediya dt {
+  color: #24388d;
 }
 
 .news-ediya dd {
