@@ -26,6 +26,8 @@
 .news {
   padding: 40px 20px 20px;
   display: none;
+  width: 740px;
+  margin: 0 auto;
 }
 
 .news.is--selected {
@@ -94,6 +96,75 @@
   background: url(../images/icon-search.svg) no-repeat 0 0 / 16px 16px;
 }
 
+/* 데이터 테이블 */
+.news-ediya {
+  border-top: 2px solid #24388d;
+  border-bottom: 2px solid #24388d;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.news-ediya th,
+.news-ediya td {
+  border-bottom: 1px solid #24388d;
+}
+
+.news-ediya th {
+  padding: 15px 5px;
+}
+
+.news-ediya td {
+  padding: 15px;
+}
+
+.news-ediya figure {
+  display: none;
+}
+
+.news-ediya dl {
+  margin: 0;
+}
+
+.news-ediya dd {
+  margin-left: 0;
+}
+
+/* 페이징 */
+.pagination-container {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 18px 16px;
+}
+
+.button-prev,
+.button-next {
+  border: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  background: transparent no-repeat 0 0 / 100% 100%;
+}
+
+.button-prev {
+  background-image: url(../images/button-prev.svg);
+}
+
+.button-prev {
+  background-image: url(../images/button-next.svg);
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: yellow;
+  justify-content: center;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
 /* Mobile UI 적용을 위한 Breakpoint */
 @media all and (max-width: 767px) {
   /* 모바일 이디야 뉴스 관련 콘텐츠 디자인 */
@@ -115,5 +186,12 @@
   .news-tab li {
     height: 35px;
     width: 118px;
+  }
+
+  /* 데스크탑 이디야 뉴스 테이블 내 figure 이미지 */
+  .news-ediya figure {
+    display: block;
+    margin: 0 10px 0 0;
+    float: left;
   }
 }
