@@ -96,8 +96,8 @@
   background: url(../images/icon-search.svg) no-repeat 0 0 / 16px 16px;
 }
 
-/* 데이터 테이블 */
-.news-ediya {
+/* 언론속 이디야 뉴스 데이터 테이블 */
+.ediya-media-news {
   border-top: 2px solid #24388d;
   border-bottom: 2px solid #24388d;
   width: 100%;
@@ -105,33 +105,33 @@
   border-spacing: 0;
 }
 
-.news-ediya th,
-.news-ediya td {
+.ediya-media-news th,
+.ediya-media-news td {
   border-bottom: 1px solid #24388d;
 }
 
-.news-ediya th {
+.ediya-media-news th {
   padding: 15px 5px;
 }
 
-.news-ediya td {
+.ediya-media-news td {
   padding: 15px;
 }
 
-.news-ediya figure {
+.ediya-media-news figure {
   display: none;
 }
 
-.news-ediya dl {
+.ediya-media-news dl {
   margin: 0;
   line-height: 1.5;
 }
 
-.news-ediya dt {
+.ediya-media-newsdt {
   color: #24388d;
 }
 
-.news-ediya dd {
+.ediya-media-newsdd {
   margin-left: 0;
 }
 
@@ -196,6 +196,65 @@
   color: #24388d;
 }
 
+/* 수상 내역 */
+.ediya-award-year-container {
+  background: #f5f5f5;
+  margin: 25px -20px -20px;
+}
+
+.ediya-award-year {
+  padding: 25px 20px 50px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.ediya-award-year h3 {
+  font-weight: 700;
+  color: #24388d;
+  margin: 0 25px 0 0;
+}
+
+.ediya-award-year li {
+  margin-bottom: 20px;
+}
+
+.ediya-award-year summary {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-left: 2em;
+  list-style-image: url(../images/icon-arrow-down.svg);
+}
+.ediya-award-year summary:focus {
+  list-style-image: url(../images/icon-arrow-up-focus.svg);
+}
+
+.ediya-award-year summary::-webkit-details-marker {
+  padding: 4px;
+  background: url(../images/icon-arrow-down.svg);
+  color: transparent;
+}
+
+.ediya-award-year summary::-webkit-details-marker:focus {
+  background: url(../images/icon-arrow-up-focus.svg);
+}
+
+.ediya-award-year b {
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+.ediya-award-year figure {
+  margin-left: 0;
+}
+
+.ediya-award-year time {
+  color: #5b6aa9;
+  font-weight: 700;
+  font-size: 11px;
+}
+
 /* Mobile UI 적용을 위한 Breakpoint */
 @media all and (max-width: 767px) {
   /* 모바일 이디야 뉴스 관련 콘텐츠 디자인 */
@@ -219,12 +278,12 @@
     width: 118px;
   }
 
-  /* 데스크탑 이디야 뉴스 테이블 내 figure 이미지 */
-  .news {
+  /* 데스크탑 언론속 이디야 뉴스 테이블 */
+  .ediya-media {
     width: 740px;
   }
 
-  /* 언론 속 이디야 섹션 공통 */
+  /* 데스크탑 언론 속 이디야 검색 폼 */
   .ediya-media fieldset {
     width: 440px;
     margin-left: auto;
@@ -234,5 +293,18 @@
     display: block;
     margin: 0 10px 0 0;
     float: left;
+  }
+
+  /* 데스크탑 수상 내역 */
+  .ediya-award .news-headline,
+  .ediya-award .news-information,
+  .ediya-award-year {
+    width: 740px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ediya-award-year {
+    padding: 25px 0 80px;
   }
 }
