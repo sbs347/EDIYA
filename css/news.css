@@ -254,7 +254,10 @@
   padding: 5px;
 }
 
-.ediya-award-year summary::marker,
+.ediya-award-year summary::marker {
+  display: none;
+}
+
 .ediya-award-year summary::-webkit-details-marker {
   display: none;
   color: transparent;
