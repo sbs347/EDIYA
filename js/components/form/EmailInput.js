@@ -169,5 +169,13 @@
     },
   })
 
+  // reset()
+  Object.defineProperty(__proto__, 'reset', {
+    value: function() {
+      var component = this.component
+      component.classList.remove(EmailInputClass.STATES.valid)
+    },
+  })
+
   window.EmailInput = EmailInputClass
 })()

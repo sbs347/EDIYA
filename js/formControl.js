@@ -17,6 +17,11 @@
   // 폼 데이터 JSON → 객체
   var formDataJSON = {}
 
+  // 컴포넌트 인스턴스 참조
+  var emailInput = null
+  var passwordInput = null
+  var passwordConfirmInput = null
+
   /**
    * 폼 컨트롤 초기화
    * @function
@@ -37,7 +42,7 @@
     var emailInputNode = el('.member-id')
     // 컴포넌트 → 이메일 인풋 인스턴스 생성
     // 플레이스홀더(placeholderText), 이벤트(on) 옵션 설정 가능
-    new EmailInput(emailInputNode).init({
+    emailInput = new EmailInput(emailInputNode).init({
       on: {
         input: function() {
           updateFormValidState('email', this.state.valid)
@@ -68,7 +73,7 @@
 
     // 컴포넌트 → 패스워드 인풋 인스턴스 생성
     // 이벤트(on) 옵션 설정 가능
-    new PasswordInput(pass1).init({
+    passwordInput = new PasswordInput(pass1).init({
       on: {
         input: function() {
           updateFormValidState('password', this.state.valid)
@@ -78,7 +83,7 @@
     })
 
     if (pass2) {
-      new PasswordInput(pass2).init({
+      passwordConfirmInput = new PasswordInput(pass2).init({
         confirm: true,
         compareInput: pass1,
         on: {
@@ -160,6 +165,7 @@
   function changeSubmitButtonLoading() {
     var button = buttonLogin ? buttonLogin : buttonSignup ? buttonSignup : null
     var wrapper = button.parentNode
+    var disabledClassName = FORM_STATE_CLASSES.disabled
     var loadingClassName = FORM_STATE_CLASSES.loading
 
     wrapper.classList.add(loadingClassName)
@@ -167,9 +173,19 @@
     button.setAttribute('disabled', 'disabled')
 
     window.setTimeout(() => {
-      wrapper.classList.remove(loadingClassName)
-      button.removeAttribute('disabled')
+      // 비동기 시뮬레이션 데이터 출력
       console.log(formDataJSON)
+
+      // 폼 컨트롤 초기화
+      memberForm.reset()
+      emailInput.reset()
+      passwordInput.reset()
+      passwordConfirmInput && passwordConfirmInput.reset()
+
+      // 로딩 상태 제거
+      wrapper.classList.remove(loadingClassName)
+      // 비활성 상태로 변경
+      wrapper.classList.add(disabledClassName)
     }, delayTime)
   }
 

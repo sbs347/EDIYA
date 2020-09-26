@@ -217,5 +217,13 @@
     },
   })
 
+  // reset()
+  Object.defineProperty(__proto__, 'reset', {
+    value: function() {
+      var component = this.component
+      component.classList.remove(PasswordInputClass.STATES.valid)
+    },
+  })
+
   window.PasswordInput = PasswordInputClass
 })()
