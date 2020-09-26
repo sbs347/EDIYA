@@ -160,13 +160,17 @@
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  background-color: yellow;
   justify-content: center;
 }
 
 .pagination li {
   margin: 0 5px;
 }
+
+.pagination [aria-current="page"] {
+  font-weight: 700;
+}
+
 /* Mobile UI 적용을 위한 Breakpoint */
 @media all and (max-width: 767px) {
   /* 모바일 이디야 뉴스 관련 콘텐츠 디자인 */
