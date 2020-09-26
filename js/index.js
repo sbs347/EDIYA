@@ -34,7 +34,7 @@ var menu_close_btn = null
 var app_main = null
 var ediya_menu = null
 var menu_items = null
-var state_user_click = false
+var breakpoint = 768
 
 // 초기화
 function init() {
@@ -51,15 +51,8 @@ function init() {
 }
 
 function displayAppNavigation() {
-  if (window.innerWidth < 768) {
-    if (!state_user_click) {
-      app_navigation.hidden = true
-      app_navigation.classList.remove('is-active')
-    }
-  }
-  else {
+  if (window.innerWidth >= breakpoint) {
     app_navigation.hidden = false
-    app_navigation.classList.remove('is-active')
   }
 }
 
@@ -98,7 +91,7 @@ function bindEvents() {
 
 function openNavMenu() {
   app_navigation.hidden = false
-  state_user_click = true
+  menu_open_btn.setAttribute('disabled', 'disabled')
   window.setTimeout(function() {
     app_navigation.classList.add('is-active')
   }, 10)
@@ -106,9 +99,9 @@ function openNavMenu() {
 
 function closeNavMenu() {
   app_navigation.classList.remove('is-active')
-  state_user_click = false
   window.setTimeout(function() {
     app_navigation.hidden = true
+    menu_open_btn.removeAttribute('disabled')
   }, 400)
 }
 
