@@ -26,7 +26,7 @@
 .news {
   padding: 40px 20px 20px;
   display: none;
-  width: 740px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -189,6 +189,10 @@
   }
 
   /* 데스크탑 이디야 뉴스 테이블 내 figure 이미지 */
+  .news {
+    width: 740px;
+  }
+
   .news-ediya figure {
     display: block;
     margin: 0 10px 0 0;
