@@ -1,9 +1,15 @@
 /* body {
   display: flex;
   flex-flow: column nowrap;
-  min-width: 100vh;
+  /* min-width: 100vh; */
   min-height: 100vh;
 } */
+
+:focus {
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px rgba(40, 70, 204, 0.9);
+}
 
 /* --------------------------------------------
   * 헤더 디자인 */
@@ -125,6 +131,12 @@
 
 .guide-list a {
   display: block;
+  opacity: 0.75;
+}
+
+.guide-list a:hover,
+.guide-list a:focus {
+  opacity: 1;
 }
 
 /* address와 copyright 공통 여백 처리 */
@@ -159,26 +171,25 @@
 @media all and (max-width: 767px) {
   /* 모바일 내비게이션 디자인 */
   .app-navigation {
-    overflow: hidden;
+    overflow-y: auto;
     position: fixed;
     z-index: 1000;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 150vw;
+    right: -150vw;
     bottom: 0;
     padding-top: 60px;
     background: hsla(225, 57%, 10%, 0.9);
     color: #fff;
-    transition: all 0.4s cubic-bezier(0.66, -0.01, 0.3, 0.99);
-    -webkit-transform: translateX(105vw);
-    transform: translateX(105vw);
+    transition: right 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86),
+      left 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86);
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
   }
 
   .app-navigation.is-active {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    right: 0;
+    left: 0;
   }
 
   .app-navigation li {
@@ -187,7 +198,7 @@
 
   .app-navigation a {
     display: block;
-    padding: 1em;
+    padding: 12px 22px;
     transition: all 0.4s ease;
   }
 
@@ -228,15 +239,16 @@
   .app-navigation .button.is-close-menu {
     position: absolute;
     z-index: 10;
-    top: 10px;
-    right: 10px;
-    padding: 20px;
+    top: 8px;
+    right: 8px;
+    padding: 17px;
     background: transparent;
     color: #fff;
-    font-weight: 100;
-    font-size: 40px;
-    line-height: 0.5;
     transition: all 0.4s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .app-navigation .button.is-close-menu:focus {
@@ -247,6 +259,43 @@
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
   }
+
+  .app-navigation .button.is-close-menu .close {
+    display: block;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* 페이지 상단 이동 버튼 */
+.button-goToTop {
+  opacity: 0.7;
+  position: fixed;
+  z-index: 2000;
+  right: 30px;
+  bottom: 30px;
+
+  width: 50px;
+  height: 50px;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translateY(200px) scale(0);
+  transition: all 0.8s 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button-goToTop.is--active {
+  transform: none;
+}
+
+.button-goToTop:hover,
+.button-goToTop:focus {
+  opacity: 1;
 }
 
 /* Desktop UI 적용을 위한 Breakpoint */
@@ -318,5 +367,9 @@
 
   .guide-list li {
     margin-bottom: 0;
+  }
+
+  .guide-list li:nth-last-child(4) {
+    margin-right: 15px;
   }
 }

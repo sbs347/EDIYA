@@ -4,9 +4,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ediya Coffee - 회원가입</title>
+    <title>Ediya Coffee - 로그인</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
 
     <style>
       /**
@@ -129,8 +129,9 @@
     </style>
 
     <script src="./js/helper.js" defer></script>
-    <script src="./js/index.js" defer></script>
-    <script src="./js/loginFormControl.js" defer></script>
+    <script src="./js/navigationControl.js" defer></script>
+    <script src="./js/buttonGoToTop.js" defer></script>
+    <script src="./js/formControl.js" defer></script>
   </head>
 
   <body class="membership">
@@ -153,7 +154,7 @@
             <li><a href="./store.html">매장 찾기</a></li>
           </ul>
           <button type="button" class="button is-close-menu" title="메뉴 닫기" aria-label="메뉴 닫기">
-            <spanclass="close"aria-hidden="true">×</span>
+            <span class="close" aria-hidden="true">×</span>
           </button>
         </nav>
       </header>
@@ -184,7 +185,7 @@
             </div>
             <div class="button-container is--disabled">
               <button type="submit" class="button-login button-fill" disabled="disabled">로그인</button>
-              <a href="#" class="link-signup button-stroke">회원가입</a>
+              <a href="./signup.html" class="link-signup button-stroke">회원가입</a>
             </div>
           </fieldset>
         </form>
@@ -216,6 +217,14 @@
         <small class="copyright">&copy; 2017 EDIYA COFFEE COMPANY. ALL RIGHTS RESERVED..</small>
       </div>
     </footer>
+
+    <button type="button" class="button-goToTop">
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <title>페이지 상단 이동</title>
+        <circle cx="25" cy="25" r="25" fill="#C8CDE2" />
+        <path d="M25 38C25.6072 38 26.1 37.5147 26.1 36.9167V15.3047L34.1037 23.5803C34.3198 23.804 34.6097 23.9167 34.9001 23.9167C35.1723 23.9167 35.4457 23.8175 35.6585 23.6177C36.0985 23.2049 36.1156 22.5192 35.6965 22.0858L26.556 12.6348C26.1402 12.2259 25.588 12 25 12C24.412 12 23.8598 12.2259 23.4259 12.6538L14.3035 22.0864C13.8844 22.5197 13.9015 23.2055 14.3415 23.6182C14.7815 24.031 15.4783 24.0142 15.8969 23.5808L23.9 15.2706V36.9167C23.9 37.5147 24.3928 38 25 38Z" fill="#0F0F0F" />
+      </svg>
+    </button>
   </body>
 
 </html>
