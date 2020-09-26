@@ -149,12 +149,24 @@
   background: transparent no-repeat 0 0 / 100% 100%;
 }
 
+.button-prev svg,
+.button-next svg {
+  width: inherit;
+  height: inherit;
+}
+
 .button-prev {
   background-image: url(../images/button-prev.svg);
 }
 
-.button-prev {
-  background-image: url(../images/button-next.svg);
+.button-prev path,
+.button-next path {
+  fill: #919bc6;
+}
+
+.button-prev:hover path,
+.button-next:hover path {
+  fill: #24388d;
 }
 
 .pagination {
@@ -167,9 +179,16 @@
 .pagination li {
   margin: 0 5px;
 }
+.pagination a {
+  color: #919bc6;
+}
+.pagination a:hover {
+  color: #24388d;
+}
 
 .pagination [aria-current="page"] {
   font-weight: 700;
+  color: #24388d;
 }
 
 /* Mobile UI 적용을 위한 Breakpoint */
