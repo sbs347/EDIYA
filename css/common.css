@@ -272,6 +272,33 @@ body {
   }
 }
 
+/* 페이지 상단 이동 버튼 */
+.button-goToTop {
+  opacity: 0.7;
+  position: fixed;
+  z-index: 2000;
+  right: 30px;
+  bottom: 30px;
+
+  width: 50px;
+  height: 50px;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translateY(200px) scale(0);
+  transition: all 0.8s 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button-goToTop.is--active {
+  transform: none;
+}
+
+.button-goToTop:hover,
+.button-goToTop:focus {
+  opacity: 1;
+}
+
 /* Desktop UI 적용을 위한 Breakpoint */
 @media all and (min-width: 768px) {
   /* 데스크탑 헤더 디자인 */
