@@ -1,14 +1,9 @@
-/* body {
+/* 본문 내 헤더, 메인 콘텐츠, 푸터 배치를 위한 body 레이아웃 */
+body {
   display: flex;
   flex-flow: column nowrap;
-  /* min-width: 100vh;
+  min-width: 100vh;
   min-height: 100vh;
-} */
-
-:focus {
-  outline: none;
-  border-radius: 2px;
-  box-shadow: 0 0 0 4px rgba(40, 70, 204, 0.9);
 }
 
 /* --------------------------------------------
