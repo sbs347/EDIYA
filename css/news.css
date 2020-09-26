@@ -195,6 +195,12 @@
     width: 740px;
   }
 
+  /* 언론 속 이디야 섹션 공통 */
+  .ediya-media fieldset {
+    width: 440px;
+    margin-left: auto;
+  }
+
   .news-ediya figure {
     display: block;
     margin: 0 10px 0 0;
