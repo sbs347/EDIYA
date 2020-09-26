@@ -14,20 +14,9 @@
   background-image: url(../images/coffee-mobile.jpg);
 }
 
-.bg-video-container,
+/* 회원가입 비디오 배경 */
+/* .bg-video-container,
 .bg-video-container video {
-  /* 회원가입 비디오 배경 */
-  /* .bg-video-container {
-  position: fixed;
-  width: 2000px;
-  background-color: yellow;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-} */
-
-  /* .bg-video-container video {
   position: fixed;
   left: 50%;
   bottom: 0;
@@ -41,7 +30,6 @@
   background-image: url(../images/coffee-desktop.jpg);
   background-size: 100% 100%;
 } */
-}
 
 /* 화면 가득 채우는 비디오 스타일 코드 ----------------------------------------------------- */
 .bg-video-container {
