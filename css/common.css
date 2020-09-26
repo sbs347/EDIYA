@@ -171,28 +171,24 @@ body {
 @media all and (max-width: 767px) {
   /* 모바일 내비게이션 디자인 */
   .app-navigation {
-    opacity: 0;
     overflow-y: auto;
     position: fixed;
     z-index: 1000;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 150vw;
+    right: -150vw;
     bottom: 0;
     padding-top: 60px;
     background: hsla(225, 57%, 10%, 0.9);
     color: #fff;
-    transition: all 0.4s 0.2s cubic-bezier(0.66, -0.01, 0.3, 0.99);
-    -webkit-transform: translateX(105vw);
-    transform: translateX(105vw);
+    transition: all 0.4s ease-out;
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
   }
 
   .app-navigation.is-active {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    left: 0;
+    right: 0;
   }
 
   .app-navigation li {
@@ -201,7 +197,7 @@ body {
 
   .app-navigation a {
     display: block;
-    padding: 1em;
+    padding: 12px 22px;
     transition: all 0.4s ease;
   }
 
