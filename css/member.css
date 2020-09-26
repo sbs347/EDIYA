@@ -114,6 +114,10 @@
   margin-bottom: 30px;
 }
 
+.login .member-password {
+  margin-bottom: 15px;
+}
+
 .member-form input {
   width: 100%;
   /* height: 40px; */
@@ -193,29 +197,34 @@
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 4px;
-  right: 4px;
-  width: 24px;
-  height: 24px;
+  top: 18px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: 0;
   background-color: transparent;
 }
 
-.is--focus .button-password {
+.is--focus .button-password,
+.is--invalid .button-password,
+.is--valid .button-password {
   display: block;
 }
 
-.is--valid .button-password,
-.is--invalid .button-password {
-  display: none;
+.is--focus .button-password {
+  right: 4px;
+}
+
+.is--invalid .button-password,
+.is--valid .button-password {
+  right: 28px;
 }
 
 .button-password .ir {
   display: inline-block;
-  padding: 4px;
-  width: 16px;
-  height: 16px;
+  /* padding: 4px; */
+  width: inherit;
+  height: inherit;
   background: url(../images/icon-visible.svg) no-repeat 50% 50%;
 }
 
@@ -230,6 +239,7 @@
   align-items: center;
   position: relative;
 }
+
 .save-email input {
   opacity: 0;
   width: 16px;
@@ -239,6 +249,14 @@
   top: 0;
   left: 0;
 }
+
+.save-email label {
+  user-select: none;
+  cursor: pointer;
+  margin-top: 1px;
+  font-size: 12px;
+}
+
 .checkbox {
   width: 16px;
   height: 16px;
@@ -247,6 +265,17 @@
   margin-right: 4px;
   background: url(../images/icon-un-checked-square.svg) no-repeat 50% 50%;
 }
+
+.is--focus .checkbox {
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px rgba(40, 70, 204, 0.9);
+}
+
+.is--focus.save-email label {
+  transform: none;
+  font-size: 12px;
+}
+
 .save-email input:checked + .checkbox {
   background-image: url(../images/icon-checked-square.svg);
 }

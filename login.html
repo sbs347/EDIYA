@@ -128,9 +128,16 @@
       }
     </style>
 
-    <script src="./js/helper.js" defer></script>
+    <!-- 즉시 실행 -->
+    <script src="./js/utils/helper.js"></script>
+    <script src="./js/components/form/_formConstant.js"></script>
+    <script src="./js/components/form/EmailInput.js"></script>
+    <script src="./js/components/form/SaveEmailInput.js"></script>
+    <script src="./js/components/form/PasswordDisplayButton.js"></script>
+    <script src="./js/components/form/PasswordInput.js"></script>
+    <!-- DOM 콘텐츠 준비 이후 실행 -->
     <script src="./js/navigationControl.js" defer></script>
-    <script src="./js/buttonGoToTop.js" defer></script>
+    <script src="./js/goToTopControl.js" defer></script>
     <script src="./js/formControl.js" defer></script>
   </head>
 
@@ -169,14 +176,32 @@
             <legend>회원가입 폼</legend>
             <div class="member-id">
               <label for="userEmail">이메일</label>
-              <input type="email" id="userEmail" name="userEmail" aria-required="true" aria-invalid="false" />
-              <span class="member-id--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
+              <input
+                type="email"
+                id="userEmail"
+                name="userEmail"
+                aria-required="true"
+                aria-invalid="false"
+                aria-describedby="emailErrorFeedback" />
+              <span
+                role="alert"
+                id="emailErrorFeedback"
+                class="member-id--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
             </div>
             <div class="member-password">
               <label for="userPassword">패스워드</label>
-              <input type="password" id="userPassword" name="userPassword" aria-required="true" aria-invalid="false" />
-              <span class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
-              <button type="button" class="button-password" aria-label="패스워드 보기" tabindex="-1"><span class="ir"></span></button>
+              <input
+                type="password"
+                id="userPassword"
+                name="userPassword"
+                aria-required="true"
+                aria-invalid="false"
+                aria-describedby="passwordErrorFeedback" />
+              <span
+                role="alert"
+                id="passwordErrorFeedback"
+                class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
+              <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
             </div>
             <div class="save-email">
               <input type="checkbox" id="userEmailSave" />
