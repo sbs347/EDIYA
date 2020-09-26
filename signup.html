@@ -26,20 +26,20 @@
   <body class="membership">
 
     <div class="bg-video-container" role="presentation">
-      <!-- <video preload="auto" autoplay muted loop>
-        <source src="./media/coffee-beans.mp4" type="video/mp4" />
-      </video> -->
+      <video preload="auto" autoplay muted loop>
+        <source src="./media/video.mp4" type="video/mp4" />
+      </video>
       <!-- 
         Object Fit, Position 폴리필 라이브러리 사용법
         https://github.com/constancecchen/object-fit-polyfill#usage
         
         data-object-fit, data-object-position 속성 설정
        -->
-      <video
+      <!-- <video
              src="./media/Coffee-Machine-Dispensing-Coffee.mp4"
              preload="auto" autoplay muted loop
              data-object-fit="cover"
-             data-object-position="center"></video>
+             data-object-position="center"></video> -->
     </div>
 
     <div class="app-header-container">
@@ -77,46 +77,46 @@
             <div class="member-id">
               <label for="userEmail">이메일</label>
               <input
-                type="email"
-                id="userEmail"
-                name="userEmail"
-                aria-required="true"
-                aria-invalid="false"
-                aria-describedby="emailErrorFeedback" />
+                     type="email"
+                     id="userEmail"
+                     name="userEmail"
+                     aria-required="true"
+                     aria-invalid="false"
+                     aria-describedby="emailErrorFeedback" />
               <span
-                role="alert"
-                id="emailErrorFeedback"
-                class="member-id--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
+                    role="alert"
+                    id="emailErrorFeedback"
+                    class="member-id--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
             </div>
             <div class="member-password">
               <label for="userPassword">패스워드</label>
               <input
-                type="password"
-                id="userPassword"
-                name="userPassword"
-                aria-required="true"
-                aria-invalid="false"
-                aria-describedby="passwordErrorFeedback" />
+                     type="password"
+                     id="userPassword"
+                     name="userPassword"
+                     aria-required="true"
+                     aria-invalid="false"
+                     aria-describedby="passwordErrorFeedback" />
               <span
-                role="alert"
-                id="passwordErrorFeedback"
-                class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
+                    role="alert"
+                    id="passwordErrorFeedback"
+                    class="member-password--error">패스워드는 숫자, 영어 조합 6자 이상 입력해야 합니다.</span>
               <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
             </div>
             <!-- 패스워드 확인의 경우 기존 패스워드와 일치하는지 여부를 검증하기 위한 자바스크립트가 필요함. -->
             <div class="member-password">
               <label for="userPasswordCheck">패스워드 확인</label>
               <input
-                type="password"
-                id="userPasswordCheck"
-                name="userPasswordCheck"
-                aria-required="true"
-                aria-invalid="false"
-                aria-describedby="passwordConfirmErrorFeedback" />
+                     type="password"
+                     id="userPasswordCheck"
+                     name="userPasswordCheck"
+                     aria-required="true"
+                     aria-invalid="false"
+                     aria-describedby="passwordConfirmErrorFeedback" />
               <span
-                role="alert"
-                id="passwordConfirmErrorFeedback"
-                class="member-password--error">패스워드가 일치하지 않습니다.</span>
+                    role="alert"
+                    id="passwordConfirmErrorFeedback"
+                    class="member-password--error">패스워드가 일치하지 않습니다.</span>
               <button type="button" class="button-password" aria-label="패스워드 보기"><span class="ir"></span></button>
             </div>
             <div class="button-container is--disabled">
