@@ -46,7 +46,7 @@ function init() {
   // 이벤트 바인딩
   bindEvents()
   // 외부 링크 임시 컨트롤
-  externalLinkTemporaryControl()
+  // externalLinkTemporaryControl()
   // 앱 내비게이션 표시 컨트롤
   displayAppNavigation()
 }
