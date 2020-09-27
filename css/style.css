@@ -2,6 +2,7 @@
 @import url(//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
 /* @import url(./animation.css); */
 @import url(./default.css);
+@import url(./scrollbar.css);
 @import url(./component.css);
 @import url(./common.css);
 @import url(./beverage.css);

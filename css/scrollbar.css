@@ -1,0 +1,23 @@
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 7px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #233d84;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 8px;
+}
