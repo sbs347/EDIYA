@@ -69,7 +69,7 @@
 }
 
 .news-information {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin: 10px 0;
 }
 
@@ -144,8 +144,12 @@
   vertical-align: baseline;
 }
 
-.ediya-media-news figure {
+.ediya-media-news .media-thumbnail {
   display: none;
+}
+
+.ediya-media-news .media-thumbnail img {
+  display: block;
 }
 
 .ediya-media-news dl {
@@ -158,6 +162,7 @@
 }
 
 .ediya-media-news dd {
+  margin-top: 5px;
   margin-left: 0;
   color: #878787;
   font-size: 13px;
@@ -372,10 +377,11 @@
     margin-left: auto;
   }
 
-  .ediya-media-news figure {
+  .ediya-media-news .media-thumbnail {
     display: block;
     float: left;
     margin: 5px 10px 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   /* 데스크탑 수상 내역 */
