@@ -43,10 +43,10 @@
 
 /* 뉴스 콘텐츠 섹션 공통 */
 .news {
-  padding: 40px 20px 20px;
   display: none;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 40px;
+  padding: 40px 20px;
 }
 
 .news.is--selected {
@@ -122,16 +122,17 @@
 
 /* 언론속 이디야 뉴스 데이터 테이블 */
 .ediya-media-news {
+  width: 100%;
   border-top: 2px solid #24388d;
   border-bottom: 2px solid #24388d;
-  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  color: #24388d;
 }
 
 .ediya-media-news th,
 .ediya-media-news td {
-  border-bottom: 1px solid #24388d;
+  border-bottom: 1px solid #919bc6;
 }
 
 .ediya-media-news th {
@@ -140,6 +141,7 @@
 
 .ediya-media-news td {
   padding: 15px;
+  vertical-align: baseline;
 }
 
 .ediya-media-news figure {
@@ -157,6 +159,8 @@
 
 .ediya-media-news dd {
   margin-left: 0;
+  color: #878787;
+  font-size: 13px;
 }
 
 /* 페이징 */
@@ -176,6 +180,7 @@
   width: 16px;
   height: 16px;
   background: transparent no-repeat 0 0 / 100% 100%;
+  transform: scale(1.2);
 }
 
 .button-prev svg,
@@ -203,6 +208,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  margin-top: -3px;
 }
 
 .pagination li {
@@ -210,6 +216,7 @@
 }
 .pagination a {
   color: #919bc6;
+  padding: 0 3px;
 }
 .pagination a:hover {
   color: #24388d;
@@ -354,9 +361,9 @@
     padding: 0.83333em 2.4em;
   }
 
-  /* 데스크탑 언론속 이디야 뉴스 테이블 */
-  .ediya-media {
-    width: 740px;
+  /* 데스크탑 뉴스 */
+  .news {
+    max-width: 740px;
   }
 
   /* 데스크탑 언론 속 이디야 검색 폼 */
@@ -367,8 +374,8 @@
 
   .ediya-media-news figure {
     display: block;
-    margin: 0 10px 0 0;
     float: left;
+    margin: 5px 10px 0 0;
   }
 
   /* 데스크탑 수상 내역 */
