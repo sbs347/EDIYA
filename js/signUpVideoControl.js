@@ -18,7 +18,7 @@
     elNode: null,
     style: `
       position: fixed; 
-      z-index: 10000; 
+      z-index: 100; 
       top: 80px; 
       right: -50vw; 
       width: 210px; 
