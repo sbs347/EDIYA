@@ -2,6 +2,8 @@
 
 **[이듬(E.UID)](https://euid.dev) 블렌디드 러닝, 학습용(디자인 → 개발)** 으로 제작된 [이디야 커피 브랜드 사이트](https://seulbinim.github.io/EDIYA/ui-design.html)입니다.
 
+![](./_/cover.jpg)
+
 ![](./_/rwd-ui-ediya.jpg)
 
 <br>
@@ -13,6 +15,7 @@
 - UI 디자인에 최적화 된 Figma 도구 활용
 - 디자인 시스템 (컴포넌트, 상태 디자인 등)
 - 프로토타입 (개발에 요구되는 사항을 시뮬레이션)
+- 버전 관리 (Version History)
 - 모바일 UI ( 0 — 767px )
 - 데스크탑 UI ( 768px+ )
 
@@ -27,6 +30,10 @@
 > Design System
 
 ![](./_/design-using-figma-3.jpg)
+
+> Version History
+
+![](./_/design-using-figma-4.jpg)
 
 <br>
 
