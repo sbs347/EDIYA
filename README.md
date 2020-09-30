@@ -1,6 +1,6 @@
 # 이디야 커피 UI 디자인 & 개발
 
-**[이듬(E.UID)](https://euid.dev) 블렌디드 러닝, 학습용(디자인 → 개발)** 으로 제작된 [이디야 커피 브랜드 사이트](https://seulbinim.github.io/EDIYA/ui-design.html)입니다.
+**[이듬(E.UID)](https://euid.dev) 블렌디드 러닝, 학습용(디자인 → 개발)** 으로 제작된 [이디야 커피 브랜드 사이트](https://seulbinim.github.io/EDIYA/views/ui-design.html)입니다.
 
 ![](./_/cover.jpg)
 

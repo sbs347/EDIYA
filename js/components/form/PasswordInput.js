@@ -7,8 +7,10 @@
  * - components/form/PasswordDisplayButton.js
  */
 
-;(function PasswordInputClass() {
-  'use strict'
+(function PasswordInput() {
+  'use strict';
+
+  /* 생성자 ---------------------------------------------------------------------- */
 
   /**
    * 패스워드 인풋 컴포넌트
@@ -20,18 +22,19 @@
    */
   function PasswordInputClass(elNode) {
     if (!elNode || elNode.nodeType !== 1) {
-      throw Error('생성자에 전달되어야 하는 첫번째 인자는 HTML 요소 객체여야 합니다.')
+      throw Error('생성자에 전달되어야 하는 첫번째 인자는 HTML 요소 객체여야 합니다.');
     }
+
     // 컴포넌트 객체 참조
-    this.component = elNode
+    this.component = elNode;
     // 레이블 객체 참조
-    this.label = this.component.querySelector('label')
+    this.label = this.component.querySelector('label');
     // 인풋 객체 참조
-    this.input = this.component.querySelector('input')
+    this.input = this.component.querySelector('input');
     // 패스워드 디스플레이 버튼 객체 참조
-    this.button = this.component.querySelector('button')
+    this.button = this.component.querySelector('button');
     // 커스텀 이벤트 객체
-    this.events = {}
+    this.events = {};
     // 버튼 객체 상태
     this.state = {
       // 순수 입력 상태
@@ -40,190 +43,180 @@
       valid: false,
       // 현재 상태: normal, hover, focus, valid, invalid
       current: 'normal',
-    }
+    };
   }
+
+  /* 클래스 멤버 ------------------------------------------------------------------- */
 
   /**
    * @memberof PasswordInputClass
    * @static
    */
-  PasswordInputClass.STATES = FORM_STATE_CLASSES
 
-  PasswordInputClass.isValidPasswordFormat = function(input) {
-    // 숫자, 영문 조합 6자리 이상 입력해야 유효함
-    const reg = /(?=.*\d)(?=.*[a-z]).{6,}/
-    return reg.test(input.value)
-  }
-
-  PasswordInputClass.mixins = mixins
+  PasswordInputClass.mixins = mixins;
+  PasswordInputClass.STATES = FORM_STATE_CLASSES;
 
   PasswordInputClass.defaultOptions = {
     on: {},
     debug: false,
     confirm: false,
     compareInput: null,
-  }
+  };
+
+  PasswordInputClass.isValidPasswordFormat = function(input) {
+    // 숫자, 영문 조합 6자리 이상 입력해야 유효함
+    const reg = /(?=.*\d)(?=.*[a-z]).{6,}/;
+    return reg.test(input.value);
+  };
 
   /**
    * @memberof PasswordInputClass.prototype
    * @instance
    */
-  var __proto__ = PasswordInputClass.prototype
 
-  // init()
-  Object.defineProperty(__proto__, 'init', {
-    value: function(options) {
-      options = PasswordInputClass.mixins(PasswordInputClass.defaultOptions, options)
+  function init(options) {
+    options = PasswordInputClass.mixins(PasswordInputClass.defaultOptions, options);
 
-      this.events = options.on
-      this.debugMode = options.debug
-      this.confirmMode = options.confirm
-      this.compareInput = options.compareInput
+    this.events = options.on;
+    this.debugMode = options.debug;
+    this.confirmMode = options.confirm;
+    this.compareInput = options.compareInput;
 
-      var component = this.component
-      var input = this.input
+    var component = this.component;
+    var input = this.input;
 
-      // 패스워드 디스플레이 버튼 컴포넌트화
-      this.button = new PasswordDisplayButton(this.button).init({
-        debug: this.debugMode,
-        on: {
-          click: function() {
-            // this === PasswordDisplayButton 컴포넌트 인스턴스
-            if (!this.state.visible) {
-              input.type = 'text'
-              component.classList.add(PasswordInputClass.STATES.visible)
-              this.updateLabel('패스워드 감추기')
-            }
-            else {
-              input.type = 'password'
-              component.classList.remove(PasswordInputClass.STATES.visible)
-              this.updateLabel('패스워드 보기')
-            }
-          },
+    // 패스워드 디스플레이 버튼 컴포넌트화
+    this.button = new PasswordDisplayButton(this.button).init({
+      debug: this.debugMode,
+      on: {
+        click: function() {
+          // this === PasswordDisplayButton 컴포넌트 인스턴스
+          if (!this.state.visible) {
+            input.type = 'text';
+            component.classList.add(PasswordInputClass.STATES.visible);
+            this.updateLabel('패스워드 감추기');
+          }
+          else {
+            input.type = 'password';
+            component.classList.remove(PasswordInputClass.STATES.visible);
+            this.updateLabel('패스워드 보기');
+          }
         },
-      })
+      },
+    });
 
-      for (var eventType in this.events) {
-        if (this.events.hasOwnProperty(eventType)) {
-          var eventHandler = this.events[eventType]
-          this.input.addEventListener(eventType, eventHandler.bind(this))
-        }
+    for (var eventType in this.events) {
+      if (this.events.hasOwnProperty(eventType)) {
+        var eventHandler = this.events[eventType];
+        this.input.addEventListener(eventType, eventHandler.bind(this));
       }
+    }
 
-      this.bindEvents()
+    this.bindEvents();
 
-      return this
-    },
-  })
+    return this;
+  }
 
-  // setState()
-  Object.defineProperty(__proto__, 'setState', {
-    value: function(newValue) {
-      this.state = PasswordInputClass.mixins(this.state, newValue)
-    },
-  })
+  function setState(newValue) {
+    this.state = PasswordInputClass.mixins(this.state, newValue);
+  }
 
-  // bindEvents()
-  Object.defineProperty(__proto__, 'bindEvents', {
-    value: function() {
-      var _this = this
-      var component = this.component
-      var input = this.input
+  function bindEvents() {
+    var _this = this;
+    var component = this.component;
+    var input = this.input;
 
-      component.addEventListener('mouseenter', function() {
-        _this.setState({ current: 'hover' })
-        /* @debug */
-        _this.debugMode && console.log(component, _this.state.current)
-      })
-      component.addEventListener('mouseleave', function() {
-        _this.setState({ current: 'normal' })
-        /* @debug */
-        _this.debugMode && console.log(component, _this.state.current)
-      })
-      input.addEventListener('focus', function() {
-        _this.setState({ current: 'focus' })
-        component.classList.add(PasswordInputClass.STATES.focus)
-        /* @debug */
-        _this.debugMode && console.log(component, _this.state.current)
-      })
-      input.addEventListener('input', function() {
-        _this.setState({ current: 'input', pure: false })
-        if (!_this.confirmMode) {
-          _this.checkPasswordFormat()
-        }
-        else {
-          _this.checkPasswordMatch()
-        }
-        _this.render()
-        /* @debug */
-        _this.debugMode && console.log(component, '컴포넌트 상태: ', _this.state)
-      })
-      input.addEventListener('blur', function() {
-        _this.setState({ current: 'normal' })
-        component.classList.remove(PasswordInputClass.STATES.focus)
-        /* @debug */
-        _this.debugMode && console.log(component, _this.state.current)
-      })
-    },
-  })
-
-  // checkPasswordFormat()
-  Object.defineProperty(__proto__, 'checkPasswordFormat', {
-    value: function() {
-      var input = this.input
-      var isValidPasswordFormat = PasswordInputClass.isValidPasswordFormat
-
-      if (!isValidPasswordFormat(input)) {
-        this.setState({ current: 'invalid', valid: false })
+    component.addEventListener('mouseenter', function() {
+      _this.setState({ current: 'hover' });
+      /* @debug */
+      _this.debugMode && console.log(component, _this.state.current);
+    });
+    component.addEventListener('mouseleave', function() {
+      _this.setState({ current: 'normal' });
+      /* @debug */
+      _this.debugMode && console.log(component, _this.state.current);
+    });
+    input.addEventListener('focus', function() {
+      _this.setState({ current: 'focus' });
+      component.classList.add(PasswordInputClass.STATES.focus);
+      /* @debug */
+      _this.debugMode && console.log(component, _this.state.current);
+    });
+    input.addEventListener('input', function() {
+      _this.setState({ current: 'input', pure: false });
+      if (!_this.confirmMode) {
+        _this.checkPasswordFormat();
       }
       else {
-        this.setState({ current: 'valid', valid: true })
+        _this.checkPasswordMatch();
       }
-    },
-  })
+      _this.render();
+      /* @debug */
+      _this.debugMode && console.log(component, '컴포넌트 상태: ', _this.state);
+    });
+    input.addEventListener('blur', function() {
+      _this.setState({ current: 'normal' });
+      component.classList.remove(PasswordInputClass.STATES.focus);
+      /* @debug */
+      _this.debugMode && console.log(component, _this.state.current);
+    });
+  }
 
-  // checkPasswordMatch()
-  Object.defineProperty(__proto__, 'checkPasswordMatch', {
-    value: function() {
-      var input = this.input
-      var compareInput = this.compareInput.querySelector('input')
+  function checkPasswordFormat() {
+    var input = this.input;
+    var isValidPasswordFormat = PasswordInputClass.isValidPasswordFormat;
 
-      if (input.value === compareInput.value) {
-        this.setState({ current: 'valid', valid: true })
-      }
-      else {
-        this.setState({ current: 'invalid', valid: false })
-      }
-    },
-  })
+    if (!isValidPasswordFormat(input)) {
+      this.setState({ current: 'invalid', valid: false });
+    }
+    else {
+      this.setState({ current: 'valid', valid: true });
+    }
+  }
 
-  // render()
-  Object.defineProperty(__proto__, 'render', {
-    value: function() {
-      var component = this.component
-      var input = this.input
+  function checkPasswordMatch() {
+    var input = this.input;
+    var compareInput = this.compareInput.querySelector('input');
 
-      switch (this.state.current) {
-        case 'invalid':
-          component.classList.remove(PasswordInputClass.STATES.valid)
-          component.classList.add(PasswordInputClass.STATES.invalid)
-          input.setAttribute('aria-invalid', true)
-          break
-        case 'valid':
-          component.classList.remove(PasswordInputClass.STATES.invalid)
-          component.classList.add(PasswordInputClass.STATES.valid)
-          input.setAttribute('aria-invalid', false)
-      }
-    },
-  })
+    if (input.value === compareInput.value) {
+      this.setState({ current: 'valid', valid: true });
+    }
+    else {
+      this.setState({ current: 'invalid', valid: false });
+    }
+  }
 
-  // reset()
-  Object.defineProperty(__proto__, 'reset', {
-    value: function() {
-      var component = this.component
-      component.classList.remove(PasswordInputClass.STATES.valid)
-    },
-  })
+  function render() {
+    var component = this.component;
+    var input = this.input;
 
-  window.PasswordInput = PasswordInputClass
-})()
+    switch (this.state.current) {
+      case 'invalid':
+        component.classList.remove(PasswordInputClass.STATES.valid);
+        component.classList.add(PasswordInputClass.STATES.invalid);
+        input.setAttribute('aria-invalid', true);
+        break;
+      case 'valid':
+        component.classList.remove(PasswordInputClass.STATES.invalid);
+        component.classList.add(PasswordInputClass.STATES.valid);
+        input.setAttribute('aria-invalid', false);
+    }
+  }
+
+  function reset() {
+    var component = this.component;
+    component.classList.remove(PasswordInputClass.STATES.valid);
+  }
+
+  Object.defineProperties(PasswordInputClass.prototype, {
+    init: { value: init },
+    setState: { value: setState },
+    bindEvents: { value: bindEvents },
+    checkPasswordFormat: { value: checkPasswordFormat },
+    checkPasswordMatch: { value: checkPasswordMatch },
+    render: { value: render },
+    reset: { value: reset },
+  });
+
+  window.PasswordInput = PasswordInputClass;
+})();
