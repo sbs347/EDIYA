@@ -28,137 +28,105 @@
 // 예제 참고 URL: ediya.com/contents/drink.html
 // ------------------------------------------------------------------------------------------
 
-var app_header = null
-var menu_open_btn = null
-var app_navigation = null
-var menu_close_btn = null
-var app_main = null
-var ediya_menu = null
-var menu_items = null
-var breakpoint = 768
+var breakpoint = 768;
+
+var app_header = null;
+var app_navigation = null;
+var menu_open_btn = null;
+var menu_close_btn = null;
 
 // 초기화
 function init() {
   // 문서 객체 접근 참조
-  accessingDOMElements()
-  // 오프캔버스 메뉴 접근성
-  a11yOffCanvasMenu(app_navigation)
+  accessingDOMElements();
+
   // 이벤트 바인딩
-  bindEvents()
-  // 외부 링크 임시 컨트롤
-  // externalLinkTemporaryControl()
+  bindEvents();
+
   // 앱 내비게이션 표시 컨트롤
-  displayAppNavigation()
+  displayAppNavigation();
+
+  // 오프캔버스 메뉴 접근성
+  a11yOffCanvasMenu(app_navigation);
 }
 
 function displayAppNavigation() {
   if (window.innerWidth >= breakpoint) {
-    app_navigation.hidden = false
+    app_navigation.hidden = false;
   }
 }
 
-function externalLinkTemporaryControl() {
-  var externalLink = document.querySelector('.app-navigation a[href^="https://"]')
-  externalLink.setAttribute('rel', 'noopener noreferer')
-  externalLink.addEventListener('click', function(e) {
-    e.preventDefault()
-    window.alert('현재 디자인 제작 계획이 없는 페이지입니다.')
-  })
-}
-
 function accessingDOMElements() {
-  app_header = el('.app-header')
-  menu_open_btn = el('.button.is-open-menu', app_header)
-  app_navigation = el('.app-navigation', app_header)
-  menu_close_btn = el('.button.is-close-menu', app_navigation)
-  app_main = el('.app-main')
-  ediya_menu = el('.ediya-menu')
-  menu_items = els('.ediya-menu__item', ediya_menu)
+  app_header = el('.app-header');
+  app_navigation = el('.app-navigation', app_header);
+  menu_open_btn = el('.button.is-open-menu', app_header);
+  menu_close_btn = el('.button.is-close-menu', app_navigation);
 }
 
 function bindEvents() {
   for (var i = 0, l = menu_items.length; i < l; ++i) {
-    var menu_item = menu_items[i]
-    var link = el('a', menu_item)
-    var close_panel_btn = el('.button.is-close-panel', menu_item)
-    link.addEventListener('click', openDetailPanel.bind(link, i))
-    close_panel_btn.addEventListener('click', closeDetailPanel)
+    var menu_item = menu_items[i];
+    var link = el('a', menu_item);
+    link.addEventListener('click', openDetailPanel.bind(link, i));
   }
 
-  menu_open_btn.addEventListener('click', openNavMenu)
-  menu_close_btn.addEventListener('click', closeNavMenu)
-  window.addEventListener('resize', displayAppNavigation)
+  menu_open_btn.addEventListener('click', openNavMenu);
+  menu_close_btn.addEventListener('click', closeNavMenu);
+  window.addEventListener('resize', displayAppNavigation);
 }
 
 function openNavMenu() {
-  app_navigation.hidden = false
-  menu_open_btn.setAttribute('disabled', 'disabled')
+  app_navigation.hidden = false;
+  menu_open_btn.setAttribute('disabled', 'disabled');
   window.setTimeout(function() {
-    app_navigation.classList.add('is-active')
-  }, 10)
+    app_navigation.classList.add('is-active');
+  }, 10);
 }
 
 function closeNavMenu() {
-  app_navigation.classList.remove('is-active')
+  app_navigation.classList.remove('is-active');
   window.setTimeout(function() {
-    app_navigation.hidden = true
-    menu_open_btn.removeAttribute('disabled')
-  }, 400)
+    app_navigation.hidden = true;
+    menu_open_btn.removeAttribute('disabled');
+  }, 400);
 }
 
-function openDetailPanel(index, e) {
-  e.preventDefault()
-  var detail = el('.ediya-menu__item--detail', menu_items[index])
-  detail.hidden = false
-  window.setTimeout(function() {
-    detail.classList.add('is-active')
-  }, 10)
-}
-
-function closeDetailPanel() {
-  var parent = this.parentNode
-  parent.classList.remove('is-active')
-  window.setTimeout(function() {
-    parent.hidden = true
-  }, 600)
-}
-
-init()
+init();
 
 // -----------------------------------------------------------------
 // 오프캔버스 메뉴 접근성
 // -----------------------------------------------------------------
 function a11yOffCanvasMenu(app_navigation) {
-  var nav_focusables = els('a, button', app_navigation)
-  var nav_focusable_first = nav_focusables[0]
-  var nav_focusable_last = nav_focusables[nav_focusables.length - 1]
+  var nav_focusables = els('a, button', app_navigation);
+  var nav_focusable_first = nav_focusables[0];
+  var nav_focusable_last = nav_focusables[nav_focusables.length - 1];
 
-  window.addEventListener('keyup', escCloseMenu)
-  nav_focusable_first.addEventListener('keydown', navLastFocus)
-  nav_focusable_last.addEventListener('keydown', navFirstFocus)
+  window.addEventListener('keyup', escCloseMenu);
+  nav_focusable_first.addEventListener('keydown', navLastFocus);
+  nav_focusable_last.addEventListener('keydown', navFirstFocus);
 
   function escCloseMenu(e) {
     // 모바일 환경에서만 작동되도록 조건 처리
     if (e.keyCode === 27 && window.innerWidth < breakpoint) {
-      closeNavMenu()
+      closeNavMenu();
     }
   }
 
   function navFirstFocus(e) {
     if (!e.shiftKey && e.keyCode === 9) {
       window.setTimeout(function() {
-        nav_focusable_first.focus()
-      }, 10)
+        nav_focusable_first.focus();
+      }, 10);
     }
   }
 
   function navLastFocus(e) {
     if (document.activeElement === e.target && e.shiftKey && e.keyCode === 9) {
-      nav_focusable_last.removeEventListener('keydown', navFirstFocus)
+      nav_focusable_last.removeEventListener('keydown', navFirstFocus);
       window.setTimeout(function() {
-        nav_focusable_last.focus()
-        nav_focusable_last.addEventListener('keydown', navFirstFocus)
-      }, 10)
+        nav_focusable_last.focus();
+        nav_focusable_last.addEventListener('keydown', navFirstFocus);
+      }, 10);
     }
   }
 }
