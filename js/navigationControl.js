@@ -1,16 +1,24 @@
 (function navigationControl() {
   'use strict';
 
+  var location = window.location;
+  var apiAddress = '/api/navigation.json';
+  var isDevelopmentMode = function() {
+    return location.href.indexOf('127.0.0.1') > -1 || location.href.indexOf('localhost') > -1;
+  };
+
   var appNavigationNode = null;
+  var openButtonNode = null;
 
   function init() {
-    appNavigationNode = document.querySelector('.app-navigation');
+    fetchData((isDevelopmentMode() ? '' : '/EDIYA') + apiAddress);
 
-    fetchData();
+    appNavigationNode = document.querySelector('.app-navigation');
+    openButtonNode = document.querySelector('.button.is-open-menu');
   }
 
-  function fetchData() {
-    fetch('/api/navigation.json')
+  function fetchData(api) {
+    fetch(api)
       .then(function(response) {
         return response.json();
       })
@@ -20,6 +28,7 @@
         new Navigation(appNavigationNode, {
           list: navigationList,
           templateId: '#template-navigation-list',
+          openButton: openButtonNode,
         });
       })
       .catch(function(error) {

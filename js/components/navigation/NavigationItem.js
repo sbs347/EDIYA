@@ -2,6 +2,9 @@
   'use strict';
 
   var location = window.location;
+  var isDevelopmentMode = function() {
+    return location.href.indexOf('127.0.0.1') > -1 || location.href.indexOf('localhost') > -1;
+  };
 
   /* 생성자 ---------------------------------------------------------------------- */
 
@@ -27,7 +30,10 @@
     var item = this.data;
 
     this.template = this.template.replace(/{item.id}/g, item.id);
-    this.template = this.template.replace(/{item.link}/g, item.link);
+    this.template = this.template.replace(
+      /{item.link}/g,
+      (isDevelopmentMode() ? '' : '/EDIYA') + item.link
+    );
     this.template = this.template.replace(/{item.text}/g, item.text);
 
     if (this.isCurrentPage()) {

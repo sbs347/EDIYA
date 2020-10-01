@@ -6,8 +6,7 @@
   function init() {
     ediyaMenuList = document.querySelector('.ediya-menu');
 
-    // fetchData('https://seulbinim.github.io/EDIYA/api/beverages.json');
-    fetchData('/api/beverages.json');
+    fetchData('/EDIYA/api/beverages.json');
   }
 
   function fetchData(api) {
