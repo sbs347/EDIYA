@@ -2,6 +2,19 @@
 
 JavaScript로 컨트롤하게 되면서 불필요해진 HTML 하드 코딩 마크업 백업
 
+## index.html
+
+내비게이션 아이템 하드코딩
+
+```html
+<li><a href="./views/login.html">로그인</a></li>
+<li><a href="./views/signup.html">회원 가입</a></li>
+<li><a href="./views/ui-design.html">이디야 디자인</a></li>
+<li><a href="./views/beverage.html">이디야 음료</a></li>
+<li><a href="./views/news.html">이디야 뉴스</a></li>
+<li><a href="./views/store.html">매장 찾기</a></li>
+```
+
 ## beverage.html
 
 음료 리스트 아이템(`.ediya-menu__item`) 하드코딩

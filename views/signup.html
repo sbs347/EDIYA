@@ -43,10 +43,14 @@
     <script src="../js/utils/dom.js"></script>
     <script src="../js/utils/mixins.js"></script>
     <script src="../js/polyfills/Array.from.js"></script>
+
+    <script src="../js/components/Navigation/Navigation.js"></script>
+    <script src="../js/components/Navigation/NavigationItem.js"></script>
     <script src="../js/components/form/formConstant.js"></script>
     <script src="../js/components/form/EmailInput.js"></script>
     <script src="../js/components/form/PasswordDisplayButton.js"></script>
     <script src="../js/components/form/PasswordInput.js"></script>
+
     <!-- 스크립트: DOM 콘텐츠 준비 이후 실행 -->
     <script src="../js/navigationControl.js" defer></script>
     <script src="../js/goToTopControl.js" defer></script>
@@ -70,13 +74,11 @@
         <nav class="app-navigation">
           <h2 class="a11y-hidden">메인 메뉴</h2>
           <ul class="reset-list">
-            <li><a href="./ui-design.html">이디야 디자인</a></li>
-            <li><a href="./login.html">로그인</a></li>
-            <li class="is--selected"><a href="./signup.html">회원 가입</a></li>
-            <li><a href="./beverage.html">이디야 음료</a></li>
-            <li><a href="./news.html">이디야 뉴스</a></li>
-            <li><a href="./store.html">매장 찾기</a></li>
+            <!-- 비동기 데이터 바인딩 → 내비게이션 리스트 렌더링 -->
           </ul>
+          <script type="text/template" id="template-navigation-list">
+            <li data-id="{item.id}"><a href="{item.link}">{item.text}</a></li>
+          </script>
           <button type="button" class="button is-close-menu" title="메뉴 닫기" aria-label="메뉴 닫기">
             <span class="close" aria-hidden="true">×</span>
           </button>
