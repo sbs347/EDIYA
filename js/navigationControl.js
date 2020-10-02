@@ -1,11 +1,7 @@
 (function navigationControl() {
   'use strict';
 
-  var location = window.location;
   var apiAddress = '/api/navigation.json';
-  var isDevelopmentMode = function() {
-    return location.href.indexOf('127.0.0.1') > -1 || location.href.indexOf('localhost') > -1;
-  };
 
   var appNavigationNode = null;
   var openButtonNode = null;

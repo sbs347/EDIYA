@@ -23,9 +23,7 @@
     // 뉴스 탭 메뉴 찾기
     newsTabMenu = document.querySelector('.news-tab');
     // 뉴스 콘텐츠 수집(배열화)
-    newsContents = Array.from(
-      document.querySelectorAll('.news [role="tabpanel"]')
-    );
+    newsContents = Array.from(document.querySelectorAll('.news [role="tabpanel"]'));
 
     // 이벤트 연결
     bindEvents();
