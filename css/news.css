@@ -1,12 +1,13 @@
 /* --------------------------------------------
   * 이디야 뉴스 관련 콘텐츠 디자인 */
-/* 이디야 뉴스 탭 메뉴 */
+/* 이디야 뉴스 탭 메뉴 (ul 요소) */
 .news-tab {
   display: flex;
   flex-flow: row wrap;
 }
 
-.news-tab li {
+/* 이디야 뉴스 탭 목록 (li 요소) */
+.news-tab [role="none"] {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -17,7 +18,8 @@
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.news-tab a {
+/* 이디야 뉴스 탭 항목 (a 요소) */
+.news-tab [role="tab"] {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +33,7 @@
   background: #fefefe;
 }
 
-.news-tab a:focus {
+.news-tab [role="tab"]:focus {
   position: relative;
   z-index: 10;
 }
@@ -40,19 +42,23 @@
   color: #fefefe;
   background: #24388d;
 }
+/* ---------------------------- */
 
 /* 뉴스 콘텐츠 섹션 공통 */
-.news {
+/* 뉴스 패널 (section 요소) */
+.news [role="tabpanel"] {
   display: none;
   width: 100%;
   margin: 0 auto 40px;
   padding: 40px 20px;
 }
 
-.news.is--selected {
+/* 탭 항목을 선택하여 [role="tabpanel"]에 .is--selected가 동적으로 할당된 경우 */
+.news [role="tabpanel"].is--selected {
   display: block;
 }
 
+/* 뉴스 섹션 제목 공통 (h2 요소) */
 .news-headline {
   font-size: 2rem;
   font-weight: 700;
@@ -68,15 +74,19 @@
   background: url(../images/icon-news-headline.svg) no-repeat 0 0 / 100% 100%;
 }
 
-.news-information {
+/* 뉴스 섹센 텍스트 공통 (p 요소) */
+.news-text {
   font-size: 1.4rem;
   margin: 10px 0;
 }
+/* ---------------------------- */
 
-/* 언론 속 이디야 섹션 공통 */
-.ediya-media form {
+/* 언론 속 이디야 섹션 (section.news__press 요소) */
+.news__press-form {
   padding: 20px 0;
 }
+
+/* 뉴스 검색을 위한 폼 서식 그룹 (재활용 가능성을 위해 div.search-container로 그룹) */
 .search-container {
   height: 26px;
   display: flex;
@@ -84,7 +94,9 @@
   align-items: center;
   position: relative;
 }
-.ediya-media select {
+
+/* 검색 옵션 선택을 위한 서식 ( 제목/내용 ) */
+.search-container select {
   user-select: none;
   width: 80px;
   margin-right: 5px;
@@ -93,13 +105,15 @@
   background: #f5f5f5;
 }
 
-.ediya-media input[type="search"] {
+/* 검색어 입력 서식 */
+.search-container input[type="search"] {
   flex-grow: 1;
   border: 0;
   padding: 6px;
   border-bottom: 0.5px solid #0f0f0f;
 }
 
+/* 검색 버튼 - 배경이미지로 처리하는 방식 */
 .button-search {
   position: absolute;
   width: 16px;
@@ -120,8 +134,8 @@
   background: url(../images/icon-search.svg) no-repeat 0 0 / 16px 16px;
 }
 
-/* 언론속 이디야 뉴스 데이터 테이블 */
-.ediya-media-news {
+/* 언론속 이디야 뉴스 데이터 테이블 (table, tr, th, td 요소) */
+.news__press-table {
   width: 100%;
   border-top: 2px solid #24388d;
   border-bottom: 2px solid #24388d;
@@ -130,45 +144,47 @@
   color: #24388d;
 }
 
-.ediya-media-news th,
-.ediya-media-news td {
+.news__press-table th,
+.news__press-table td {
   border-bottom: 1px solid #919bc6;
 }
 
-.ediya-media-news th {
+.news__press-table th {
   padding: 15px 5px;
 }
 
-.ediya-media-news td {
+.news__press-table td {
   padding: 15px;
   vertical-align: baseline;
 }
 
-.ediya-media-news .media-thumbnail {
+/* 언론속 이디야 뉴스 데이터 테이블 내 썸네일 이미지 (figure 요소) */
+.press-thumbnail {
   display: none;
 }
 
-.ediya-media-news .media-thumbnail img {
+.press-thumbnail img {
   display: block;
 }
 
-.ediya-media-news dl {
+/* 언론속 이디야 뉴스 데이터 테이블 뉴스 텍스트 (dl 요소) */
+.press-article {
   margin: 0;
   line-height: 1.5;
 }
 
-.ediya-media-news dt {
+.press-article dt {
   color: #24388d;
 }
 
-.ediya-media-news dd {
+.press-article dd {
   margin-top: 5px;
   margin-left: 0;
   color: #878787;
   font-size: 13px;
 }
 
-/* 페이징 */
+/* 페이징 (재활용 가능성을 위해 div.pagination-container로 그룹) */
 .pagination-container {
   display: flex;
   flex-flow: row nowrap;
@@ -178,8 +194,9 @@
   margin: 0 auto;
 }
 
-.button-prev,
-.button-next {
+/* 페이징 영역의 이전/다음 버튼 (SVG 이미지로 마크업) */
+.pagination-container .button-prev,
+.pagination-container .button-next {
   border: 0;
   padding: 0;
   width: 16px;
@@ -188,26 +205,23 @@
   transform: scale(1.2);
 }
 
-.button-prev svg,
-.button-next svg {
+.pagination-container .button-prev svg,
+.pagination-container .button-next svg {
   width: inherit;
   height: inherit;
 }
 
-.button-prev {
-  background-image: url(../images/button-prev.svg);
-}
-
-.button-prev path,
-.button-next path {
+.pagination-container .button-prev path,
+.pagination-container .button-next path {
   fill: #919bc6;
 }
 
-.button-prev:hover path,
-.button-next:hover path {
+.pagination-container .button-prev:hover path,
+.pagination-container .button-next:hover path {
   fill: #24388d;
 }
 
+/* 페이징 번호 영역 (ul 요소) */
 .pagination {
   width: 100%;
   display: flex;
@@ -231,40 +245,45 @@
   font-weight: 700;
   color: #24388d;
 }
+/* ---------------------------- */
 
-/* 수상 내역 */
-.ediya-award-year-container {
+/* 수상 내역 섹션 (section.news__award 요소)*/
+/* 수상 내역에 배경을 지정하기 위한 컨테이너 (div 요소) */
+.award-container {
   background: #f5f5f5;
   margin: 25px -20px -20px;
 }
 
-.ediya-award-year {
+/* 연도별 수상 내역 섹션 (section.news__award__year 요소) */
+.news__award__year {
   padding: 0 20px;
   display: flex;
   flex-flow: row nowrap;
 }
 
-.ediya-award-year:first-child {
+.news__award__year:first-child {
   padding-top: 25px;
 }
 
-.ediya-award-year:last-child {
+.news__award__year:last-child {
   padding-bottom: 50px;
 }
 
-.ediya-award-year h3 {
+/* .news_award__year내 연도 (h3 요소) */
+.award-headline {
   font-weight: 700;
   color: #24388d;
   margin: 0 25px 0 0;
 }
 
-.ediya-award-year ul {
+/* .news_award__year내 수상내역 목록 (ul 요소) */
+.award-list {
   flex-grow: 1;
   border-left: 1px solid #c8cde2;
   position: relative;
 }
 
-.ediya-award-year ul::before {
+.award-list::before {
   content: "";
   position: absolute;
   top: -5px;
@@ -276,11 +295,14 @@
   border-radius: 4px;
 }
 
-.ediya-award-year li {
+/* .news_award__year내 수상내역 목록 항목 (li 요소) */
+.award-item {
   margin-bottom: 20px;
 }
 
-.ediya-award-year summary {
+/* 수상내역의 경우 details, summary 요소를 사용하여 마크업 */
+/* .news_award__year내 수상내역 (summary 요소) */
+.award-subject {
   font-size: 13px;
   font-weight: 700;
   color: #0f0f0f;
@@ -290,16 +312,18 @@
   padding: 5px;
 }
 
-.ediya-award-year summary::marker {
+/* summary 요소의 기본 불릿을 제거하가 위한 선언 */
+.eaward-subject::marker {
   display: none;
 }
 
-.ediya-award-year summary::-webkit-details-marker {
+.award-subject::-webkit-details-marker {
   display: none;
   color: transparent;
 }
 
-.ediya-award-year summary::after {
+/* summary 요소의 기본 배경 이미지 (펼칠 수 있음을 나타내는 배경이미지) */
+.award-subject::after {
   position: absolute;
   right: 0;
   top: 0;
@@ -309,33 +333,38 @@
   background: url(../images/icon-arrow-down.svg) no-repeat 0 0 / 100% 100%;
 }
 
-.ediya-award-year details[open] summary::after {
+/* details 요소의 속성 값이 open일 경우 summary 요소의 배경이미지(접을 수 있음을 나타내는 배경이미지) 변경 */
+details[open] .award-subject::after {
   background-image: url(../images/icon-arrow-up.svg);
 }
 
-.ediya-award-year b {
+/* summary 내 수상 "월"을 위한 마크업 (b 요소) */
+.award-subject b {
   font-size: 12px;
   font-weight: 400;
   margin-right: 10px;
 }
 
-.ediya-award-year figure {
+/* 수상내역 썸네일 이미지 (figure 요소) */
+.award-thumbnail {
   margin-left: 25px;
   font-size: 12px;
   font-weight: 400;
 }
-.ediya-award-year figcaption {
+.award-thumbnail figcaption {
   margin-top: 10px;
 }
 
-.ediya-award-year p {
+/* 수상내역 텍스트 (p 요소 - 내부에 span 요소와 time 요소가 포함 됨) */
+.award-item p {
   margin-left: 25px;
   margin-top: 10px;
   font-size: 12px;
   font-weight: 400;
 }
 
-.ediya-award-year time {
+/* 수상날짜 (time 요소) */
+.award-date {
   color: #5b6aa9;
   font-weight: 700;
   font-size: 11px;
@@ -344,12 +373,10 @@
 /* Mobile UI 적용을 위한 Breakpoint */
 @media all and (max-width: 767px) {
   /* 모바일 이디야 뉴스 관련 콘텐츠 디자인 */
-  .news-tab li {
+  .news-tab [role="none"] {
     height: 48px;
     width: 50%;
   }
-
-  /* 언론 속 이디야 섹션 */
 }
 
 /* Desktop UI 적용을 위한 Breakpoint */
@@ -360,24 +387,23 @@
     margin-top: 70px;
   }
 
-  .news-tab a {
+  .news-tab [role="tab"] {
     width: initial;
     height: initial;
     padding: 0.83333em 2.4em;
   }
-
   /* 데스크탑 뉴스 */
-  .news {
+  .news [role="tabpanel"] {
     max-width: 740px;
   }
 
   /* 데스크탑 언론 속 이디야 검색 폼 */
-  .ediya-media fieldset {
+  .news__media-form fieldset {
     width: 440px;
     margin-left: auto;
   }
 
-  .ediya-media-news .media-thumbnail {
+  .press-thumbnail {
     display: block;
     float: left;
     margin: 5px 10px 0 0;
@@ -385,15 +411,15 @@
   }
 
   /* 데스크탑 수상 내역 */
-  .ediya-award .news-headline,
-  .ediya-award .news-information,
-  .ediya-award-year {
+  .news__award .news-headline,
+  .news__award .news-text,
+  .news__award__year {
     width: 740px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .ediya-award-year:last-child {
+  .news__award__year:last-child {
     padding-bottom: 80px;
   }
 }
