@@ -75,13 +75,14 @@
   line-height: 18px;
   letter-spacing: -0.05em;
 }
+/* ---------------------------- */
+
 /* 스토어 매장위치 지도 섹션 */
 .store__map {
   margin: 20px 0 0 0;
 }
 /* 스토어 매장위치 지도 컨테이너 */
 .iframe-container {
-  background-color: pink;
   position: relative;
   padding-top: 75%;
   margin: 0;
