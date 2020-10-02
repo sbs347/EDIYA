@@ -1,14 +1,14 @@
-;(function newsTableControls() {
-  'use strict'
+(function newsTableControls() {
+  'use strict';
 
   /* 지역 변수 -------------------------------------------------------------------- */
-  
+
   // DOM 객체 참조 변수
-  var table = null
-  var mediaContents = null
+  var table = null;
+  var mediaContents = null;
 
   // 설정 옵션
-  var breakpoint = 768
+  var breakpoint = 768;
   var settingEllipsis = {
     desktop: {
       title: 30,
@@ -18,7 +18,7 @@
       title: 18,
       desc: 32,
     },
-  }
+  };
 
   /* 함수 ----------------------------------------------------------------------- */
 
@@ -27,11 +27,11 @@
    * @function
    */
   function init() {
-    table = document.querySelector('.ediya-media-news')
-    mediaContents = Array.from(table.querySelectorAll('.media-content'))
+    table = document.querySelector('.news__press');
+    mediaContents = Array.from(table.querySelectorAll('.press-article'));
 
-    backupContents()
-    bindEvents()
+    backupContents();
+    bindEvents();
   }
 
   /**
@@ -39,8 +39,8 @@
    * @function
    */
   function bindEvents() {
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    handleResize();
+    window.addEventListener('resize', handleResize);
   }
 
   /**
@@ -49,12 +49,12 @@
    */
   function backupContents() {
     mediaContents.forEach(function(content) {
-      var title = content.querySelector('dt')
-      var desc = content.querySelector('dd')
+      var title = content.querySelector('dt');
+      var desc = content.querySelector('dd');
 
-      title.setAttribute('data-original-text', title.textContent)
-      desc.setAttribute('data-original-text', desc.textContent)
-    })
+      title.setAttribute('data-original-text', title.textContent);
+      desc.setAttribute('data-original-text', desc.textContent);
+    });
   }
 
   /**
@@ -65,8 +65,8 @@
    */
   function restoreContent(title, desc) {
     if (title.getAttribute('data-original-text')) {
-      title.textContent = title.getAttribute('data-original-text')
-      desc.textContent = desc.getAttribute('data-original-text')
+      title.textContent = title.getAttribute('data-original-text');
+      desc.textContent = desc.getAttribute('data-original-text');
     }
   }
 
@@ -75,8 +75,12 @@
    * @function
    */
   function handleResize() {
-    if (window.innerWidth >= breakpoint) { render() }
-    else { render('mobile') }
+    if (window.innerWidth >= breakpoint) {
+      render();
+    }
+    else {
+      render('mobile');
+    }
   }
 
   /**
@@ -86,19 +90,19 @@
    */
   function render(isMobile) {
     mediaContents.forEach(function(content) {
-      var title = content.querySelector('dt')
-      var desc = content.querySelector('dd')
+      var title = content.querySelector('dt');
+      var desc = content.querySelector('dd');
 
       if (isMobile) {
-        renderEllipseText(title, settingEllipsis.mobile.title)
-        renderEllipseText(desc, settingEllipsis.mobile.desc)
+        renderEllipseText(title, settingEllipsis.mobile.title);
+        renderEllipseText(desc, settingEllipsis.mobile.desc);
       }
       else {
-        restoreContent(title, desc)
-        renderEllipseText(title, settingEllipsis.desktop.title)
-        renderEllipseText(desc, settingEllipsis.desktop.desc)
+        restoreContent(title, desc);
+        renderEllipseText(title, settingEllipsis.desktop.title);
+        renderEllipseText(desc, settingEllipsis.desktop.desc);
       }
-    })
+    });
   }
 
   /**
@@ -108,14 +112,14 @@
    * @param {Number} limitCount 제한 개수
    */
   function renderEllipseText(el, limitCount) {
-    var text = el.textContent
+    var text = el.textContent;
 
     if (text.length > limitCount) {
-      var slicedText = text.slice(0, limitCount - 1)
-      el.textContent = slicedText + '...'
+      var slicedText = text.slice(0, limitCount - 1);
+      el.textContent = slicedText + '...';
     }
   }
 
   // DOM 콘텐츠가 준비되면 init() 실행
-  window.addEventListener('DOMContentLoaded', init)
-})()
+  window.addEventListener('DOMContentLoaded', init);
+})();
