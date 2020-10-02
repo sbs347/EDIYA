@@ -68,7 +68,7 @@
 
 /* 로그인 제목 및 단락 디자인 */
 .member-headline,
-.member-information {
+.member-text {
   line-height: 1.5;
   text-align: center;
   margin: 0;
@@ -81,11 +81,11 @@
   margin-bottom: 24px;
 }
 
-.member-information[lang='en'] {
+.member-text[lang='en'] {
   font-size: 1.8rem;
 }
 
-.member-information {
+.member-text {
   font-size: 1.2rem;
 }
 
