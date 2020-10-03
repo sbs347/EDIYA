@@ -44,7 +44,7 @@ JavaScript로 컨트롤하게 되면서 불필요해진 HTML 하드 코딩 마�
 
 음료 리스트 아이템(`.ediya-menu__item`) 하드코딩
 
-> 지속적으로 추가, 수정 가능한 음료 리스트 아이템 관리를 위해 데이터를 분리하기 위함입니다. ([api/beverage.json](../api/beverage.json))
+> 지속적으로 추가, 수정 가능한 음료 리스트 아이템 관리를 위해 데이터를 분리하기 위함입니다. ([api/beverages.json](../api/beverages.json))
 
 <details>
   <summary>백업된 마크업 코드</summary>
