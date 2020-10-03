@@ -107,6 +107,7 @@
 .ediya-notice__article {
   flex-grow: 1;
   padding: 16px 20px 16px 15px;
+  background: #fefefe;
 }
 /* home 이디야 공지사항 내 기사 섹션 내 제목 (h3 요소) */
 .ediya-notice__article-headline {
