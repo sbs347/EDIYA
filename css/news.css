@@ -96,7 +96,7 @@
 }
 
 /* 검색 옵션 선택을 위한 서식 ( 제목/내용 ) */
-.paress-search-container select {
+.press-search-container select {
   user-select: none;
   width: 80px;
   margin-right: 5px;
@@ -106,7 +106,7 @@
 }
 
 /* 검색어 입력 서식 */
-.paress-search-container input[type="search"] {
+.press-search-container input[type="search"] {
   flex-grow: 1;
   border: 0;
   padding: 6px;
