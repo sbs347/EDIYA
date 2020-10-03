@@ -102,6 +102,10 @@
   height: 100%;
 }
 
+.store__search {
+  background: #f5f5f5;
+}
+
 /* Desktop UI 적용을 위한 Breakpoint */
 @media all and (min-width: 768px) {
   /* 데스크탑 스토어 메인 (main 요소) */
@@ -115,6 +119,7 @@
     right: 60px;
     width: 420px;
     z-index: 1;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.35);
   }
   /* 데스크탑 매장 위치 섹션 */
   .store__map {
