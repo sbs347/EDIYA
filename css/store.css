@@ -8,7 +8,14 @@
   flex-flow: row wrap;
   position: relative;
 }
+
 /* 스토어 검색 폼 내 label 요소의 기본 스타일 */
+.store__search {
+  background: #f5f5f5;
+  transform: scale(0);
+  animation: transformNone 0.45s 0.8s cubic-bezier(0.18, 0.89, 0.32, 1.27) forwards;
+}
+
 .store__search label {
   width: 50%;
   background: #f5f5f5;
@@ -102,10 +109,6 @@
   height: 100%;
 }
 
-.store__search {
-  background: #f5f5f5;
-}
-
 /* Desktop UI 적용을 위한 Breakpoint */
 @media all and (min-width: 768px) {
   /* 데스크탑 스토어 메인 (main 요소) */
@@ -124,5 +127,12 @@
   /* 데스크탑 매장 위치 섹션 */
   .store__map {
     margin-top: 0;
+  }
+}
+
+/* 애니메이션 */
+@keyframes transformNone {
+  to {
+    transform: none;
   }
 }
