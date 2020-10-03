@@ -6,6 +6,7 @@
 .store-form-container {
   display: flex;
   flex-flow: row wrap;
+  position: relative;
 }
 /* 스토어 검색 폼 내 label 요소의 기본 스타일 */
 .store__search label {
@@ -35,6 +36,11 @@
 /* 스토어 검색 폼 내 label 요소가 .is--selectd를 가질 경우 인접한 검색 입력서식 보이기 */
 .store__search label.is--selected + input[type="search"] {
   display: block;
+}
+/*  */
+.store__search .button-search {
+  top: 48px;
+  right: 15px;
 }
 /* 스토어 검색 결과 목록 */
 .store-list {
