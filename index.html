@@ -146,12 +146,14 @@
         </button>
         <nav class="app-navigation">
           <h2 class="a11y-hidden">메인 메뉴</h2>
+
           <ul class="reset-list">
-            <!-- 비동기 데이터 바인딩 → 내비게이션 리스트 렌더링 -->
+            <!-- 비동기 데이터 바인딩 → 내비게이션 리스트 렌더링 (아래 템플릿 코드 활용) -->
           </ul>
           <script type="text/template" id="template-navigation-list">
-                <li data-id="{item.id}"><a href="{item.link}">{item.text}</a></li>
-            </script>
+            <li data-id="{item.id}"><a href="{item.link}">{item.text}</a></li>
+          </script>
+
           <button type="button" class="button is-close-menu" title="메뉴 닫기" aria-label="메뉴 닫기">
             <span class="close" aria-hidden="true">×</span>
           </button>
