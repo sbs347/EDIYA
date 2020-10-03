@@ -90,7 +90,7 @@
         break;
       case '#press':
       default:
-        // location.hash = 'press';
+        location.hash = 'press';
         render('.news__press');
     }
   }
