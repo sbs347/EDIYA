@@ -68,6 +68,7 @@
 
 /* home 이디야 추천 메뉴 링크 */
 .ediya-recommend .go-menu {
+  user-select: none;
   display: block;
   width: 91px;
   height: 31px;
@@ -77,6 +78,12 @@
   color: #24388d;
   font-weight: 700;
   font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+.ediya-recommend .go-menu:hover {
+  background: #24388d;
+  color: #ffffff;
 }
 /* ---------------------------- */
 
@@ -107,6 +114,7 @@
 .ediya-notice__article {
   flex-grow: 1;
   padding: 16px 20px 16px 15px;
+  background: #fefefe;
 }
 /* home 이디야 공지사항 내 기사 섹션 내 제목 (h3 요소) */
 .ediya-notice__article-headline {

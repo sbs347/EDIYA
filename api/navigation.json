@@ -6,32 +6,32 @@
   "version": "0.0.1",
   "data": [
     {
-      "id": "navigation-1",
+      "id": "navigation-qao3u",
       "link": "/views/login.html",
       "text": "로그인"
     },
     {
-      "id": "navigation-2",
+      "id": "navigation-men2i",
       "link": "/views/signup.html",
       "text": "회원가입"
     },
     {
-      "id": "navigation-3",
+      "id": "navigation-lqk1t",
       "link": "/views/ui-design.html",
       "text": "이디야 디자인"
     },
     {
-      "id": "navigation-4",
+      "id": "navigation-men3o",
       "link": "/views/beverage.html",
       "text": "이디야 음료"
     },
     {
-      "id": "navigation-5",
+      "id": "navigation-mqn1j",
       "link": "/views/news.html",
       "text": "이디야 뉴스"
     },
     {
-      "id": "navigation-6",
+      "id": "navigation-kwn3r",
       "link": "/views/store.html",
       "text": "매장 찾기"
     }

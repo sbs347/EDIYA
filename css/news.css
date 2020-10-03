@@ -49,7 +49,7 @@
 .news [role="tabpanel"] {
   display: none;
   width: 100%;
-  margin: 0 auto 40px;
+  margin: 0 auto;
   padding: 40px 20px;
 }
 
@@ -138,6 +138,10 @@
   background: url(../images/icon-search.svg) no-repeat 0 0 / 16px 16px;
 }
 
+.news__press-container {
+  /* 뉴스 검색 폼, 테이블, 페이지네이션 */
+}
+
 /* 언론속 이디야 뉴스 데이터 테이블 (table, tr, th, td 요소) */
 .news__press-table {
   width: 100%;
@@ -146,6 +150,14 @@
   border-collapse: collapse;
   border-spacing: 0;
   color: #24388d;
+}
+
+.news__press-table col:nth-child(1) {
+  width: 5%;
+}
+
+.news__press-table col:nth-child(2) {
+  width: 55.5%;
 }
 
 .news__press-table th,
@@ -162,13 +174,28 @@
   vertical-align: baseline;
 }
 
+.news__press-table td:first-child {
+  text-align: right;
+  font-size: 12px;
+}
+
+.press-link {
+  display: block;
+}
+
 /* 언론속 이디야 뉴스 데이터 테이블 내 썸네일 이미지 (figure 요소) */
 .press-thumbnail {
   display: none;
 }
 
+.ediya-media-news .media-thumbnail {
+  display: none;
+}
+
 .press-thumbnail img {
   display: block;
+  width: 60px;
+  height: 60px;
 }
 
 /* 언론속 이디야 뉴스 데이터 테이블 뉴스 텍스트 (dl 요소) */
@@ -179,6 +206,7 @@
 
 .press-article dt {
   color: #24388d;
+  font-size: 15px;
 }
 
 .press-article dd {
@@ -188,14 +216,18 @@
   font-size: 13px;
 }
 
+.press-date {
+  font-size: 12px;
+}
+
 /* 페이징 (재활용 가능성을 위해 div.pagination-container로 그룹) */
 .pagination-container {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: center;
   padding: 18px 16px;
-  width: 345px;
-  margin: 0 auto;
+  margin: 12px auto 0;
 }
 
 /* 페이징 영역의 이전/다음 버튼 (SVG 이미지로 마크업) */
@@ -216,7 +248,8 @@
 }
 
 .pagination-container .button-prev path,
-.pagination-container .button-next path {
+.pagination-container .button-next path,
+.pagination-container .button[disabled] svg path {
   fill: #919bc6;
 }
 
@@ -227,11 +260,12 @@
 
 /* 페이징 번호 영역 (ul 요소) */
 .pagination {
-  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   margin-top: -3px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .pagination li {
@@ -396,15 +430,20 @@ details[open] .award-subject::after {
     height: initial;
     padding: 0.83333em 2.4em;
   }
+
   /* 데스크탑 뉴스 */
   .news [role="tabpanel"] {
     max-width: 740px;
   }
 
   /* 데스크탑 언론 속 이디야 검색 폼 */
-  .news__media-form fieldset {
-    width: 440px;
+  .news__press-form fieldset {
+    max-width: 440px;
     margin-left: auto;
+  }
+
+  .news__press-table col:nth-child(2) {
+    width: 78.6%;
   }
 
   .press-thumbnail {

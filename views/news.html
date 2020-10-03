@@ -48,15 +48,21 @@
     <!-- 스크립트: 즉시 실행 -->
     <script src="../js/utils/dom.js"></script>
     <script src="../js/utils/mixins.js"></script>
+    <script src="../js/utils/isDevelopmentMode.js"></script>
+    <script src="../js/utils/ellipsisText.js"></script>
     <script src="../js/polyfills/Array.from.js"></script>
 
     <script src="../js/components/navigation/Navigation.js"></script>
     <script src="../js/components/navigation/NavigationItem.js"></script>
+    <script src="../js/components/dataTable/SearchForm.js"></script>
+    <script src="../js/components/dataTable/Pagination.js"></script>
+    <script src="../js/components/dataTable/DataTable.js"></script>
+    <script src="../js/components/goToTop/GoToTop.js"></script>
 
     <!-- 스크립트: DOM 콘텐츠 준비 이후 실행 -->
     <script src="../js/navigationControl.js" defer></script>
     <script src="../js/tabMenuControl.js" defer></script>
-    <script src="../js/newsTableControl.js" defer></script>
+    <script src="../js/newsControl.js" defer></script>
     <script src="../js/goToTopControl.js" defer></script>
   </head>
 
@@ -106,128 +112,7 @@
       <section class="news__press" role="tabpanel" aria-labelledby="newsTab02" id="newsPanel02">
         <h2 class="news-headline" id="ediyaNewsSection02">언론 속 이디야</h2>
         <p class="news-text">이디야의 소식을 전해드립니다.</p>
-
-        <form class="news__press-form" action="#" method="GET">
-          <fieldset>
-            <legend>언론 속 이디야 검색</legend>
-            <div class="press-search-container">
-              <select name="newSelect" id="newsSelect" aria-label="검색 범위 선택">
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-              </select>
-              <div class="keyword-container">
-                <input type="search" name="newsKeyword" id="newsKeyword" class="keyword" placeholder="검색어 입력(예: 이디야)" aria-required="true" aria-label="검색어" />
-              </div>
-              <button type="submit" class="button-search" aria-label="검색">
-                <span class="icon-search"></span>
-              </button>
-            </div>
-          </fieldset>
-        </form>
-
-        <table class="news__press-table">
-          <caption class="a11y-hidden">이디야 소식 안내</caption>
-          <thead>
-            <tr>
-              <th scope="col">순서</th>
-              <th scope="col">내용</th>
-              <th scope="col">날짜</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>999</td>
-              <td>
-                <figure class="press-thumbnail">
-                  <img src="../images/news-thumbnail.jpg" alt="" />
-                </figure>
-                <dl class="press-article">
-                  <dt>[MTN] 이디야커피, 조각 케이크 2종 출시…디저트 강화</dt>
-                  <dd>이디야커피가 조각 케이크 신제품 2종과 기존 조각 케이크 3종을 리뉴얼해 출시하며 디저트 케이크 라인업을 강화</dd>
-                </dl>
-              </td>
-              <td><time class="press-date" datetime="2020-09-08T17:30:45">2020.09.08</time></td>
-            </tr>
-            <tr>
-              <td>998</td>
-              <td>
-                <figure class="press-thumbnail">
-                  <img src="../images/ediya-table-thumb.jpg" alt="" />
-                </figure>
-                <dl class="press-article">
-                  <dt>[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</dt>
-                  <dd>이디야커피는 가맹점을 위해 상생정책을 시행한 노력을 인정받아 25일 공정거래조정원이 인증하는 `착한 프랜차이즈`에 ...</dd>
-                </dl>
-              </td>
-              <td><time class="press-date" datetime="2020-09-08T17:30:45">2020.09.08</time></td>
-            </tr>
-            <tr>
-              <td>997</td>
-              <td>
-                <figure class="press-thumbnail">
-                  <img src="../images/ediya-table-thumb.jpg" alt="" />
-                </figure>
-                <dl class="press-article">
-                  <dt>[MTN] 이디야커피, 조각 케이크 2종 출시…디저트 강화</dt>
-                  <dd>이디야커피가 조각 케이크 신제품 2종과 기존 조각 케이크 3종을 리뉴얼해 출시하며 디저트 케이크 라인업을 강화</dd>
-                </dl>
-              </td>
-              <td><time class="press-date" datetime="2020-09-08T17:30:45">2020.09.08</time></td>
-            </tr>
-            <tr>
-              <td>996</td>
-              <td>
-                <figure class="press-thumbnail">
-                  <img src="../images/ediya-table-thumb.jpg" alt="" />
-                </figure>
-                <dl class="press-article">
-                  <dt>[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</dt>
-                  <dd>이디야커피는 가맹점을 위해 상생정책을 시행한 노력을 인정받아 25일 공정거래조정원이 인증하는 `착한 프랜차이즈`에 ...</dd>
-                </dl>
-              </td>
-              <td><time class="press-date" datetime="2020-09-08T17:30:45">2020.09.08</time></td>
-            </tr>
-            <tr>
-              <td>995</td>
-              <td>
-                <figure class="press-thumbnail">
-                  <img src="../images/ediya-table-thumb.jpg" alt="" />
-                </figure>
-                <dl class="press-article">
-                  <dt>[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</dt>
-                  <dd>이디야커피는 가맹점을 위해 상생정책을 시행한 노력을 인정받아 25일 공정거래조정원이 인증하는 `착한 프랜차이즈`에 ...</dd>
-                </dl>
-              </td>
-              <td><time class="press-date" datetime="2020-09-08T17:30:45">2020.09.08</time></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="pagination-container">
-          <button type="button" class="button button-prev" aria-label="이전" disabled>
-            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M21.8865 10.981C21.9625 11.479 22.0005 11.99 22.0005 12.5C22.0005 18.014 17.5145 22.5 12.0005 22.5C6.48649 22.5 2.00049 18.014 2.00049 12.5C2.00049 6.986 6.48649 2.5 12.0005 2.5C15.1285 2.5 18.0175 3.923 19.9275 6.402C20.1725 6.72 20.1125 7.178 19.7955 7.422C19.4775 7.668 19.0215 7.607 18.7745 7.29C17.1435 5.169 14.6735 3.954 12.0005 3.954C7.28849 3.954 3.45449 7.787 3.45449 12.5C3.45449 17.212 7.28849 21.045 12.0005 21.045C16.7125 21.045 20.5465 17.212 20.5465 12.5C20.5465 12.063 20.5135 11.626 20.4485 11.201C20.3885 10.805 20.6605 10.434 21.0575 10.373C21.4565 10.307 21.8255 10.584 21.8865 10.981ZM9.20629 12.4992C9.20629 12.3002 9.28529 12.1092 9.42729 11.9682L12.9133 8.4972C13.2073 8.2042 13.6823 8.2052 13.9743 8.4992C14.2663 8.7932 14.2663 9.2672 13.9723 9.5592L11.0193 12.4992L13.9723 15.4392C14.2663 15.7312 14.2663 16.2062 13.9743 16.5002C13.6823 16.7932 13.2073 16.7942 12.9133 16.5022L9.42729 13.0302C9.28529 12.8902 9.20629 12.6992 9.20629 12.4992Z" fill="#0F0F0F" />
-            </svg>
-          </button>
-
-          <ul class="pagination reset-list">
-            <li><a href="#page-1" class="on _pagerNo" data-page-no="1" aria-current="page">1</a></li>
-            <li><a href="#page-2" class=" _pagerNo" data-page-no="2">2</a></li>
-            <li><a href="#page-3" class=" _pagerNo" data-page-no="3">3</a></li>
-            <li><a href="#page-4" class=" _pagerNo" data-page-no="4">4</a></li>
-            <li><a href="#page-5" class=" _pagerNo" data-page-no="5">5</a></li>
-            <li><a href="#page-6" class=" _pagerNo" data-page-no="6">6</a></li>
-            <li><a href="#page-7" class=" _pagerNo" data-page-no="7">7</a></li>
-            <li><a href="#page-8" class=" _pagerNo" data-page-no="8">8</a></li>
-            <li><a href="#page-9" class=" _pagerNo" data-page-no="9">9</a></li>
-            <li><a href="#page-10" class=" _pagerNo" data-page-no="10">10</a></li>
-          </ul>
-
-          <button type="button" class="button button-next" aria-label="다음">
-            <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4805 22.386C10.9785 22.462 11.4895 22.5 11.9995 22.5C17.5135 22.5 21.9995 18.014 21.9995 12.5C21.9995 6.986 17.5135 2.5 11.9995 2.5C6.48551 2.5 1.99951 6.986 1.99951 12.5C1.99951 15.628 3.42251 18.517 5.90151 20.427C6.21951 20.672 6.67751 20.612 6.92151 20.295C7.16751 19.977 7.10651 19.521 6.78951 19.274C4.66851 17.643 3.45351 15.173 3.45351 12.5C3.45351 7.788 7.28651 3.954 11.9995 3.954C16.7115 3.954 20.5445 7.788 20.5445 12.5C20.5445 17.212 16.7115 21.046 11.9995 21.046C11.5625 21.046 11.1255 21.013 10.7005 20.948C10.3045 20.888 9.93351 21.16 9.87251 21.557C9.80651 21.956 10.0835 22.325 10.4805 22.386ZM14.7937 12.4992C14.7937 12.3002 14.7147 12.1092 14.5727 11.9682L11.0867 8.49719C10.7927 8.20419 10.3177 8.20519 10.0257 8.49919C9.73369 8.79319 9.73369 9.26719 10.0277 9.55919L12.9807 12.4992L10.0277 15.4392C9.73369 15.7312 9.73369 16.2062 10.0257 16.5002C10.3177 16.7932 10.7927 16.7942 11.0867 16.5022L14.5727 13.0302C14.7147 12.8902 14.7937 12.6992 14.7937 12.4992Z" fill="#0F0F0F" />
-            </svg>
-        </div>
+        <!-- newsControl.js에 의해 동적으로 데이터를 불러와 화면에 렌더링  -->
       </section>
       <section class="news__video" role="tabpanel" aria-labelledby="newsTab03" id="newsPanel03">
         <h2 class="news-headline" id="ediyaNewsSection03">홍보영상</h2>
@@ -241,7 +126,7 @@
             <h3 class="award-headline">2019<span class="a11y-hidden">년</span></h3>
             <ul class="award-list reset-list">
               <li class="award-item">
-                <details>
+                <details open>
                   <summary class="award-subject"><b>11</b><span class="a11y-hidden">월</span>고용 노동부 주관, 일·생활 균형 우수 기업 선정</summary>
                   <figure class="award-thumbnail">
                     <img src="../images/thumbnail-award.jpg" alt="" />
@@ -360,13 +245,6 @@
       </div>
     </footer>
 
-    <button type="button" class="button-goToTop">
-      <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-        <title>페이지 상단 이동</title>
-        <circle cx="25" cy="25" r="25" fill="#C8CDE2" />
-        <path d="M25 38C25.6072 38 26.1 37.5147 26.1 36.9167V15.3047L34.1037 23.5803C34.3198 23.804 34.6097 23.9167 34.9001 23.9167C35.1723 23.9167 35.4457 23.8175 35.6585 23.6177C36.0985 23.2049 36.1156 22.5192 35.6965 22.0858L26.556 12.6348C26.1402 12.2259 25.588 12 25 12C24.412 12 23.8598 12.2259 23.4259 12.6538L14.3035 22.0864C13.8844 22.5197 13.9015 23.2055 14.3415 23.6182C14.7815 24.031 15.4783 24.0142 15.8969 23.5808L23.9 15.2706V36.9167C23.9 37.5147 24.3928 38 25 38Z" fill="#0F0F0F" />
-      </svg>
-    </button>
   </body>
 
 </html>

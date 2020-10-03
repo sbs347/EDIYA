@@ -1,12 +1,12 @@
 (function beverageControl() {
   'use strict';
 
+  var apiAddress = '/api/beverages.json';
   var ediyaMenuList = null;
 
   function init() {
     ediyaMenuList = document.querySelector('.ediya-menu');
-
-    fetchData('/EDIYA/api/beverages.json');
+    fetchData((isDevelopmentMode() ? '' : '/EDIYA') + apiAddress);
   }
 
   function fetchData(api) {
