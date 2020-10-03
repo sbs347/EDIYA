@@ -87,8 +87,6 @@
           targetTop = appHeaderContainer.getBoundingClientRect().bottom;
           // 이벤트 핸들링(핸들러 연결)
           bindEvents();
-
-          window.setTimeout(simulationScrolling, 1000)
         }
 
         /**
@@ -129,17 +127,6 @@
         function handleGoToTop() {
           // 목표 위치까지 스크롤링(애니메이션 설정 가능)
           appHeaderContainer.scrollIntoView({ behavior: STATE.scrollMoving });
-        }
-
-        /**
-         * 스크롤링 시뮬레이션
-         * @function
-         */
-        function simulationScrolling() {
-          if (!document.body.style.height) {
-            document.body.style.height = '130vh';
-            document.querySelector('.app-footer').scrollIntoView({ behavior: STATE.scrollMoving })
-          }
         }
 
         // 문서 콘텐츠 로드에 성공할 경우, GoToTop 버튼 인터랙션 초기화
@@ -185,7 +172,7 @@
               <img src="./images/choco-rice.png" alt="초코 묻고 더블 쉐이크와 밥대신 라이스 쉐이크- Choco Shake and Rice Shake" />
             </li>
           </ul>
-          <a href="#" class="go-menu">메뉴보기</a>
+          <a href="./views/beverage.html" class="go-menu">메뉴보기</a>
         </section>
       </div>
       <div class="ediya-inform-container">
@@ -233,7 +220,7 @@
               <time class="ediya-news-date" datetime="2020-08-27T13:17:54">2020.08.27</time>
             </li>
           </ul>
-          <a href="#" class="icon-more">
+          <a href="./views/news.html" class="icon-more">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <title>이디야 뉴스 더보기</title>
               <rect x="0.5" y="0.5" width="15" height="15" stroke="#F5F5F5" />
