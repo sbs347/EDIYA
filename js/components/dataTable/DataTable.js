@@ -148,7 +148,7 @@
     this.options = DataTableClass.mixins(DataTableClass.defaultOptions, options);
 
     this.setState({
-      data: this.options.data,
+      data: this.options.data.reverse(),
       filteredData: [],
       currentPage: this.options.current,
       displayItemCount: this.options.displayItemCount,
@@ -318,14 +318,15 @@
   }
 
   function renderTableItems(data) {
-    var totalItemCount = data.length;
-
     var tableItemsCode = data.map(function(item, index) {
       var template = templateTableItem;
 
       template = template.replace(/{item.no}/g, item.no);
       template = template.replace(/{item.link}/g, item.link);
-      template = template.replace(/{item.image}/g, item.image);
+      template = template.replace(
+        /{item.image}/g,
+        item.image || (isDevelopmentMode() ? '' : '/EDIYA') + '/images/ediya-table-thumb.jpg'
+      );
       template = template.replace(/{item.title}/g, item.title);
       template = template.replace(/{item.content}/g, item.content);
       template = template.replace(/{item.publishedAt}/g, item.publishedAt);
@@ -352,7 +353,8 @@
     data = data || this.options.data;
 
     var displayItemCount = this.options.displayItemCount;
-    var startIndex = current - 1 + (current > 1 ? displayItemCount : 0);
+    var currentIndex = current - 1;
+    var startIndex = currentIndex > 0 ? displayItemCount * currentIndex : 0;
     var endIndex = startIndex + displayItemCount - 1;
     endIndex = endIndex >= data.length ? data.length - 1 : endIndex;
 
