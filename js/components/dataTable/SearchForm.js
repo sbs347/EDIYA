@@ -10,7 +10,9 @@
         <select name="newSelect" id="newsSelect" aria-label="{selectLabel}">\
           {selectOptions}\
         </select>\
-        <input type="search" name="newsKeyword" id="newsKeyword" class="keyword" placeholder="{placeholder}" aria-required="true" aria-label="{inputLabel}" />\
+        <div class="keyword-container">\
+          <input type="search" name="newsKeyword" id="newsKeyword" class="keyword" placeholder="{placeholder}" aria-required="true" aria-label="{inputLabel}" />\
+        </div>\
         <button type="submit" class="button-search" aria-label="{buttonLabel}"><span class="icon-search"></span></button>\
       </div>\
     </fieldset>\
@@ -35,14 +37,19 @@
     selectLabel: '검색 범위 선택',
     inputLabel: '검색어',
     buttonLabel: '검색',
-    selectOptions: [ { value: 'title', text: '제목' } ],
+    selectOptions: [
+      { value: 'title', text: '제목' },
+    ],
     placeholder: '검색어 입력(예: 이디야)',
   };
 
   /* 인스턴스 멤버 ------------------------------------------------------------------ */
 
   function init(options) {
-    this.options = SearchFormClass.mixins(SearchFormClass.defaultOptions, options);
+    this.options = SearchFormClass.mixins(
+      SearchFormClass.defaultOptions,
+      options
+    );
   }
 
   function render() {

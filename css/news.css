@@ -108,12 +108,15 @@
 /* 검색어 입력 서식 */
 .press-search-container .keyword-container {
   flex-grow: 1;
+  height: 26px;
+  /* border-bottom: 5px solid red; */
+  border-bottom: 1px solid #0f0f0f;
 }
 .press-search-container input[type="search"] {
-  width: 100%;
+  width: calc(100% - 20px);
   border: 0;
   padding: 6px;
-  border-bottom: 0.5px solid #0f0f0f;
+  height: 25px;
 }
 
 /* 검색 버튼 - 배경이미지로 처리하는 방식 */
