@@ -4,7 +4,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(10px);
+    transform: translateY(5px);
   }
 }
 
@@ -15,7 +15,6 @@
 }
 /* home 이디야 추천 메뉴 섹션 */
 .ediya-recommend {
-  position: relative;
   text-align: center;
   color: #14182c;
   background-color: #bae5fb;
@@ -49,19 +48,22 @@
   margin: 0 0 15px 0;
 }
 /* home 이디야 추천 음료 배치 및 애니메이션 */
+.ediya-recommend-list {
+  position: relative;
+}
+
 .ediya-recommend-beverage {
   position: absolute;
-  left: 50%;
 }
 /* home 이디야 추천 쉐이크 음료 이미지 */
 .ediya-recommend-beverage img {
   width: 100%;
   height: 100%;
-  animation: bounce 350ms ease-in-out infinite alternate;
+  animation: bounce 600ms ease-in-out infinite alternate;
 }
 /* home 이디야 추천 쉐이크 음료 이미지 (두 이미지 간의 delay를 지정) */
 .ediya-recommend-beverage:last-child img {
-  animation-delay: 200ms;
+  animation-delay: 400ms;
 }
 
 /* home 이디야 추천 메뉴 링크 */
@@ -189,6 +191,9 @@
 /* Mobile UI 적용을 위한 Breakpoint */
 @media all and (max-width: 767px) {
   /* home 이디야 추천 음료 배치 */
+  .ediya-recommend-list {
+    margin: 0 20px;
+  }
   /* 치즈가 쿠키했대 쉐이크 */
   .ediya-recommend-beverage:first-child {
     display: none;
@@ -197,8 +202,9 @@
   .ediya-recommend-beverage:last-child {
     width: 225px;
     height: 161px;
-    top: 207px;
-    transform: translateX(-50%);
+    top: 30px;
+    left: 50%;
+    transform: translateX(-60%);
   }
 }
 
@@ -228,15 +234,23 @@
     margin-bottom: 30px;
   }
   /* home 이디야 추천 음료 배치 */
+  .ediya-recommend-list {
+    min-width: 740px;
+    max-width: 740px;
+    margin: 0 auto;
+    position: relative;
+  }
   /* 치즈가 쿠키했대 쉐이크 */
   .ediya-recommend-beverage:first-child {
-    top: 50px;
-    transform: translateX(-420px);
+    left: 0;
+    top: 50%;
+    transform: translateY(-25%);
   }
   /* 초코 묻고 더블 쉐이키와 밥대신 라이스 쉐이크 */
   .ediya-recommend-beverage:last-child {
-    top: 130px;
-    transform: translateX(85px);
+    right: 0;
+    top: 50%;
+    transform: translate(180px, -20%);
   }
 
   /* home 이디야 추천 메뉴 링크 */
