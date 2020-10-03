@@ -435,7 +435,7 @@ details[open] .award-subject::after {
 
   /* 데스크탑 언론 속 이디야 검색 폼 */
   .news__press-form fieldset {
-    width: 440px;
+    max-width: 440px;
     margin-left: auto;
   }
 
