@@ -106,8 +106,11 @@
 }
 
 /* 검색어 입력 서식 */
-.press-search-container input[type="search"] {
+.press-search-container .keyword-container {
   flex-grow: 1;
+}
+.press-search-container input[type="search"] {
+  width: 100%;
   border: 0;
   padding: 6px;
   border-bottom: 0.5px solid #0f0f0f;
