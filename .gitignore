@@ -1,5 +1,8 @@
 # 사용자
 svgSpritesControl.js
+.cache
+dist
+build
 
 # Logs
 logs

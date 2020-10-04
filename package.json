@@ -1,0 +1,18 @@
+{
+  "name": "learn-ui--ediya-site",
+  "version": "1.0.0",
+  "description": "**[이듬(E.UID)](https://euid.dev) 블렌디드 러닝, 학습용(디자인 → 개발)** 으로 제작된 [이디야 커피 브랜드 사이트](https://seulbinim.github.io/EDIYA/)입니다.",
+  "scripts": {
+    "clean": "rm -rf .cache dist build",
+    "serve": "parcel src/*.html",
+    "build": "npm run clean && npm run build:building && npm run build:test",
+    "build:building": "parcel build src/*.html --out-dir build --no-source-maps --no-content-hash --experimental-scope-hoisting",
+    "build:test": "live-server build"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
