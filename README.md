@@ -2,9 +2,9 @@
 
 **[이듬(E.UID)](https://euid.dev) 블렌디드 러닝, 학습용(디자인 → 개발)** 으로 제작된 [이디야 커피 브랜드 사이트](https://seulbinim.github.io/EDIYA/)입니다.
 
-![](./_/cover.jpg)
+![](./_ASSETS_/cover.jpg)
 
-![](./_/rwd-ui-ediya.jpg)
+![](./_ASSETS_/rwd-ui-ediya.jpg)
 
 <br>
 
@@ -21,19 +21,19 @@
 
 > Mobile UI
 
-![](./_/design-using-figma-1.jpg)
+![](./_ASSETS_/design-using-figma-1.jpg)
 
 > Desktop UI
 
-![](./_/design-using-figma-2.jpg)
+![](./_ASSETS_/design-using-figma-2.jpg)
 
 > Design System
 
-![](./_/design-using-figma-3.jpg)
+![](./_ASSETS_/design-using-figma-3.jpg)
 
 > Version History
 
-![](./_/design-using-figma-4.jpg)
+![](./_ASSETS_/design-using-figma-4.jpg)
 
 <br>
 
@@ -52,16 +52,16 @@
 
 > Semantic Markup (HTML5 + WAI-ARIA)
 
-![](./_/develop-using-vscode-1.jpg)
+![](./_ASSETS_/develop-using-vscode-1.jpg)
 
 > Responsive Styling (CSS3 + RWD)
 
-![](./_/develop-using-vscode-2.jpg)
+![](./_ASSETS_/develop-using-vscode-2.jpg)
 
 > Interaction Design (Reusable Components)
 
-![](./_/develop-using-vscode-3.jpg)
+![](./_ASSETS_/develop-using-vscode-3.jpg)
 
 > Version Control System (Git + GitHub)
 
-![](./_/develop-using-vscode-4.jpg)
+![](./_ASSETS_/develop-using-vscode-4.jpg)
