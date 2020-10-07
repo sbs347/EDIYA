@@ -1,128 +1,81 @@
-import FORM_STATE_CLASSES from './formConstant';
-import mixins from '../../utils/mixins';
-
-/* 생성자 ---------------------------------------------------------------------- */
+import Input from './Input';
 
 /**
-   * 패스워드 표시 버튼 컴포넌트
-   * @constructor
-   * @param {HTMLElmenet} elNode HTML 요소
-   * @example
-   * var passwordDisplayNode = document.querySelector('.member-password .button-password')
-   * var passwordDisplayButtonComponent = new PasswordDisplayButton(passwordDisplayNode).init()
-   */
-function PasswordDisplayButtonClass(elNode) {
-  if (elNode.nodeType !== 1) {
-    throw Error('생성자에 전달되어야 하는 첫번째 인자는 HTML 요소 객체여야 합니다.');
+ * 패스워드 표시 버튼 컴포넌트
+ * @class
+ * @extends Input
+ * @param {HTMLElmenet} domNode HTML 요소
+ * @example
+ * const passwordDisplayNode = document.querySelector('.member-password .button-password')
+ * const passwordDisplayButtonComponent = new PasswordDisplayButton(passwordDisplayNode).init()
+ */
+class PasswordDisplayButton extends Input {
+  /* 생성자 ---------------------------------------------------------------------- */
+
+  constructor(domNode) {
+    super(domNode);
+
+    // 컴포넌트 옵션
+    this.options = {};
+
+    // 컴포넌트 상태 업데이트
+    this.setState({ visible: false });
   }
 
-  // 컴포넌트 객체 참조
-  this.component = elNode;
-  // 커스텀 이벤트 객체
-  this.events = {};
-  // 버튼 객체 상태
-  // normal, focus, hover, click
-  this.state = {
-    visible: false,
-    // 현재 상태: normal, hover, focus
-    current: 'normal',
-  };
-}
+  /* 인스턴스 멤버 ------------------------------------------------------------------ */
+  init(options) {
+    const { mixins } = PasswordDisplayButton;
 
-/* 클래스 멤버 ------------------------------------------------------------------- */
+    // 수퍼 클래스인 Input 컴포넌트의 defaultOptions 속성
+    const { defaultOptions: superDefaultOptions } = super.constructor;
 
-/**
-   * @memberof PasswordDisplayButtonClass
-   * @static
-   */
+    // 옵션 설정(객체 합성)
+    this.options = mixins(superDefaultOptions, options);
 
-PasswordDisplayButtonClass.mixins = mixins;
-PasswordDisplayButtonClass.STATES = FORM_STATE_CLASSES;
+    // 컴포넌트 옵션 속성 추출
+    const { on: userCustomEvents } = this.options;
 
-PasswordDisplayButtonClass.defaultOptions = {
-  on: {},
-  debug: false,
-};
+    // 사용자 정의 옵션 설정
+    // 수퍼 클래스인 Input 컴포넌트의 bindUserCustomEvents 메서드 실행
+    super.bindUserCustomEvents(userCustomEvents);
 
-/* 인스턴스 멤버 ------------------------------------------------------------------ */
+    return this;
+  }
 
-/**
-   * @memberof PasswordDisplayButtonClass.prototype
-   * @instance
-   */
+  // 오버라이딩(Overriding)
+  // 수퍼 클래스의 메서드를 상속하여 서브 클래스에서 동일한 메서드 이름으로 활용
+  _bindEvents() {
+    // 수퍼 클래스 Input의 _bindEvents 메서드 실행
+    super._bindEvents();
 
-function init(options) {
-  options = PasswordDisplayButtonClass.mixins(PasswordDisplayButtonClass.defaultOptions, options);
+    const { on } = PasswordDisplayButton;
+    on(this.component, 'click', this.handleToggleVisibleState.bind(this));
+  }
 
-  this.events = options.on;
-  this.debugMode = options.debug;
+  updateLabel(newLabel) {
+    const { attr } = PasswordDisplayButton;
+    attr(this.component, 'aria-label', newLabel);
+  }
 
-  for (var eventType in this.events) {
-    if (this.events.hasOwnProperty(eventType)) {
-      var eventHandler = this.events[eventType];
-      this.component.addEventListener(eventType, eventHandler.bind(this, this.state));
+  handleToggleVisibleState() {
+    if (this.state.pure) {
+      this.setState({
+        pure: false,
+        visible: this.state.visible,
+        current: 'click',
+      });
     }
+    else {
+      // 상태 변경
+      this.setState({
+        visible: !this.state.visible,
+        current: 'click',
+      });
+    }
+
+    /* @debug */
+    this.options.debug && console.log(this.component, this.state);
   }
-
-  this.bindEvents();
-
-  return this;
 }
 
-function setState(newValue) {
-  this.state = PasswordDisplayButtonClass.mixins(this.state, newValue);
-}
-
-function updateLabel(newLabel) {
-  this.component.setAttribute('aria-label', newLabel);
-}
-
-function bindEvents() {
-  var _this = this;
-  var component = this.component;
-
-  component.addEventListener('click', this.handleToggleVisibleState.bind(this));
-
-  component.addEventListener('mouseenter', function() {
-    _this.setState({ current: 'hover' });
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  component.addEventListener('mouseleave', function() {
-    _this.setState({ current: 'normal' });
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  component.addEventListener('focus', function() {
-    _this.setState({ current: 'focus' });
-    component.classList.add(PasswordDisplayButtonClass.STATES.focus);
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  component.addEventListener('blur', function() {
-    _this.setState({ current: 'normal' });
-    component.classList.remove(PasswordDisplayButtonClass.STATES.focus);
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-}
-
-function handleToggleVisibleState() {
-  // 상태 변경
-  this.setState({
-    visible: !this.state.visible,
-  });
-  this.setState({ current: 'click' });
-  /* @debug */
-  this.debugMode && console.log(this.component, this.state.current);
-}
-
-Object.defineProperties(PasswordDisplayButtonClass.prototype, {
-  init: { value: init },
-  setState: { value: setState },
-  updateLabel: { value: updateLabel },
-  bindEvents: { value: bindEvents },
-  handleToggleVisibleState: { value: handleToggleVisibleState },
-});
-
-export default PasswordDisplayButtonClass;
+export default PasswordDisplayButton;

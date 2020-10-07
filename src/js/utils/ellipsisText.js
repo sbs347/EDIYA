@@ -1,6 +1,4 @@
-export default function ellipsisText(text, limitCount) {
-  if (text.length > limitCount) {
-    return text.slice(0, limitCount - 1) + '...';
-  }
-  return text;
-}
+const ellipsisText = (text, limitCount) =>
+  text.length > limitCount ? `${text.slice(0, limitCount - 1)}...` : text;
+
+export default ellipsisText;

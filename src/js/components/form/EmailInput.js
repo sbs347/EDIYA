@@ -1,169 +1,91 @@
-import FORM_STATE_CLASSES from './formConstant';
-import mixins from '../../utils/mixins';
-
-/* 생성자 ---------------------------------------------------------------------- */
+import Input from './Input';
 
 /**
-   * 이메일 인풋 컴포넌트
-   * @constructor
-   * @param {HTMLElmenet} elNode HTML 요소
-   * @example
-   * var emailInputNode = document.querySelector('.member-id')
-   * var emailInputComponent = new EmailInput(emailInputNode).init({ placeholderText: '야무@이듬.run' })
-   */
-function EmailInputClass(elNode) {
-  if (!elNode || elNode.nodeType !== 1) {
-    throw Error('생성자에 전달되어야 하는 첫번째 인자는 HTML 요소 객체여야 합니다.');
+ * 이메일 인풋 컴포넌트
+ * @class
+ * @extends Input
+ * @param {HTMLElmenet} domNode HTML 요소
+ * @example
+ * const emailInputNode = document.querySelector('.member-id')
+ * const emailInputComponent = new EmailInput(emailInputNode).init({ placeholderText: '야무@이듬.run' })
+ */
+class EmailInput extends Input {
+  /* 생성자 ---------------------------------------------------------------------- */
+
+  constructor(domNode) {
+    // 수퍼 클래스 Input 컴포넌트 실행
+    // super 키워드는 부모 오브젝트의 함수를 호출할 때 사용됩니다.
+    // super.prop 와 super[expr] 표현식은 클래스와 객체리터럴의 어떠한 메서드 정의 방법에서도 유효합니다.
+    super(domNode);
+
+    const { getNode } = EmailInput;
+
+    // 레이블 객체 참조
+    this.labelNode = getNode('label', this.component);
   }
 
-  // 컴포넌트 객체 참조
-  this.component = elNode;
-  // 레이블 객체 참조
-  this.label = this.component.querySelector('label');
-  // 인풋 객체 참조
-  this.input = this.component.querySelector('input');
-  // 커스텀 이벤트 객체
-  this.events = {};
-  // 버튼 객체 상태
-  this.state = {
-    // 순수 입력 상태
-    pure: true,
-    // 유효 성태
-    valid: false,
-    // 현재 상태: normal, hover, focus, valid, invalid
-    current: 'normal',
+  /* 클래스 멤버 ------------------------------------------------------------------- */
+
+  static isValidEmailFormat(input) {
+    const reg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
+
+    return reg.test(input.value);
+  }
+
+  static defaultOptions = {
+    placeholderText: '야무@euid.dev',
   };
-}
 
-/* 클래스 멤버 ------------------------------------------------------------------- */
+  /* 인스턴스 멤버 ------------------------------------------------------------------ */
 
-/**
-   * @memberof EmailInputClass
-   * @static
-   */
-EmailInputClass.STATES = FORM_STATE_CLASSES;
+  init(options) {
+    const { mixins, defaultOptions } = EmailInput;
 
-EmailInputClass.isValidEmailFormat = function(input) {
-  const reg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
-  return reg.test(input.value);
-};
+    // 수퍼 클래스인 Input 컴포넌트의 defaultOptions 속성
+    const { defaultOptions: superDefaultOptions } = super.constructor;
 
-EmailInputClass.mixins = mixins;
+    // 옵션 설정(객체 합성)
+    this.options = mixins(superDefaultOptions, defaultOptions, options);
 
-EmailInputClass.defaultOptions = {
-  placeholderText: '야무@euid.dev',
-  on: {},
-  debug: false,
-};
+    // 컴포넌트 옵션 속성 추출
+    const { on: userCustomEvents } = this.options;
 
-/* 인스턴스 멤버 ------------------------------------------------------------------ */
+    // 사용자 정의 옵션 설정
+    // 수퍼 클래스인 Input 컴포넌트의 bindUserCustomEvents 메서드 실행
+    super.bindUserCustomEvents(userCustomEvents);
 
-/**
-   * @memberof EmailInputClass.prototype
-   * @instance
-   */
+    // 컴포넌트 이벤트 연결
+    // this._bindEvents();
 
-function init(options) {
-  options = EmailInputClass.mixins(EmailInputClass.defaultOptions, options);
-
-  this.placeholderText = options.placeholderText;
-  this.events = options.on;
-  this.debugMode = options.debug;
-
-  for (var eventType in this.events) {
-    if (this.events.hasOwnProperty(eventType)) {
-      var eventHandler = this.events[eventType];
-      this.input.addEventListener(eventType, eventHandler.bind(this));
-    }
+    // 컴포넌트 인스턴스 반환
+    return this;
   }
 
-  this.bindEvents();
+  // 오버라이딩(Overriding)
+  // 수퍼 클래스의 메서드를 상속하여 서브 클래스에서 동일한 메서드 이름으로 활용
+  _bindEvents() {
+    // 수퍼 클래스 Input의 _bindEvents 메서드 실행
+    super._bindEvents();
 
-  return this;
-}
+    const { on } = EmailInput;
 
-function setState(newValue) {
-  this.state = EmailInputClass.mixins(this.state, newValue);
-}
-
-function bindEvents() {
-  var _this = this;
-  var component = this.component;
-  var input = this.input;
-  component.addEventListener('mouseenter', function() {
-    _this.setState({ current: 'hover' });
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  component.addEventListener('mouseleave', function() {
-    _this.setState({ current: 'normal' });
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  input.addEventListener('focus', function() {
-    _this.setState({ current: 'focus' });
-    input.setAttribute('placeholder', _this.placeholderText);
-    component.classList.add(EmailInputClass.STATES.focus);
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  input.addEventListener('input', function() {
-    _this.setState({ current: 'input', pure: false });
-    _this.checkEmailFormat();
-    _this.render();
-    /* @debug */
-    _this.debugMode && console.log(component, '컴포넌트 상태: ', _this.state);
-  });
-  input.addEventListener('blur', function() {
-    _this.setState({ current: 'normal' });
-    input.removeAttribute('placeholder');
-    component.classList.remove(EmailInputClass.STATES.focus);
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-}
-
-function checkEmailFormat() {
-  var component = this.component;
-  var input = this.input;
-  var isValidEmailFormat = EmailInputClass.isValidEmailFormat;
-
-  if (!isValidEmailFormat(input)) {
-    this.setState({ current: 'invalid', valid: false });
+    on(this.inputNode, 'input', () => {
+      this.setState({ current: 'input', pure: false });
+      this.checkEmailFormat();
+      this.render();
+      /* @debug */
+      this.options.debug && console.log(this.component, '컴포넌트 상태: ', this.state);
+    });
   }
-  else {
-    this.setState({ current: 'valid', valid: true });
+
+  checkEmailFormat() {
+    const { isValidEmailFormat } = EmailInput;
+    const { inputNode } = this;
+
+    !isValidEmailFormat(inputNode)
+      ? this.setState({ current: 'invalid', valid: false })
+      : this.setState({ current: 'valid', valid: true });
   }
 }
 
-function render() {
-  var component = this.component;
-  var input = this.input;
-
-  switch (this.state.current) {
-    case 'invalid':
-      component.classList.add(EmailInputClass.STATES.invalid);
-      input.setAttribute('aria-invalid', true);
-      break;
-    case 'valid':
-      component.classList.remove(EmailInputClass.STATES.invalid);
-      component.classList.add(EmailInputClass.STATES.valid);
-      input.setAttribute('aria-invalid', false);
-  }
-}
-
-function reset() {
-  var component = this.component;
-  component.classList.remove(EmailInputClass.STATES.valid);
-}
-
-Object.defineProperties(EmailInputClass.prototype, {
-  init: { value: init },
-  setState: { value: setState },
-  bindEvents: { value: bindEvents },
-  checkEmailFormat: { value: checkEmailFormat },
-  render: { value: render },
-  reset: { value: reset },
-});
-
-export default EmailInputClass;
+export default EmailInput;

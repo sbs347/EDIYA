@@ -1,49 +1,54 @@
-import mixins from '../../utils/mixins';
+import Component from '../Component';
 
-var location = window.location;
+const { location } = window;
 
-/* 생성자 ---------------------------------------------------------------------- */
+/**
+ * 앱 내비게이션 아이템 컴포넌트
+ * @class
+ * @extends Component
+ */
+class NavigationItem extends Component {
+  /* 생성자 ---------------------------------------------------------------------- */
 
-function NavigationItemClass(itemData, templateId) {
-  this.data = itemData;
-  this.templateId = templateId;
-  this.init();
-}
+  constructor(itemData, templateId, activeClass = 'is--selected') {
+    super();
 
-/* 클래스 멤버 ------------------------------------------------------------------- */
+    this.data = itemData;
+    this.templateId = templateId;
+    this.activeClass = activeClass;
 
-NavigationItemClass.mixins = mixins;
-NavigationItemClass.defaultOptions = {};
-
-/* 인스턴스 멤버 ------------------------------------------------------------------ */
-
-function init() {
-  this.template = document.querySelector(this.templateId).textContent.trim();
-  return this;
-}
-
-function render() {
-  var item = this.data;
-
-  this.template = this.template.replace(/{item.id}/g, item.id);
-  this.template = this.template.replace(/{item.link}/g, item.link);
-  this.template = this.template.replace(/{item.text}/g, item.text);
-
-  if (this.isCurrentPage()) {
-    this.template = this.template.replace(/\<li/, '<li class="is--selected"');
+    this._init();
   }
 
-  return this.template;
+  /* 인스턴스 멤버(비공개) ------------------------------------------------------------- */
+
+  _init() {
+    const { getNode } = NavigationItem;
+
+    this.template = getNode(this.templateId).textContent.trim();
+
+    return this;
+  }
+
+  /* 인스턴스 멤버(공개) -------------------------------------------------------------- */
+
+  render() {
+    const { id, link, text } = this.data;
+
+    this.template = this.template.replace(/{item.id}/g, id);
+    this.template = this.template.replace(/{item.link}/g, link);
+    this.template = this.template.replace(/{item.text}/g, text);
+
+    if (this.isCurrentPage()) {
+      this.template = this.template.replace(/\<li/, `<li class="${this.activeClass}"`);
+    }
+
+    return this.template;
+  }
+
+  isCurrentPage() {
+    return location.href.includes(this.data.link);
+  }
 }
 
-function isCurrentPage() {
-  return location.href.indexOf(this.data.link) > -1;
-}
-
-Object.defineProperties(NavigationItemClass.prototype, {
-  init: { value: init },
-  render: { value: render },
-  isCurrentPage: { value: isCurrentPage },
-});
-
-export default NavigationItemClass;
+export default NavigationItem;

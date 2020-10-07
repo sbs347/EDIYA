@@ -1,6 +1,8 @@
+const location = window.location;
+
 export function isDevelopmentMode() {
-  var href = location.href;
-  return href.indexOf('127.0.0.1') > -1 || href.indexOf('localhost') > -1;
+  const href = location.href;
+  return href.match(/(127.0.0.1|localhost)/);
 }
 
 export function setDevProd() {

@@ -1,27 +1,21 @@
-import './polyfills/unfetch';
-import DataTable from './components/dataTable/DataTable';
+import DataTable from '../components/dataTable/DataTable';
+import fetchData from '../utils/fetchData';
 
-var apiAddress = 'https://seulbinim.github.io/EDIYA/api/press.json';
-var dataTableContainer = null;
+/* -------------------------------------------------------------------------- */
 
+const apiAddress = 'https://seulbinim.github.io/EDIYA/api/press.json';
+let dataTableContainer = null;
+
+// 초기화 함수
 function init() {
-  fetchData(apiAddress);
   dataTableContainer = document.querySelector('#newsPanel02');
-}
-
-function fetchData(api) {
-  fetch(api)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      var tableData = json.data;
-      // 테이블 렌더링
-      renderDataTable(tableData);
-    })
-    .catch(function(error) {
-      console.error(error.message);
-    });
+  fetchData(
+    //
+    apiAddress,
+    //
+    // 테이블 렌더링
+    ({ data: tableData }) => renderDataTable(tableData)
+  );
 }
 
 function renderDataTable(tableData) {
@@ -40,4 +34,5 @@ function renderDataTable(tableData) {
   });
 }
 
+// DOM 콘텐츠가 준비되면 `초기화` 실행
 window.addEventListener('DOMContentLoaded', init);

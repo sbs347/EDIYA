@@ -1,127 +1,76 @@
-import FORM_STATE_CLASSES from './formConstant';
-import mixins from '../../utils/mixins';
-
-/* 생성자 ---------------------------------------------------------------------- */
+import Input from './Input';
 
 /**
-   * 패스워드 표시 버튼 컴포넌트
-   * @constructor
-   * @param {HTMLElmenet} elNode HTML 요소
-   * @example
-   * var saveEmailInputNode = document.querySelector('.member-form .save-email')
-   * var saveEmailInputComponent = new SaveEmailInput(saveEmailInputNode).init()
-   */
+ * 패스워드 표시 버튼 컴포넌트
+ * @class
+ * @extends Input
+ * @param {HTMLElmenet} domNode HTML 요소
+ * @example
+ * var saveEmailInputNode = document.querySelector('.member-form .save-email')
+ * var saveEmailInputComponent = new SaveEmailInput(saveEmailInputNode).init()
+ */
+class SaveEmailInput extends Input {
+  /* 생성자 ---------------------------------------------------------------------- */
 
-function SaveEmailInputClass(elNode) {
-  if (elNode.nodeType !== 1) {
-    throw Error('생성자에 전달되어야 하는 첫번째 인자는 HTML 요소 객체여야 합니다.');
+  constructor(domNode) {
+    super(domNode);
+
+    const { getNode } = SaveEmailInput;
+
+    this.checkbox = getNode('.checkbox', this.component);
+
+    // 컴포넌트 상태 업데이트
+    this.setState({
+      // 체크 상태 추가
+      checked: false,
+    });
   }
 
-  // 컴포넌트 객체 참조
-  this.component = elNode;
-  this.input = this.component.querySelector('input');
-  this.checkbox = this.component.querySelector('.checkbox');
-  // 커스텀 이벤트 객체
-  this.events = {};
-  // 버튼 객체 상태
-  // normal, focus, hover, click
-  this.state = {
-    checked: false,
-    // 현재 상태: normal, hover, focus
-    current: 'normal',
-  };
-}
+  /* 인스턴스 멤버 ------------------------------------------------------------------ */
 
-/* 클래스 멤버 ------------------------------------------------------------------- */
+  init(options) {
+    const { mixins } = SaveEmailInput;
 
-/**
-   * @memberof SaveEmailInputClass
-   * @static
-   */
+    // 수퍼 클래스인 Input 컴포넌트의 defaultOptions 속성
+    const { defaultOptions } = super.constructor;
 
-SaveEmailInputClass.mixins = mixins;
-SaveEmailInputClass.STATES = FORM_STATE_CLASSES;
-SaveEmailInputClass.defaultOptions = {
-  on: {},
-  debug: false,
-};
+    // 옵션 설정(객체 합성)
+    this.options = mixins(defaultOptions, options);
 
-/* 인스턴스 멤버 ------------------------------------------------------------------ */
+    // 컴포넌트 옵션 속성 추출
+    const { on: userCustomEvents } = this.options;
 
-/**
-   * @memberof SaveEmailInputClass.prototype
-   * @instance
-   */
+    // 사용자 정의 옵션 설정
+    // 수퍼 클래스인 Input 컴포넌트의 bindUserCustomEvents 메서드 실행
+    super.bindUserCustomEvents(userCustomEvents);
 
-function init(options) {
-  options = SaveEmailInputClass.mixins(SaveEmailInputClass.defaultOptions, options);
+    // 컴포넌트 이벤트 연결
+    this._bindEvents();
 
-  this.events = options.on;
-  this.debugMode = options.debug;
-
-  for (var eventType in this.events) {
-    if (this.events.hasOwnProperty(eventType)) {
-      var eventHandler = this.events[eventType];
-      this.input.addEventListener(eventType, eventHandler.bind(this));
-    }
+    return this;
   }
 
-  this.bindEvents();
+  // 오버라이딩(Overriding)
+  // 수퍼 클래스의 메서드를 상속하여 서브 클래스에서 동일한 메서드 이름으로 활용
+  _bindEvents() {
+    // 수퍼 클래스 Input의 _bindEvents 메서드 실행
+    super._bindEvents();
 
-  return this;
+    const { on } = SaveEmailInput;
+
+    on(this.inputNode, 'click', this.handleToggleCheckedState.bind(this));
+  }
+
+  handleToggleCheckedState() {
+    // 상태 변경
+    this.setState({
+      checked: !this.state.checked,
+      current: 'click',
+    });
+
+    /* @debug */
+    this.options.debug && console.log(this.component, this.state.current);
+  }
 }
 
-function setState(newValue) {
-  this.state = SaveEmailInputClass.mixins(this.state, newValue);
-}
-
-function bindEvents() {
-  var _this = this;
-  var component = this.component;
-  var input = this.input;
-
-  input.addEventListener('click', this.handleToggleCheckedState.bind(this));
-
-  input.addEventListener('mouseenter', function() {
-    _this.setState({ current: 'hover' });
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  input.addEventListener('mouseleave', function() {
-    _this.setState({ current: 'normal' });
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  input.addEventListener('focus', function() {
-    _this.setState({ current: 'focus' });
-    component.classList.add(SaveEmailInputClass.STATES.focus);
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-  input.addEventListener('blur', function() {
-    _this.setState({ current: 'normal' });
-    component.classList.remove(SaveEmailInputClass.STATES.focus);
-    /* @debug */
-    _this.debugMode && console.log(component, _this.state.current);
-  });
-}
-
-function handleToggleCheckedState() {
-  // 상태 변경
-  this.setState({
-    checked: !this.state.checked,
-    current: 'click',
-  });
-
-  /* @debug */
-  this.debugMode && console.log(this.component, this.state.current);
-}
-
-Object.defineProperties(SaveEmailInputClass.prototype, {
-  init: { value: init },
-  setState: { value: setState },
-  bindEvents: { value: bindEvents },
-  handleToggleCheckedState: { value: handleToggleCheckedState },
-});
-
-export default SaveEmailInputClass;
+export default SaveEmailInput;

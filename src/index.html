@@ -10,18 +10,27 @@
     <meta name="author" content="이듬(E.UID)" />
     <meta name="robots" content="index,follow" />
 
-
     <!-- 스타일링 -->
     <link rel="stylesheet" href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" />
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
 
+    <!-- 스크립트: 즉시 실행 -->
+    <script src="./js/controls/polyfills.js"></script>
+
     <!-- 스크립트: DOM 콘텐츠 준비 이후 실행 -->
-    <script src="./js/navigationControl.js" defer></script>
-    <script src="./js/goToTopStaticControl.js" defer></script>
+    <script src="./js/controls/navigationControl.js" defer></script>
+    <script src="./js/controls/goToTopControl.js" defer></script>
   </head>
 
   <body>
+
+    <div hidden data-description="Parcel 번들 시, HTML 링크가 없을 경우 제대로 작동하지 않는 문제 발견하여 이렇게 처리하여 해결">
+      <a href="./views/signup.html">signup</a>
+      <a href="./views/ui-design.html">ui-design</a>
+      <a href="./views/store.html">store</a>
+    </div>
+
     <div class="app-header-container">
       <header class="app-header">
         <h1 class="brand">
@@ -82,14 +91,14 @@
             </article>
             <div class="button-container">
               <button class="button button--prev">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
                   <title>이전 공지사항 보기</title>
                   <rect x="0.5" y="0.5" width="15" height="15" stroke="#F5F5F5" />
                   <path d="M9.25 10.5L6.75 8L9.25 5.5" stroke="#F5F5F5" />
                 </svg>
               </button>
               <button class="button button--next">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
                   <title>다음 공지사항 보기</title>
                   <rect x="-0.5" y="0.5" width="15" height="15" transform="matrix(-1 0 0 1 15 0)" stroke="#F5F5F5" />
                   <path d="M6.75 10.5L9.25 8L6.75 5.5" stroke="#F5F5F5" />
@@ -110,7 +119,7 @@
               </li>
             </ul>
             <a href="./views/news.html" class="icon-more">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
                 <title>이디야 뉴스 더보기</title>
                 <rect x="0.5" y="0.5" width="15" height="15" stroke="#F5F5F5" />
                 <path d="M5 8.02114H11M8.05331 5L8.05331 11" stroke="#F5F5F5" />
@@ -146,15 +155,6 @@
         <small class="copyright">&copy; 2017 EDIYA COFFEE COMPANY. ALL RIGHTS RESERVED..</small>
       </div>
     </footer>
-
-    <button type="button" class="button-goToTop">
-      <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-        <title>페이지 상단 이동</title>
-        <circle cx="25" cy="25" r="25" fill="#C8CDE2" />
-        <path d="M25 38C25.6072 38 26.1 37.5147 26.1 36.9167V15.3047L34.1037 23.5803C34.3198 23.804 34.6097 23.9167 34.9001 23.9167C35.1723 23.9167 35.4457 23.8175 35.6585 23.6177C36.0985 23.2049 36.1156 22.5192 35.6965 22.0858L26.556 12.6348C26.1402 12.2259 25.588 12 25 12C24.412 12 23.8598 12.2259 23.4259 12.6538L14.3035 22.0864C13.8844 22.5197 13.9015 23.2055 14.3415 23.6182C14.7815 24.031 15.4783 24.0142 15.8969 23.5808L23.9 15.2706V36.9167C23.9 37.5147 24.3928 38 25 38Z" fill="#0F0F0F" />
-      </svg>
-    </button>
-
   </body>
 
 </html>

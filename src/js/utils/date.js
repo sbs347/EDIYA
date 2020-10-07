@@ -1,20 +1,15 @@
 /* -----------------------------------------------------
  * 날짜,시간 헬퍼 함수 */
 
-function getYear(format) {
-  return new Date().getFullYear() + (format || '');
-}
+export const getYear = (format = '') => new Date().getFullYear() + format;
 
-function getMonth(format) {
-  return new Date().getMonth() + 1 + (format || '');
-}
+export const getMonth = (format = '') => new Date().getMonth() + 1 + format;
 
-function getDate(format) {
-  return new Date().getDate() + (format || '');
-}
+export const getDate = (format = '') => new Date().getDate() + format;
 
-function getDay(format) {
-  var day = new Date().getDay();
+export const getDay = (format = '') => {
+  let day = new Date().getDay();
+
   switch (day) {
     case 0: day = '일'; break;
     case 1: day = '월'; break;
@@ -24,33 +19,26 @@ function getDay(format) {
     case 5: day = '금'; break;
     case 6: day = '토';
   }
-  return day + (format || '');
-}
 
-function getHours(format, ampm) {
-  var hour = Number(new Date().getHours());
+  return day + format;
+};
+
+export const getHours = (format = '', ampm) => {
+  let hour = Number(new Date().getHours());
+
   if (ampm) {
     ampm = !ampm ? '' : hour < 12 ? 'AM ' : 'PM ';
     hour = hour >= 12 ? hour - 12 : 12 - hour > 3 ? '0' + hour : hour;
   }
-  else {
-    ampm = '';
-  }
-  return ampm + hour + (format || '');
-}
+  else { ampm = ''; }
 
-function getMinutes(format) {
-  return new Date().getMinutes() + (format || '');
-}
+  return ampm + hour + format;
+};
 
-function getSeconds(format) {
-  return new Date().getSeconds() + (format || '');
-}
+export const getMinutes = (format = '') => new Date().getMinutes() + format;
 
-function getMilliseconds(format) {
-  return new Date().getMilliseconds() + (format || '');
-}
+export const getSeconds = (format = '') => new Date().getSeconds() + format;
 
-function getISOString(format) {
-  return new Date().toISOString() + (format || '');
-}
+export const getMilliseconds = (format = '') => new Date().getMilliseconds() + format;
+
+export const getISOString = (format = '') => new Date().toISOString() + format;

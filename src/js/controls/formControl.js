@@ -1,34 +1,42 @@
-import { el, els } from './utils/dom';
-import FORM_STATE_CLASSES from './components/form/formConstant';
-import EmailInput from './components/form/EmailInput';
-import PasswordInput from './components/form/PasswordInput';
-import SaveEmailInput from './components/form/SaveEmailInput';
+import { FORM_CLASSES } from '../constants/classNames';
+
+import { el, els } from '../utils/dom';
+
+import EmailInput from '../components/form/EmailInput';
+import PasswordInput from '../components/form/PasswordInput';
+import SaveEmailInput from '../components/form/SaveEmailInput';
+
+/* -------------------------------------------------------------------------- */
 
 // 지연 시간 변수(ms)
-var delayTime = 2500;
+const DELAY_TIME = 2500;
+
+const { setTimeout } = window;
 
 // 문서 객체 참조 변수
-var memberForm = null;
-var buttonLogin = null;
-var buttonSignup = null;
+let memberForm = null;
+let buttonLogin = null;
+let buttonSignup = null;
 
 // 폼 유효성 상태
-var formValidState = {
+const formValidState = {
   email: false,
   password: false,
 };
 // 폼 데이터 JSON → 객체
-var formDataJSON = {};
+let formDataJSON = {};
 
 // 컴포넌트 인스턴스 참조
-var emailInput = null;
-var passwordInput = null;
-var passwordConfirmInput = null;
+let emailInput = null;
+let passwordInput = null;
+let passwordConfirmInput = null;
+
+/* -------------------------------------------------------------------------- */
 
 /**
-   * 폼 컨트롤 초기화
-   * @function
-   */
+ * 폼 컨트롤 초기화
+ * @function
+ */
 function init() {
   settingEmailInput();
   settingPasswordInput();
@@ -36,18 +44,23 @@ function init() {
   settingMemberFormSubmit();
 }
 
+function updateFormValidState(type, isValid) {
+  formValidState[type] = isValid;
+}
+
 /**
-   * 이메일 인풋 설정
-   * @function
-   */
+ * 이메일 인풋 설정
+ * @function
+ */
 function settingEmailInput() {
   // 문서에서 이메일 인풋 요소를 찾아 참조
-  var emailInputNode = el('.member-id');
+  const emailInputNode = el('.member-id');
+
   // 컴포넌트 → 이메일 인풋 인스턴스 생성
   // 플레이스홀더(placeholderText), 이벤트(on) 옵션 설정 가능
   emailInput = new EmailInput(emailInputNode).init({
     on: {
-      input: function() {
+      input() {
         updateFormValidState('email', this.state.valid);
         renderAllInputsFilled();
       },
@@ -57,40 +70,37 @@ function settingEmailInput() {
   });
 }
 
-function updateFormValidState(type, isValid) {
-  formValidState[type] = isValid;
-}
-
 /**
-   * 패스워드 인풋 설정
-   * @function
-   */
+ * 패스워드 인풋 설정
+ * @function
+ */
 function settingPasswordInput() {
   // 문서에서 패스워드 인풋 리스트를 찾아 참조
-  var passwordInputs = els('.member-password');
+  const passwordInputs = els('.member-password');
 
   // 패스워드 인풋
-  var pass1 = passwordInputs[0];
+  const pass1 = passwordInputs[0];
   // 패스워드 확인 인풋
-  var pass2 = passwordInputs[1];
+  const pass2 = passwordInputs[1];
 
   // 컴포넌트 → 패스워드 인풋 인스턴스 생성
   // 이벤트(on) 옵션 설정 가능
   passwordInput = new PasswordInput(pass1).init({
     on: {
-      input: function() {
+      input() {
         updateFormValidState('password', this.state.valid);
         renderAllInputsFilled();
       },
     },
   });
 
+  // pass2 요소가 있을 경우 조건 처리
   if (pass2) {
     passwordConfirmInput = new PasswordInput(pass2).init({
       confirm: true,
-      compareInput: pass1,
+      compareInput: pass1.querySelector('input'),
       on: {
-        input: function() {
+        input() {
           updateFormValidState('passwordConfirm', this.state.valid);
           renderAllInputsFilled();
         },
@@ -101,23 +111,22 @@ function settingPasswordInput() {
 }
 
 /**
-   * 이메일 저장 인풋 설정
-   * @function
-   */
+ * 이메일 저장 인풋 설정
+ * @function
+ */
 function settingSaveEmailInput() {
   // 문서에서 이메일 인풋 요소를 찾아 참조
-  var saveEmailInputNode = el('.save-email');
+  const saveEmailInputNode = el('.save-email');
+
   // 컴포넌트 → 이메일 인풋 인스턴스 생성
   // 플레이스홀더(placeholderText), 이벤트(on) 옵션 설정 가능
-  if (saveEmailInputNode) {
-    new SaveEmailInput(saveEmailInputNode).init();
-  }
+  saveEmailInputNode && new SaveEmailInput(saveEmailInputNode).init();
 }
 
 /**
-   * 로그인, 회원가입 폼 전송 이벤트 설정
-   * @function
-   */
+ * 로그인, 회원가입 폼 전송 이벤트 설정
+ * @function
+ */
 function settingMemberFormSubmit() {
   // 문서에서 이메일 인풋 요소를 찾아 참조
   memberForm = el('.member-form');
@@ -133,49 +142,58 @@ function settingMemberFormSubmit() {
   memberForm.addEventListener('submit', handleSubmit);
 }
 
+// 전송 이벤트 헨들러
 function handleSubmit(e) {
+  // 브라우저 기본 동작 무시
   e.preventDefault();
 
-  var formEl = e.target;
-  var formData = new FormData(formEl);
+  // 이벤트 대상
+  const formEl = e.target;
+  // 폼 데이터 객체
+  const formData = new FormData(formEl);
 
   // 로그인 페이지에서만 이메일 저장 설정 유무를 추가
   if (buttonLogin) {
     formData.append('userEmailSave', el('input#userEmailSave', formEl).checked);
   }
 
+  // 폼 데이터 JSON화
   formDataJSON = convertFormDataToJSON(formData);
+
+  // 로딩(전송 상태) 처리
   changeSubmitButtonLoading();
 }
 
 /**
-   * 폼 데이터 → JSON 포멧 변경 함수
-   * @function
-   * @param {FormData} formData 폼 데이터 객체
-   */
+ * 폼 데이터 → JSON 포멧 변경 함수
+ * @function
+ * @param {FormData} formData 폼 데이터 객체
+ */
 function convertFormDataToJSON(formData) {
   const formDataObj = {};
-  for (var keyValue of formData.entries()) {
+
+  for (let keyValue of formData.entries()) {
     formDataObj[keyValue[0]] = keyValue[1];
   }
+
   return JSON.stringify(formDataObj, null, '  ');
 }
 
 /**
-   * 전송 버튼 로딩 상태로 변경하는 함수
-   * @function
-   */
+ * 전송 버튼 로딩 상태로 변경하는 함수
+ * @function
+ */
 function changeSubmitButtonLoading() {
-  var button = buttonLogin ? buttonLogin : buttonSignup ? buttonSignup : null;
-  var wrapper = button.parentNode;
-  var disabledClassName = FORM_STATE_CLASSES.disabled;
-  var loadingClassName = FORM_STATE_CLASSES.loading;
+  const button = buttonLogin ? buttonLogin : buttonSignup ? buttonSignup : null;
+  const wrapper = button.parentNode;
+  const disabledClassName = FORM_CLASSES.disabled;
+  const loadingClassName = FORM_CLASSES.loading;
 
   wrapper.classList.add(loadingClassName);
 
   button.setAttribute('disabled', 'disabled');
 
-  window.setTimeout(() => {
+  setTimeout(() => {
     // 비동기 시뮬레이션 데이터 출력
     console.log(formDataJSON);
 
@@ -187,56 +205,55 @@ function changeSubmitButtonLoading() {
 
     // 로딩 상태 제거
     wrapper.classList.remove(loadingClassName);
+
     // 비활성 상태로 변경
     wrapper.classList.add(disabledClassName);
-  }, delayTime);
+  }, DELAY_TIME);
 }
 
 /**
-   * 검사 할 인풋 요소의 모든 값이 채워졌는지 확인
-   * @function
-   * @param {HTMLDivElement} inputWrapper 이메일, 패스워드 래퍼 요소
-   */
+ * 검사 할 인풋 요소의 모든 값이 채워졌는지 확인
+ * @function
+ * @param {HTMLDivElement} inputWrapper 이메일, 패스워드 래퍼 요소
+ */
 function checkAllInputsFilled(inputs) {
-  return inputs.every(function(input) {
-    return input.value;
-  });
+  return inputs.every((input) => input.value);
 }
 
 /**
-   * 모든 인풋이 채워졌는지 검사 후, UI 렌더링 함수
-   * @function
-   */
+ * 모든 인풋이 채워졌는지 검사 후, UI 렌더링 함수
+ * @function
+ */
 function renderAllInputsFilled() {
-  var checkInputSelector = '.member-id input, .member-password input';
-  var isAllInputFilled = checkAllInputsFilled(Array.from(els(checkInputSelector)));
+  const checkInputSelector = '.member-id input, .member-password input';
+  const isAllInputFilled = checkAllInputsFilled(Array.from(els(checkInputSelector)));
 
-  if (isAllInputFilled && formValidState.email) {
-    changeSubmitButtonSubmitEnable();
-  }
-  else {
-    changeSubmitButtonSubmitDisable();
-  }
+  isAllInputFilled && formValidState.email
+    ? changeSubmitButtonSubmitEnable()
+    : changeSubmitButtonSubmitDisable();
 }
 
 /**
-   * 전송 버튼 활성 상태로 변경하는 함수
-   * @function
-   */
+ * 전송 버튼 활성 상태로 변경하는 함수
+ * @function
+ */
 function changeSubmitButtonSubmitEnable() {
-  var button = buttonLogin ? buttonLogin : buttonSignup ? buttonSignup : null;
-  button.parentNode.classList.remove('is--disabled');
+  const button = buttonLogin ? buttonLogin : buttonSignup ? buttonSignup : null;
+
+  button.parentNode.classList.remove(FORM_CLASSES.disabled);
   button.removeAttribute('disabled');
 }
 
 /**
-   * 전송 버튼 비활성 상태로 변경하는 함수
-   * @function
-   */
+ * 전송 버튼 비활성 상태로 변경하는 함수
+ * @function
+ */
 function changeSubmitButtonSubmitDisable() {
-  var button = buttonLogin ? buttonLogin : buttonSignup ? buttonSignup : null;
-  button.parentNode.classList.add('is--disabled');
+  const button = buttonLogin ? buttonLogin : buttonSignup ? buttonSignup : null;
+
+  button.parentNode.classList.add(FORM_CLASSES.disabled);
   button.setAttribute('disabled', 'disabled');
 }
 
+// DOM 콘텐츠 준비가 되면 `초기화` 실행
 window.addEventListener('DOMContentLoaded', init);
