@@ -1,0 +1,53 @@
+@import ../_config
+
+// --------------------------------------------------------------------
+
+=settingRoot($rem-value: $rem-default-value)
+  :root
+    overflow-y: visible
+    font-size: $rem-value
+
+// --------------------------------------------------------------------
+
+=settingSelection($in: ())
+  $defaults: (background: #233d84, color: #fff)
+  $options: map-merge($defaults, $in)
+
+  ::-moz-selection
+    background: map-get($options, background)
+    color: map-get($options, color)
+
+  ::selection
+    background: map-get($options, background)
+    color: map-get($options, color)
+
+// --------------------------------------------------------------------
+
+=settingFocus($in: ())
+  $defaults: (outline: none, border-radius: 2px, box-shadow: 0 0 0 4px rgba(40, 70, 204, 0.9))
+  $options: map-merge($defaults, $in)
+
+  :focus
+    outline: map-get($options, outline)
+    border-radius: map-get($options, border-radius)
+    box-shadow: map-get($options, box-shadow)
+
+// --------------------------------------------------------------------
+
+=boxSizing($type: border-box)
+  box-sizing: $type
+  &::before,
+  &::after
+    box-sizing: inherit
+
+// --------------------------------------------------------------------
+
+=tabHilightColor($tab-color: rgb(#ecedef, 0.3))
+  -webkit-tap-highlight-color: $tab-color
+  tap-highlight-color: $tab-color
+
+=resetButton
+  cursor: pointer
+  border: none
+  padding: 0
+  background: transparent

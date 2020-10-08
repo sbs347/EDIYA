@@ -1,0 +1,14 @@
+@import ../_config
+
+// --------------------------------------------------------------------
+
+@function getThemeKey($type: light, $key)
+  $themeType: map-get($theme, $type)
+  $value: map-get($themeType, $key)
+  @return $value
+
+@function themeColor($type: light)
+  @return getThemeKey($type, color)
+
+@function themeBackground($type: light) 
+  @return getThemeKey($type, background)
