@@ -98,7 +98,7 @@ class Component {
 
   // CSS 설정
   static css(domNode, key, value, pseudo = null) {
-    if (!value) {
+    if (!value && value !== 0) {
       return window.getComputedStyle(domNode, pseudo)[key];
     }
     else {
