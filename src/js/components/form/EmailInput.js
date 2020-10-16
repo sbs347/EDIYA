@@ -1,4 +1,5 @@
 import Input from './Input';
+import { FORM_CLASSES } from '../../constants/classNames';
 
 /**
  * 이메일 인풋 컴포넌트
@@ -67,14 +68,24 @@ class EmailInput extends Input {
     // 수퍼 클래스 Input의 _bindEvents 메서드 실행
     super._bindEvents();
 
-    const { on } = EmailInput;
+    const { on, hasClass } = EmailInput;
+    const { inputNode, component } = this;
 
-    on(this.inputNode, 'input', () => {
+    on(inputNode, 'focus', () => {
+      hasClass(component, FORM_CLASSES.focus) &&
+        inputNode.setAttribute('placeholder', this.options.placeholderText);
+    });
+
+    on(inputNode, 'blur', () => {
+      hasClass(component, FORM_CLASSES.focus) || inputNode.removeAttribute('placeholder');
+    });
+
+    on(inputNode, 'input', () => {
       this.setState({ current: 'input', pure: false });
       this.checkEmailFormat();
       this.render();
       /* @debug */
-      this.options.debug && console.log(this.component, '컴포넌트 상태: ', this.state);
+      this.options.debug && console.log(component, '컴포넌트 상태: ', this.state);
     });
   }
 
