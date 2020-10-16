@@ -1,5 +1,6 @@
 @import url(./normalize.css);
 @import url(./default.css);
+@import url(./focus-visible.css);
 @import url(./scrollbar.css);
 @import url(./component.css);
 @import url(./common.css);

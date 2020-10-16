@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "description": "이듬(E.UID)블렌디드 러닝, 학습용(디자인 → 개발)으로 제작된 `이디야 커피 브랜드 사이트`입니다.",
   "scripts": {
+    "start": "npm run serve",
     "clean": "rm -rf .cache dist build",
     "serve": "npm run clean && parcel serve src/index.html src/views/*.html --open",
     "build": "npm run clean && npm run build:building && npm run build:test",
     "build:building": "parcel build src/index.html src/views/*.html --out-dir build --no-source-maps --no-content-hash --experimental-scope-hoisting",
     "build:test": "live-server build"
   },
-  "dependencies": {
-    "parcel-bundler": "^1.12.4"
-  },
   "devDependencies": {
+    "parcel-bundler": "^1.12.4",
     "live-server": "^1.2.1",
     "sass": "^1.27.0"
   }
