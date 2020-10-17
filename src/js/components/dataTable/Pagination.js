@@ -139,18 +139,19 @@ class Pagination extends Component {
   settingDisabled() {
     const { getNode, css, attr } = Pagination;
     const { currentPage, totalPageCount } = this.state;
+    const { component } = this;
 
-    const currentPageLink = getNode('[aria-current="page"]', this.component);
+    const currentPageLink = getNode('[aria-current="page"]', component);
     css(currentPageLink, 'cursor', 'not-allowed');
 
     if (currentPage === 1) {
-      const previousButton = getNode('button.button-prev', this.component);
+      const previousButton = getNode('button.button-prev', component);
       attr(previousButton, 'disabled', 'disabled');
       attr(previousButton, 'title', '이동할 이전 페이지가 없습니다.');
     }
 
     if (currentPage === totalPageCount) {
-      const nextButton = getNode('button.button-next', this.component);
+      const nextButton = getNode('button.button-next', component);
       attr(nextButton, 'disabled', 'disabled');
       attr(nextButton, 'title', '이동할 다음 페이지가 없습니다.');
     }
