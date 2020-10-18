@@ -12,9 +12,9 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  padding: 2px;
   font-weight: 700;
   background: #f5f5f5;
-  padding: 2px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -25,12 +25,12 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  font-size: 15px;
-  font-weight: 700;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  color: #24388d;
+  font-size: 15px;
+  font-weight: 700;
   background: #fefefe;
+  color: #24388d;
 }
 
 .news-tab [role="tab"]:focus {
@@ -39,8 +39,8 @@
 }
 
 .news-tab [aria-selected="true"] {
-  color: #fefefe;
   background: #24388d;
+  color: #fefefe;
 }
 /* ---------------------------- */
 
@@ -76,8 +76,8 @@
 
 /* 뉴스 섹센 텍스트 공통 (p 요소) */
 .news-text {
-  font-size: 1.4rem;
   margin: 10px 0;
+  font-size: 1.4rem;
 }
 /* ---------------------------- */
 
@@ -88,11 +88,11 @@
 
 /* 뉴스 검색을 위한 폼 서식 그룹 (div.press-search-container로 그룹) */
 .press-search-container {
-  height: 26px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   position: relative;
+  height: 26px;
 }
 
 /* 검색 옵션 선택을 위한 서식 ( 제목/내용 ) */
@@ -107,26 +107,26 @@
 
 /* 검색어 입력 서식 */
 .press-search-container .keyword-container {
-  flex-grow: 1;
   height: 26px;
   /* border-bottom: 5px solid red; */
   border-bottom: 1px solid #0f0f0f;
+  flex-grow: 1;
 }
 .press-search-container input[type="search"] {
   width: calc(100% - 20px);
+  height: 25px;
   border: 0;
   padding: 6px;
-  height: 25px;
 }
 
 /* 검색 버튼 - 배경이미지로 처리하는 방식 */
 /* news.html 및 store.html에 사용 */
 .button-search {
   position: absolute;
-  width: 16px;
-  height: 16px;
   right: 0;
   bottom: 5px;
+  width: 16px;
+  height: 16px;
   border: 0;
   padding: 0;
   background: transparent;
@@ -135,9 +135,9 @@
 .button-search .icon-search {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   background: url(../images/icon-search.svg) no-repeat 0 0 / 16px 16px;
 }
 
@@ -150,9 +150,9 @@
   width: 100%;
   border-top: 2px solid #24388d;
   border-bottom: 2px solid #24388d;
+  color: #24388d;
   border-collapse: collapse;
   border-spacing: 0;
-  color: #24388d;
 }
 
 .news__press-table col:nth-child(1) {
@@ -213,15 +213,15 @@
 }
 
 .press-article dt {
-  color: #24388d;
   font-size: 15px;
+  color: #24388d;
 }
 
 .press-article dd {
   margin-top: 5px;
   margin-left: 0;
-  color: #878787;
   font-size: 13px;
+  color: #878787;
 }
 
 .press-date {
@@ -232,10 +232,10 @@
 .pagination-container {
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   justify-content: center;
-  padding: 18px 16px;
+  align-items: center;
   margin: 12px auto 0;
+  padding: 18px 16px;
 }
 
 /* 참고: https://css-tricks.com/slightly-careful-sub-elements-clickable-things/ */
@@ -246,10 +246,11 @@
 /* 페이징 영역의 이전/다음 버튼 (SVG 이미지로 마크업) */
 .pagination-container .button-prev,
 .pagination-container .button-next {
-  border: 0;
-  padding: 0;
   width: 16px;
   height: 16px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
   background: transparent no-repeat 0 0 / 100% 100%;
   transform: scale(1.2);
 }
@@ -285,8 +286,8 @@
   margin: 0 5px;
 }
 .pagination a {
-  color: #919bc6;
   padding: 0 3px;
+  color: #919bc6;
 }
 .pagination a:hover {
   color: #24388d;
@@ -301,15 +302,15 @@
 /* 수상 내역 섹션 (section.news__award 요소)*/
 /* 수상 내역에 배경을 지정하기 위한 컨테이너 (div 요소) */
 .award-container {
-  background: #f5f5f5;
   margin: 25px -20px -20px;
+  background: #f5f5f5;
 }
 
 /* 연도별 수상 내역 섹션 (section.news__award__year 요소) */
 .news__award__year {
-  padding: 0 20px;
   display: flex;
   flex-flow: row nowrap;
+  padding: 0 20px;
 }
 
 .news__award__year:first-child {
@@ -322,16 +323,16 @@
 
 /* .news_award__year내 연도 (h3 요소) */
 .award-headline {
+  margin: 0 25px 0 0;
   font-weight: 700;
   color: #24388d;
-  margin: 0 25px 0 0;
 }
 
 /* .news_award__year내 수상내역 목록 (ul 요소) */
 .award-list {
-  flex-grow: 1;
-  border-left: 1px solid #c8cde2;
   position: relative;
+  border-left: 1px solid #c8cde2;
+  flex-grow: 1;
 }
 
 .award-list::before {
@@ -341,9 +342,9 @@
   left: 0;
   width: 5px;
   height: 5px;
-  transform: translateX(-50%);
-  background-color: #24388d;
   border-radius: 4px;
+  background-color: #24388d;
+  transform: translateX(-50%);
 }
 
 /* .news_award__year내 수상내역 목록 항목 (li 요소) */
@@ -354,13 +355,13 @@
 /* 수상내역의 경우 details, summary 요소를 사용하여 마크업 */
 /* .news_award__year내 수상내역 (summary 요소) */
 .award-subject {
+  position: relative;
+  width: 100%;
+  padding: 5px;
   font-size: 13px;
   font-weight: 700;
   color: #0f0f0f;
-  position: relative;
   list-style-type: none;
-  width: 100%;
-  padding: 5px;
 }
 
 /* summary 요소의 기본 불릿을 제거하가 위한 선언 */
@@ -375,10 +376,10 @@
 
 /* summary 요소의 기본 배경 이미지 (펼칠 수 있음을 나타내는 배경이미지) */
 .award-subject::after {
-  position: absolute;
-  right: 0;
-  top: 0;
   content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 24px;
   height: 24px;
   background: url(../images/icon-arrow-down.svg) no-repeat 0 0 / 100% 100%;
@@ -391,9 +392,9 @@ details[open] .award-subject::after {
 
 /* summary 내 수상 "월"을 위한 마크업 (b 요소) */
 .award-subject b {
+  margin-right: 10px;
   font-size: 12px;
   font-weight: 400;
-  margin-right: 10px;
 }
 
 /* 수상내역 썸네일 이미지 (figure 요소) */
@@ -408,25 +409,25 @@ details[open] .award-subject::after {
 
 /* 수상내역 텍스트 (p 요소 - 내부에 span 요소와 time 요소가 포함 됨) */
 .award-item p {
-  margin-left: 25px;
   margin-top: 10px;
+  margin-left: 25px;
   font-size: 12px;
   font-weight: 400;
 }
 
 /* 수상날짜 (time 요소) */
 .award-date {
-  color: #5b6aa9;
-  font-weight: 700;
   font-size: 11px;
+  font-weight: 700;
+  color: #5b6aa9;
 }
 
 /* Mobile UI 적용을 위한 Breakpoint */
 @media all and (max-width: 767px) {
   /* 모바일 이디야 뉴스 관련 콘텐츠 디자인 */
   .news-tab [role="none"] {
-    height: 48px;
     width: 50%;
+    height: 48px;
   }
 }
 
@@ -461,9 +462,9 @@ details[open] .award-subject::after {
 
   .press-thumbnail {
     display: block;
-    float: left;
     margin: 5px 10px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    float: left;
   }
 
   /* 데스크탑 수상 내역 */
@@ -471,8 +472,8 @@ details[open] .award-subject::after {
   .news__award .news-text,
   .news__award__year {
     width: 740px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
   .news__award__year:last-child {
