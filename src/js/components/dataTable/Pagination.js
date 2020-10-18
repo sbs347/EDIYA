@@ -147,13 +147,17 @@ class Pagination extends Component {
     if (currentPage === 1) {
       const previousButton = getNode('button.button-prev', component);
       attr(previousButton, 'disabled', 'disabled');
-      attr(previousButton, 'title', '이동할 이전 페이지가 없습니다.');
+      // attr(previousButton, 'title', '이동할 이전 페이지가 없습니다.');
+      css(previousButton, 'opacity', 0);
+      css(previousButton, 'cursor', 'default');
     }
 
     if (currentPage === totalPageCount) {
       const nextButton = getNode('button.button-next', component);
       attr(nextButton, 'disabled', 'disabled');
-      attr(nextButton, 'title', '이동할 다음 페이지가 없습니다.');
+      // attr(nextButton, 'title', '이동할 다음 페이지가 없습니다.');
+      css(nextButton, 'opacity', 0);
+      css(nextButton, 'cursor', 'default');
     }
   }
 
