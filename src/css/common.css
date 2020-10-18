@@ -121,14 +121,13 @@ body {
 
 .guide-list a {
   display: block;
-  opacity: 0.75;
   margin-left: 8px;
   margin-right: 8px;
 }
 
 .guide-list a:hover,
 .guide-list a:focus {
-  opacity: 1;
+  color: #acacac;
 }
 
 /* address와 copyright 공통 여백 처리 */
