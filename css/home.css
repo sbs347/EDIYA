@@ -50,6 +50,7 @@
 /* home 이디야 추천 음료 배치 및 애니메이션 */
 .ediya-recommend-list {
   position: relative;
+  background-color: lightgreen;
 }
 
 .ediya-recommend-beverage {
@@ -65,7 +66,43 @@
 .ediya-recommend-beverage:last-child img {
   animation-delay: 400ms;
 }
-
+/* home 이디야 추천 쉐이크 음료 이름 (텍스트 영역) */
+.beverage-name {
+  position: absolute;
+}
+.beverage-name.cheese {
+  bottom: -50px;
+  left: -55px;
+}
+.beverage-name.choco {
+  top: 165px;
+  left: -75px;
+}
+.beverage-name.rice {
+  bottom: 0px;
+  left: 0px;
+}
+.beverage-name [class^='beverage-name'] {
+  display: block;
+  text-align: right;
+}
+[class^='beverage-name--ko'] {
+  font-size: 1.6rem;
+}
+[class^='beverage-name--en'] {
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+.beverage-name--ko-primary {
+  color: #2c68ae;
+  font-weight: 700;
+}
+.beverage-name--ko-secondary {
+  color: #72bde3;
+}
+.beverage-name--en-accent {
+  color: #a7d1e7;
+}
 /* home 이디야 추천 메뉴 링크 */
 .ediya-recommend .go-menu {
   user-select: none;
@@ -214,6 +251,15 @@
     top: 30px;
     left: 50%;
     transform: translateX(-60%);
+  }
+  /* home 이디야 추천 쉐이크 음료 이름 (텍스트 영역) */
+  .beverage-name.choco {
+    top: 50px;
+    left: -105px;
+  }
+  .beverage-name.rice {
+    bottom: 65px;
+    left: 130px;
   }
 }
 
