@@ -10,6 +10,9 @@
   background: #233d84;
   color: #ffffff;
 }
+img::selection {
+  background: transparent;
+}
 
 /* 루트 요소의 기본 글자크기 설정 */
 html {
