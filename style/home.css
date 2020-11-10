@@ -1,4 +1,14 @@
 /* 공통 홈 */
+/* 공통 애니메이션 */
+@keyframes bounce{
+  0%{
+    transform: translateY(5px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
 /* 공통 추천음료 */
 .ediya-recommend-container{
   background-color: #fff;
@@ -27,6 +37,16 @@
 }
 .ediya-recommend-beverage{
   position: absolute;
+}
+.ediya-recommend-beverage img{
+  animation-name: bounce;
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.18,-0.33,.83,.67);
+}
+.ediya-recommend-beverage:last-child img{
+  animation-delay: 300ms;
 }
 .go-menu{
   border: 1px solid #24388D;
@@ -89,7 +109,6 @@
 }
 @media all and (min-width: 768px) and (max-width: 1019px){
   .ediya-recommend-list{
-    border-top: 2px solid red;
     width: 740px;
     margin: 0 auto;
   }
