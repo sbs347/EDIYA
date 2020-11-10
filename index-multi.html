@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>반응형웹 예제</title>
   <link rel="stylesheet" href="./style/style.css">
 </head>
+
 <body>
   <div class="app-header-container">
-    <header class="app-header">헤더</header>
+    <header class="app-header">
+      <h1 class="brand">
+        <a href="./index.html"><img src="./images/brand.svg" alt="Ediya Coffee" class="respons" /></a>
+      </h1>
+      <button type="button" class="button is-open-menu" aria-label="메뉴 열기" title="메뉴 열기">
+        <span class="ir"></span>
+      </button>
+      <nav class="app-navigation">
+        <h2 class="a11y-hidden">메인 메뉴</h2>
+
+        <ul class="reset-list">
+          <li><a href="./views/login.html">로그인</a></li>
+          <li><a href="./views/signup.html">회원 가입</a></li>
+          <li><a href="./views/ui-design.html">이디야 디자인</a></li>
+          <li><a href="./views/beverage.html">이디야 음료</a></li>
+          <li><a href="./views/news.html">이디야 뉴스</a></li>
+          <li><a href="./views/store.html">매장 찾기</a></li>
+        </ul>
+
+        <button type="button" class="button is-close-menu" title="메뉴 닫기" aria-label="메뉴 닫기">
+          <span class="close" aria-hidden="true">×</span>
+        </button>
+      </nav>
+    </header>
   </div>
   <main class="app-main">
     <div class="ediya-recommend-container">
@@ -26,4 +51,5 @@
     <footer class="app-footer">푸터</footer>
   </div>
 </body>
+
 </html>

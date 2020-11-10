@@ -1,0 +1,26 @@
+/* 공통 헤더 */
+.app-header{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+/* 모바일 헤더 */
+@media all and (max-width: 768px){
+  .app-navigation{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(105vw);
+    background-color: rgba(0,0,0,0.85);
+  }
+}
+
+/* 데스크탑 헤더 */
+@media all and (min-width: 768px){
+  .is-open-menu, .is-close-menu{
+    display: none;
+  }
+}
