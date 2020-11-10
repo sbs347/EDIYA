@@ -88,6 +88,60 @@
    transform: translateX(-60%);
   }
 }
+/* 공통 이디야 유튜브 */
+.ediya-youtube-container{
+  margin: 0;
+}
+
+/* 공통 공지사항 */
+.ediya-notice{
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.ediya-notice-headline {
+  min-width: 125px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fefefe;
+  padding: 15px 0 0 15px;
+  margin: 0;
+  background: linear-gradient(137.4deg, #263d83 3.86%, #102457 100%);
+}
+.ediya-notice__article {
+  flex-grow: 1;
+  padding: 16px 20px 16px 15px;
+  background: #fefefe;
+}
+.ediya-notice__article-headline {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #24388d;
+  margin: 0;
+}
+.ediya-notice__article-date {
+  font-size: 1.2rem;
+  color: #878787;
+}
+.ediya-notice__article-text {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #14182c;
+  letter-spacing: -0.05em;
+  margin: 10px 0 0 0;
+}
+.ediya-notice .button-container {
+  position: absolute;
+  bottom: 10px;
+  left: 84px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.ediya-notice .button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
 @media all and (min-width: 768px){
   /* 데스크탑 홈 */
   /* 데스크탑 추천음료 */

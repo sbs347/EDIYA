@@ -53,10 +53,59 @@
       </section>
     </div>
     <div class="ediya-section-container">
-      <section class="ediya-youtube">유튜브영상</section>
+      <section class="ediya-youtube">
+        <h2 class="a11y-hidden">이디야 유튜브 영상</h2>
+        <figure class="ediya-youtube-container iframe-container">
+          <iframe style="background: url(./images/youtube-cover.jpg) no-repeat  center center / cover" src="https://www.youtube.com/embed/UGPo0RqhbKU" frameborder="0" allowfullscreen aria-labelledby="ediyaYoutube"></iframe>
+          <figcaption class="a11y-hidden" id="ediyaYoutube">[이디야커피] 고객감사 영상</figcaption>
+        </figure>
+      </section>
+
       <div class="ediya-inform-container">
-        <section class="ediya-notice">공지사항</section>
-        <section class="ediya-news">뉴스</section>
+        <section class="ediya-notice">
+          <h2 class="ediya-notice-headline">NOTICE</h2>
+          <article class="ediya-notice__article">
+            <h3 class="ediya-notice__article-headline">이디야멤버스가 새로워집니다.</h3>
+            <time class="ediya-notice__article-date" datetime="2020-04-25T16:31:04">2020.04.25</time>
+            <p class="ediya-notice__article-text">이디야멤버스에 새로운 기능이 추가됩니다. 추가되는 고객등급제, 이디야카드, 스마트 ...</p>
+          </article>
+          <div class="button-container">
+            <button class="button button--prev">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <title>이전 공지사항 보기</title>
+                <rect x="0.5" y="0.5" width="15" height="15" stroke="#F5F5F5" />
+                <path d="M9.25 10.5L6.75 8L9.25 5.5" stroke="#F5F5F5" />
+              </svg>
+            </button>
+            <button class="button button--next">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <title>다음 공지사항 보기</title>
+                <rect x="-0.5" y="0.5" width="15" height="15" transform="matrix(-1 0 0 1 15 0)" stroke="#F5F5F5" />
+                <path d="M6.75 10.5L9.25 8L6.75 5.5" stroke="#F5F5F5" />
+              </svg>
+            </button>
+          </div>
+        </section>
+        <section class="ediya-news">
+          <h2 class="ediya-news-headline">NEWS</h2>
+          <ul class="ediya-news-list reset-list">
+            <li class="ediya-news-item">
+              <a class="ediya-news-subject" href="#">[MTN] 이디야커피, 조각 케이크 2종 출시 디저트 강화</a>
+              <time class="ediya-news-date" datetime="2020-09-08T11:54:25">2020.09.08</time>
+            </li>
+            <li class="ediya-news-item">
+              <a class="ediya-news-subject" href="#">[아시아경제] 이디야커피, '비니스트 커피믹스 ...</a>
+              <time class="ediya-news-date" datetime="2020-08-27T13:17:54">2020.08.27</time>
+            </li>
+          </ul>
+          <a href="./views/news.html" class="icon-more">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <title>이디야 뉴스 더보기</title>
+              <rect x="0.5" y="0.5" width="15" height="15" stroke="#F5F5F5" />
+              <path d="M5 8.02114H11M8.05331 5L8.05331 11" stroke="#F5F5F5" />
+            </svg>
+          </a>
+        </section>
       </div>
     </div>
   </main>
