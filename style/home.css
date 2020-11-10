@@ -1,0 +1,58 @@
+/* 공통 홈 */
+/* 공통 추천음료 */
+.ediya-recommend-container{
+  background-color: #fff;
+}
+.ediya-recommend{
+  background-color: #BAE5FB;
+  text-align: center;
+  color: #14182c;
+}
+.ediya-recommend-text[lang="en"] {
+  font-size: 2.5rem;
+  font-weight: 100;
+  margin: 0;
+}
+.ediya-recommend-text{
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.ediya-recommend-text .point-color{
+  font-size: 3.1rem;
+  font-weight: 700;
+  font-style: normal;
+  color: #24388d;
+}
+@media all and (max-width: 768px){
+  /* 모바일 홈 */
+  /* 모바일 추천음료 */
+  .ediya-recommend-container{
+    padding-bottom: 165px;
+    font-size: 20px;
+  }
+  .ediya-recommend{
+    padding: 42px 0 20px;
+  }
+  .ediya-recommend-text .point-color{
+    display: block;
+  }
+  .ediya-recommend-beverage:first-child{
+    display: none;
+  }
+}
+@media all and (min-width: 768px){
+  /* 데스크탑 홈 */
+  /* 데스크탑 추천음료 */
+  .ediya-recommend-container{
+    padding-bottom: 260px;
+  }
+  .ediya-recommend{
+    padding: 50px 0 32px;
+  }
+  .ediya-recommend-text[lang="en"]{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

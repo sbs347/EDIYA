@@ -1,66 +1,36 @@
 /* 공통 홈 */
 body{
-  background-color: yellow;
   display: flex;
   flex-flow: column wrap;
   min-height: 100vh;
 }
-
-.app-header-container{
-  background-color: skyblue;
-}
 .app-main{
-  background-color: violet;
   flex-grow: 1;
   display: flex;
   flex-flow: row wrap;
 }
-.ediya-recommend-container{
-  background-color: gold;
-  width: 100%;
-}
-.ediya-section-container{
-  background-color: aqua;
+.ediya-recommend-container, 
+.ediya-section-container, 
+.ediya-notice, 
+.ediya-news{
   width: 100%;
 }
 .ediya-inform-container{
   display: flex;
   flex-flow: row wrap;
 }
-.ediya-notice{
-  width: 100%;
-}
-.ediya-news{
-  width: 100%;
-}
-.app-footer-container{
-  background-color: silver;
-}
-/* 모바일 홈 */
-@media screen and (max-width: 768px){
-  body{
-    background-color: pink;
-  }
-}
+
 /* 데스크탑 홈 */
 @media screen and (min-width: 768px){
-  body{
-    background-color: lightgreen;
-  }
   .ediya-section-container{
     display: flex;
     flex-flow: row nowrap; 
     justify-content: center;
   }
   .ediya-youtube{
-    background-color: orange;
     width: 365px;
   }
   .ediya-inform-container{
-    background-color: teal;
     width: 375px;
-  }
-  .ediya-news{
-    order: -1;
   }
 }
