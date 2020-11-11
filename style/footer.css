@@ -1,0 +1,15 @@
+/* 공통 푸터 */
+.app-footer-container{
+  background-color: #000;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+@media all and (max-width: 768px){
+  /* 모바일 푸터 */
+
+}
+@media all and (min-width: 768px){
+  /* 데스크탑 푸터 */
+
+}
